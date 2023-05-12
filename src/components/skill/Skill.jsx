@@ -14,7 +14,7 @@ const Skill = () => {
                                 className="skillBar"
                                 data-percent="73%"
                                 style={{
-                                background: '#F25DFF'
+                                background: '#000'
                             }}>
                                 <span className="PercentText">73%</span>
                             </div>
@@ -27,7 +27,7 @@ const Skill = () => {
                                 className="skillBar"
                                 data-percent="91%"
                                 style={{
-                                background: '#00E8FA'
+                                background: 'rgb(255 0 0)'
                             }}>
                                 <span className="PercentText">91%</span>
                             </div>

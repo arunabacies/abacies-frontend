@@ -76,7 +76,7 @@
     font-size: 18px;
     letter-spacing: -0.2px;
     line-height: initial;
-    color: #02274a;
+    color: #000;
     padding: 15px 0;
     margin: 0 26px;
     position: relative;
@@ -314,31 +314,31 @@
     border-top: 1px solid #333;
 }
 .mobile-menu-wrapper .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-item-content {
-    color: #fff;
+    color: #000000;
     font-size: 18px;
     & a {
-        color: #fff;
+        color: #000000;
     }
 }
 .mobile-menu-wrapper .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
     position: relative;
-    background-color: #171937;
+    background-color: #ffffff;
 }
 
 .mobile-menu-wrapper .pro-sidebar .pro-menu a {
-    color: #fff;
+    color: #000000;
     font-size: 16px;
 }
 .mobile-menu-wrapper .pro-sidebar > .pro-sidebar-inner {
-    background-color: #17192b;
+    background-color: #ffffff;
 }
 
 .mobile-logo img {
-    max-width: 120px;
+    max-width: 150px;
 }
 
 .mobile-menu-wrapper .close-menu {
-    color: #fff;
+    color: #000000;
     font-size: 22px;
     position: absolute;
     top: 10px;
