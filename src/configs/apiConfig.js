@@ -3,6 +3,7 @@
 //Api config options
 const apiConfig = {
     api: {
+      
       url:'https://sub-abacies.abacies.com/wp-json/'
       // url:'http://localhost/abacies/wp-json/'
     },
