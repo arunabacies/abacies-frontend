@@ -24,6 +24,7 @@ const ToastContent = ({ message = null }) => (
 const ThemeMainMenu = () => {
     
     const [menus, setMenus] = useState([])
+    const replace = 'http://localhost/abacies/'
     const getMenus = () => {
         const config = {
             method: 'get',
@@ -73,7 +74,7 @@ const ThemeMainMenu = () => {
                     <>
                         {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 &&
                         <li className="nav-item">
-                            <Link className="nav-link" to={menuItems.url.replace('http://localhost/abacies/', '/')} role="button">{menuItems.title}</Link>
+                            <Link className="nav-link" to={menuItems.url.replace(replace, '/')} role="button">{menuItems.title}</Link>
                         </li>
                         }
                         {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 &&
@@ -82,7 +83,7 @@ const ThemeMainMenu = () => {
                                     <ul className="dropdown-menu">
                                         {menuItems.children.map((val, i) => (
                                             <li key={i}>
-                                                <Link to={val.url.replace('http://localhost/abacies/', '/')} className="dropdown-item">
+                                                <Link to={val.url.replace(replace, '/')} className="dropdown-item">
                                                     <span>{val.title}</span>
                                                 </Link>
                                             </li>

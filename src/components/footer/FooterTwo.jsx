@@ -1,7 +1,26 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import NewsFormTwo from '../form/NewsFormTwo';
 
+import apiConfig from '../../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
 const SocialContent = [
     {
         icon: 'fab fa-facebook-f',
@@ -58,12 +77,52 @@ const LegalContent = [
 ];
 
 const FooterTwo = () => {
+    const [content, setContent] = useState([])
+    
+    const getFooter = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}wp/v2/widgets`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setContent(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getFooter()
+    }, [])
+    console.log(content)
+    
     return (
         <Fragment>
             <div className="row">
                 <div className="col-lg-3 footer-intro mb-40">
                     <div className="logo">
-                        <Link to="/"><img src="images/logo/abacies-white-desktop-logo" alt="" width={130}/></Link>
+                        <Link to="/"><img src="images/logo/abacies-white-desktop-logo.png" alt="" width={200}/></Link>
                     </div>
                     <p>We will assist you in becoming more successful.</p>
                     <ul className="d-flex social-icon style-none">

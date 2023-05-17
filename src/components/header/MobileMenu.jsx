@@ -11,40 +11,6 @@ import {
 } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 
-const HomeMenu =[
-  {
-    name: 'User Analysis',
-    routerPath: '/'
-  },
-  {
-    name: 'Artificial Intelligence',
-    routerPath: '/artificial-intelligence'
-  },
-  {
-    name: 'Data Science',
-    routerPath: '/data-science'
-  },
-  {
-    name: 'ChatBoot',
-    routerPath: '/chatboot'
-  },
-  {
-    name: 'Machine Learning',
-    routerPath: '/machine-learning'
-  },
-];
-
-const AboutMenu =[
-  {
-    name: 'About Us One',
-    routerPath: '/about-one'
-  },
-  {
-    name: 'About Us Two',
-    routerPath: '/about-two'
-  }
-];
-
 const ServiceMenu =[{
   name: 'Consultation',
   routerPath: '/service-one'
@@ -65,6 +31,9 @@ const ServiceMenu =[{
   routerPath: '/artificial-intelligence'
 },{
   name: 'Chatbots',
+  routerPath: '/service-one'
+},{
+  name: 'ChatGPT Training',
   routerPath: '/service-one'
 },{
   name: 'ChaptGPT Prompt Engineering',
@@ -94,63 +63,6 @@ const Products = [
       name: 'Telegram LMS',
       routerPath: '/service-one'
   }
-];
-
-const TeamMenu =[
-  {
-    name: 'Team Member',
-    routerPath: '/team-member'
-  },
-  {
-    name: 'Team Details',
-    routerPath: '/team-details'
-  }
-];
-
-
-const PortfolioMenu =[
-  {
-    name: 'Portfolio 3 Column',
-    routerPath: '/portfolio-3'
-  },
-  {
-    name: 'Portfolio 2 Column',
-    routerPath: '/portfolio-2'
-  },
-  {
-    name: 'Portfolio Masonry',
-    routerPath: '/portfolio-masonry'
-  },
-  {
-    name: 'Single Portfolio',
-    routerPath: '/portfolio-single'
-  },
-
-];
-
-
-const BlogMenu =[
-  {
-    name: 'Grid Layout',
-    routerPath: '/blog-grid'
-  },
-  {
-    name: 'Grid With Sidebar',
-    routerPath: '/blog-sidebar'
-  },
-  {
-    name: 'Blog Masonry',
-    routerPath: '/blog-masonry'
-  },
-  {
-    name: 'Blog Standard',
-    routerPath: '/blog-standard'
-  },
-  {
-    name: 'Blog Details',
-    routerPath: '/blog-Details'
-  },
-
 ];
 
 const MobileMenu = () => {

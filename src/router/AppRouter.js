@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 
 //All Home Page Routes
 import UserAnalysis from '../views/home-pages/UserAnalysis';
 import ArtificialIntelligence from '../views/home-pages/ArtificialIntelligence';
-import DataScience from '../views/home-pages/DataScience';
+import HomePage from '../views/home-pages/HomePage';
 import ChatBoot from '../views/home-pages/ChatBoot';
 import MachineLearning from '../views/home-pages/MachineLearning';
 
@@ -60,16 +60,119 @@ import Contact from '../views/inner-pages/contact/Contact';
 // Not Found Page
 import NotFound from "../views/NotFound";
 
+import apiConfig from '../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
 
-
-
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
 
 const AppRouter = () => {
+  const [menus, setMenus] = useState([])
+  const replace = 'http://localhost/abacies/'
+    const getMenus = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/header-menu`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setMenus(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getMenus()
+    }, [])
+    console.log(menus)
+
   return (
     <Fragment>
       <Routes>
-        {/* <Route path="/" element={<UserAnalysis />} /> */}
-        <Route path="/" element={<DataScience />} />
+       {menus && menus.map(menuItems => (
+        <>
+        {menuItems.title === 'Home' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<HomePage slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'About Us' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<AboutUsOne />} />
+        }
+        {menuItems.title === 'Consultation' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'Bespoke Software development' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'Integrations and automations' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'SaaS' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<Saas />} />
+        }
+        {menuItems.title === 'Cloud' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'AI' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<AI />} />
+        }
+        {menuItems.title === 'Chatbots' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'ChatGPT Training' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'ChaptGPT Prompt Engineering' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+        {menuItems.title === 'ChatGPT integration' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+        }
+
+
+        {menuItems.title === 'Contact' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<Contact />} />
+        }
+        {menuItems.title === 'Careers' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<FAQ />} />
+        }
+        </>
+       ))}
+        
         <Route path="/artificial-intelligence" element={<AI />} />
         <Route path="/data-analytics" element={<DataAnalytics />} />
         <Route path="/chatboot" element={<ChatBoot />} />
