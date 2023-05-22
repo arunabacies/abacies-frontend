@@ -174,7 +174,7 @@ const AppRouter = () => {
         </>
        ))}
         
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
         {/* <Route path="/data-analytics" element={<DataAnalytics />} />
         <Route path="/chatboot" element={<ChatBoot />} />
         <Route path="/careers" element={<FAQ />} />
