@@ -24,7 +24,8 @@ const ToastContent = ({ message = null }) => (
 const ThemeMainMenu = () => {
     
     const [menus, setMenus] = useState([])
-    const replace = 'http://localhost/abacies/'
+    // const replace = 'http://localhost/abacies/'
+    const replace = 'https://abacies.bettertomorrow.green/'
     const getMenus = () => {
         const config = {
             method: 'get',
