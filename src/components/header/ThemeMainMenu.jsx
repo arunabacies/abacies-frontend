@@ -26,7 +26,7 @@ const ThemeMainMenu = () => {
     const [menus, setMenus] = useState([])
     // const replace = 'http://localhost/abacies/'
     const replace = 'https://abacies.bettertomorrow.green/'
-    console.log(replace)
+    
     const getMenus = () => {
         const config = {
             method: 'get',
@@ -64,6 +64,7 @@ const ThemeMainMenu = () => {
         getMenus()
     }, [])
     console.log(menus)
+    console.log(replace)
     return (
         <Fragment>
             <ul className="navbar-nav">

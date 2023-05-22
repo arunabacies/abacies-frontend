@@ -174,8 +174,8 @@ const AppRouter = () => {
         </>
        ))}
         
-        <Route path="/artificial-intelligence" element={<AI />} />
-        <Route path="/data-analytics" element={<DataAnalytics />} />
+        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/data-analytics" element={<DataAnalytics />} />
         <Route path="/chatboot" element={<ChatBoot />} />
         <Route path="/careers" element={<FAQ />} />
         <Route path="/cloud" element={<Cloud />} />
@@ -208,7 +208,7 @@ const AppRouter = () => {
         <Route path="/blog-standard" element={<BlogStandard />} />
         <Route path="/blog-details" element={<BlogDetails />} />
 
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} /> */}
 
         <Route path="*" element={<NotFound />} />
       </Routes>
