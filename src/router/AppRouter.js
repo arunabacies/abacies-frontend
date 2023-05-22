@@ -83,6 +83,7 @@ const ToastContent = ({ message = null }) => (
 const AppRouter = () => {
   const [menus, setMenus] = useState([])
   const replace = 'https://abacies.bettertomorrow.green/'
+  console.log(replace)
   // const replace = 'http://localhost/abacies/'
     const getMenus = () => {
         const config = {

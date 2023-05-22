@@ -26,6 +26,7 @@ const ThemeMainMenu = () => {
     const [menus, setMenus] = useState([])
     // const replace = 'http://localhost/abacies/'
     const replace = 'https://abacies.bettertomorrow.green/'
+    console.log(replace)
     const getMenus = () => {
         const config = {
             method: 'get',
