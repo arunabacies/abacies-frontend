@@ -3,8 +3,8 @@
 //Api config options
 const apiConfig = {
     api: {
-      
-      url:'https://sub-abacies.abacies.com/wp-json/'
+
+      url:'https://abacies.bettertomorrow.green/wp-json/'
       // url:'http://localhost/abacies/wp-json/'
     },
     // token: {

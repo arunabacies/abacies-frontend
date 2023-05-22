@@ -130,45 +130,43 @@ const AppRouter = () => {
           <Route path={menuItems.url.replace(replace, '/')} element={<HomePage slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'About Us' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<AboutUsOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<AboutUsOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Consultation' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Bespoke Software development' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Integrations and automations' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'SaaS' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Saas />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Saas slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Cloud' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'AI' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<AI />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<AI slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Chatbots' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChatGPT Training' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChaptGPT Prompt Engineering' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChatGPT integration' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
-
-
         {menuItems.title === 'Contact' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Contact />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Contact slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Careers' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<FAQ />} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<FAQ slug={menuItems.url.replace(replace, '/')}/>} />
         }
         </>
        ))}
