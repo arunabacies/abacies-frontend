@@ -69,7 +69,8 @@ const ServicesDetails = (slug) => {
           } 
         })
     }
-    const replace = 'http://localhost/abacies/'
+    // const replace = 'http://localhost/abacies/'
+    const replace = 'https://abacies.bettertomorrow.green/'
     
    
     const getServices = () => {

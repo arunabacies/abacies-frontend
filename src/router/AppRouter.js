@@ -20,6 +20,15 @@ import AboutUsTwo from '../views/inner-pages/pages/about-us/AboutUsTwo';
 //All Service Page Routes
 import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
 import Consultation from '../views/inner-pages/pages/services/Consultation';
+import TelegramLMS from '../views/inner-pages/pages/services/TelegramLMS';
+import BetterTomorrow from '../views/inner-pages/pages/services/BetterTomorrow';
+import Decisions from '../views/inner-pages/pages/services/Decisions';
+import ChatGPTIntegration from '../views/inner-pages/pages/services/ChatGPTIntegration';
+import ChatGPTtraining from '../views/inner-pages/pages/services/ChatGPTtraining';
+import ChaptGPTPromptEngineering from '../views/inner-pages/pages/services/ChaptGPTPromptEngineering';
+import Chatbots from '../views/inner-pages/pages/services/Chatbots';
+import IntegrationsAutomations from '../views/inner-pages/pages/services/IntegrationsAutomations';
+import BespokeSoftwareDevelopment from '../views/inner-pages/pages/services/BespokeSoftwareDevelopment';
 import ServicesTwo from '../views/inner-pages/pages/services/ServicesTwo';
 import ServicesDetails from '../views/inner-pages/pages/services/ServicesDetails';
 
@@ -39,6 +48,8 @@ import Portfolio3Column from '../views/inner-pages/portfolio/Portfolio3Column';
 import Portfolio2Column from '../views/inner-pages/portfolio/Portfolio2Column';
 import PortfolioMasonry from '../views/inner-pages/portfolio/PortfolioMasonry';
 import PortfolioSingle from '../views/inner-pages/portfolio/PortfolioSingle';
+import CaseStudy from '../views/inner-pages/portfolio/CaseStudy';
+import WhitePaper from '../views/inner-pages/portfolio/WhitePaper';
 
 // All Blog Page Routes
 import GridLayout from '../views/inner-pages/blog/GridLayout';
@@ -86,8 +97,8 @@ const ToastContent = ({ message = null }) => (
 const AppRouter = () => {
   const [menus, setMenus] = useState([])
   const [content, setContent] = useState([])
-  // const replace = 'https://abacies.bettertomorrow.green/'
-  const replace = 'http://localhost/abacies/'
+  const replace = 'https://abacies.bettertomorrow.green/'
+  // const replace = 'http://localhost/abacies/'
     const getMenus = () => {
         const config = {
             method: 'get',
@@ -176,31 +187,31 @@ const AppRouter = () => {
           <Route path={menuItems.url.replace(replace, '/')} element={<Consultation slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Bespoke Software development' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<BespokeSoftwareDevelopment slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Integrations and automations' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<IntegrationsAutomations slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'SaaS' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Saas slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Cloud' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Cloud slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'AI' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<AI slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Chatbots' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Chatbots slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChatGPT Training' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ChatGPTtraining slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChaptGPT Prompt Engineering' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ChaptGPTPromptEngineering slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'ChatGPT integration' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<ChatGPTIntegration slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Contact Us' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Contact slug={menuItems.url.replace(replace, '/')}/>} />
@@ -209,19 +220,19 @@ const AppRouter = () => {
           <Route path={menuItems.url.replace(replace, '/')} element={<Careers slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Case Study' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<PortfolioSingle slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<CaseStudy slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'White Paper' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<PortfolioSingle slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<WhitePaper slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Decisions' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Decisions slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Better Tomorrow' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<BetterTomorrow slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Telegram LMS' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<TelegramLMS slug={menuItems.url.replace(replace, '/')}/>} />
         }
         </>
        ))}

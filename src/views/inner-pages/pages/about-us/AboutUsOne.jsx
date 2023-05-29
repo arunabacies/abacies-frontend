@@ -14,6 +14,8 @@ import BrandSix from '../../../../components/brand/BrandSix';
 import AdressOne from '../../../../components/adress/AdressOne';
 import Info from '../../../../components/adress/Info';
 import FooterTwo from '../../../../components/footer/FooterTwo';
+import FooterFour from '../../../../components/footer/FooterFour';
+import CopyRightFour from '../../../../components/footer/CopyRightFour';
 
 import apiConfig from '../../../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
@@ -253,10 +255,15 @@ const AboutUsOne = (slug) => {
                             <div className="inner-content bg-white" data-aos="fade-up" data-aos-delay={100}>
                                 <div className="row g-0">
                                     <div className="col-md-6 d-flex">
-                                        <AdressOne/> {/* /.address-block-one */}
+                                    <AdressOne 
+                                            address_title={content.post_meta['address-title-h4']} 
+                                            address_p_tag={content.post_meta['address-p-tag']} />{/* /.address-block-one */}
                                     </div>
                                     <div className="col-md-6 d-flex">
-                                        <Info/> {/* /.address-block-one */}
+                                    <Info 
+                                            contact_title={content.post_meta['contact-title']} 
+                                            contact_p_tag={content.post_meta['contact-p-tag']} 
+                                            contact_num={content.post_meta['contact-num']}/>{/* /.address-block-one */}
                                     </div>
                                 </div>
                             </div>
@@ -265,32 +272,18 @@ const AboutUsOne = (slug) => {
                     {/* /.address-section-one */}
 
                     <div className="footer-style-one bg-color theme-basic-footer">
-                    <div className="container">
-                        <div className="inner-wrapper">
-                            <FooterTwo />
-                            <div className="bottom-footer">
-                                <div className="d-lg-flex justify-content-between align-items-center">
-                                    <ul
-                                        className="order-lg-1 pb-15 d-flex justify-content-center footer-nav style-none">
-                                        <li>
-                                            <a href="faq.html">Privacy &amp; Terms.</a>
-                                        </li>
-                                        <li>
-                                            <a href="faq.html">FAQ</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact-us.html">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                    <p className="copyright text-center order-lg-0 pb-15">Copyright @{new Date().getFullYear()}{" "} Abacies Logiciels Pvt Ltd.</p>
+                        <div className="container">
+                            <div className="inner-wrapper">
+                                <FooterFour />
+                                <div className="bottom-footer">
+                                        <CopyRightFour />
                                 </div>
                             </div>
+                            {/* /.inner-wrapper */}
                         </div>
-                        {/* /.inner-wrapper */}
+                        <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                        <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                     </div>
-                    <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
-                    <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
-                </div>
                     {/* /.footer-style-one */}
 
                 </div>

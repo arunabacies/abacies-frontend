@@ -23,7 +23,8 @@ const ToastContent = ({ message = null }) => (
 
 const BannerFive = () => {
     const [content, setContent] = useState([])
-    const replaceValue = 'http://localhost/abacies/'
+    // const replaceValue = 'http://localhost/abacies/'
+    const replaceValue = 'https://abacies.bettertomorrow.green/'
     let link = ''
     const getBannerFive = () => {
         const config = {

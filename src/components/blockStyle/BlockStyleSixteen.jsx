@@ -1,4 +1,23 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
+
+import apiConfig from '../../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+) 
 
 const WorkProcessContent = [
     {
@@ -19,16 +38,59 @@ const WorkProcessContent = [
 ]
 
 const BlockStyleSixteen = () => {
+    const [content, setContent] = useState([])
+   
+    const getSolutions = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/solutions`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setContent(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getSolutions()
+    }, [])
+    console.log(content)
+    function removeHtmlTags(html) {
+        const regex = /(<([^>]+)>)/gi;
+        return html.replace(regex, '');
+      }
     return (
         <Fragment>
             <div className="row gx-xxl-5">
-                {WorkProcessContent.map((val, i)=>(
+                {content.map((val, i)=>(
                     <div key={i} className="col-lg-4 col-sm-6">
                     <div className="block-style-sixteen d-flex mt-30 md-mt-20">
-                        <div className="numb tran3s">{val.number}</div>
+                        <div className="numb tran3s">{val.post_meta['number']}</div>
                         <div className="text">
                             <h6>{val.title}</h6>
-                            <p>{val.desc}</p>
+                            <p>{removeHtmlTags(val.content)}</p>
                         </div>
                     </div>
                     {/* /.block-style-sixteen */}

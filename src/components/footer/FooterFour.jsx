@@ -87,6 +87,7 @@ const LegalContent = [
 
 const FooterFour = () => {
     const [content, setContent] = useState([])
+    const [menus, setMenus] = useState([])
     
     const getFooter = () => {
         const config = {
@@ -121,10 +122,47 @@ const FooterFour = () => {
         })
     }
 
+    // const replace = 'http://localhost/abacies/'
+    const replace = 'https://abacies.bettertomorrow.green/'
+    const getMenus = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/header-menu`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setMenus(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
     useEffect(() => {
         getFooter()
+        getMenus()
     }, [])
     console.log(content)
+    console.log(menus)
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
@@ -159,9 +197,17 @@ const FooterFour = () => {
                             {value.widget_area === 'sidebar-2' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <li key={i}>
-                                        <Link to={val.link}>{val.content}</Link>
-                                    </li>
+                                    <>
+                                    {menus.map(menuItems => (
+                                        <>
+                                        {menuItems.title === val.content && 
+                                            <li key={i}>
+                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
+                                            </li>
+                                            }
+                                        </>
+                                    ))}
+                                    </>
                                 ))}
                                 </>
                             }
@@ -177,9 +223,17 @@ const FooterFour = () => {
                             {value.widget_area === 'sidebar-3' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <li key={i}>
-                                        <Link to={val.link}>{val.content}</Link>
-                                    </li>
+                                    <>
+                                    {menus.map(menuItems => (
+                                        <>
+                                        {menuItems.title === val.content && 
+                                            <li key={i}>
+                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
+                                            </li>
+                                            }
+                                        </>
+                                    ))}
+                                    </>
                                 ))}
                                 </>
                             }
@@ -195,9 +249,17 @@ const FooterFour = () => {
                             {value.widget_area === 'sidebar-4' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <li key={i}>
-                                        <Link to={val.link}>{val.content}</Link>
-                                    </li>
+                                    <>
+                                    {menus.map(menuItems => (
+                                        <>
+                                        {menuItems.title === val.content && 
+                                            <li key={i}>
+                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
+                                            </li>
+                                            }
+                                        </>
+                                    ))}
+                                    </>
                                 ))}
                                 </>
                             }

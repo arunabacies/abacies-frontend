@@ -32,11 +32,11 @@ const ToastContent = ({ message = null }) => (
     </>
 )
 
-const ServicesOne = (slug) => {
+const ChaptGPTPromptEngineering = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     console.log(slugValue)
     const [content, setContent] = useState([])
-    const getServicesOneView = () => {
+    const getChaptGPTPromptEngineeringView = () => {
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -70,7 +70,7 @@ const ServicesOne = (slug) => {
     }
 
     useEffect(() => {
-        getServicesOneView()
+        getChaptGPTPromptEngineeringView()
     }, [])
     console.log(content)
     
@@ -242,4 +242,4 @@ const ServicesOne = (slug) => {
     )
 }
 
-export default ServicesOne
+export default ChaptGPTPromptEngineering

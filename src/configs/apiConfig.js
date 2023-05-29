@@ -4,8 +4,8 @@
 const apiConfig = {
     api: {
 
-      // url:'https://abacies.bettertomorrow.green/wp-json/'
-      url:'http://localhost/abacies/wp-json/'
+      url:'https://abacies.bettertomorrow.green/wp-json/'
+      // url:'http://localhost/abacies/wp-json/'
     },
     // token: {
     //   // url2: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjlmNjUwMWVmNGY2MzJkNDJmNDE0ZWIiLCJpYXQiOjE2NTQ2MTMyNjF9.JprEIgfAqT0wuLkcXxVqZ22TMmCz1s03ex2VlrnqFRw' // old token

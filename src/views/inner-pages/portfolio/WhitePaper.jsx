@@ -8,11 +8,11 @@ import TopNavFour from '../../../components/header/TopNavFour';
 import TopNavOne from '../../../components/header/TopNavOne'
 import InnerBanner from '../../../components/page-title/InnerBanner';
 import BannerOne from '../../../components/short-banner/BannerOne';
+import BannerFive from '../../../components/short-banner/BannerFive';
 import NewsLetterForm from '../../../components/form/NewsLetterForm';
 import FooterFour from '../../../components/footer/FooterFour';
 import CopyRightFour from '../../../components/footer/CopyRightFour';
 import BlockStyleSixteen from '../../../components/blockStyle/BlockStyleSixteen';
-
 
 import apiConfig from '../../../configs/apiConfig';
 import { toast} from 'react-hot-toast'
@@ -37,7 +37,7 @@ const ToastContent = ({ message = null }) => (
 
 const images = ["/images/gallery/img_21.jpg", "/images/gallery/img_19.jpg", "/images/gallery/img_18.jpg",];
 
-const CaseStudy = (slug) => {
+const WhitePaper = (slug) => {
     const [isOpen,
         setIsOpen] = useState(false);
     const [photoIndex,
@@ -46,7 +46,7 @@ const CaseStudy = (slug) => {
         const slugValue = slug.slug.replace('/', '').replace('/', '')
         console.log(slugValue)
         const [content, setContent] = useState([])
-        const getCaseStudyView = () => {
+        const getWhitePaperView = () => {
             const config = {
                 method: 'get',
                 url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -80,12 +80,13 @@ const CaseStudy = (slug) => {
         }
     
         useEffect(() => {
-            getCaseStudyView()
+            getWhitePaperView()
         }, [])
         console.log(content)
 
     return (
         <Fragment>
+            
              {!!isOpen && (<Lightbox
         mainSrc={images[photoIndex]}
         nextSrc={images[(photoIndex + 1) % images.length]}
@@ -93,16 +94,17 @@ const CaseStudy = (slug) => {
         onCloseRequest={() => setIsOpen(false)}
         onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
         onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}/>)}
+        {content && Object.keys(content).length !== 0 &&
             <div className="main-page-wrapper">
                 <Helmet>
-                    <title>Portfolio Single || Abacies - Data Science & Analytics React Template</title>
+                    <title>{content.post_meta['contenttitle']}</title>
                 </Helmet>
                 {/* helmet end */}
 
                 <TopNavOne/> {/* theme-menu-four */}
 
                 <div className="theme-inner-banner">
-                    <InnerBanner intro="Project Details" currpage="Single Project"/>
+                    <InnerBanner intro={content.title} currpage={content.title}/>
                     <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
                     <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
                 </div>
@@ -114,33 +116,31 @@ const CaseStudy = (slug) => {
                             <div className="row gx-xxl-5">
                                 <div className="col-lg-6">
                                     <div className="title-style-five">
-                                        <div className="upper-title">Redesign, Branding</div>
-                                        <h2 className="main-title">Website page re-design with Branding.</h2>
+                                        <div className="upper-title">{content.post_meta['upper-title']}</div>
+                                        <h2 className="main-title">{content.post_meta['main-title']}</h2>
                                     </div>
                                     <div className="text-wrapper pt-30 md-pt-20">
-                                        <p>We’ve created a unique visual system and strategy across the wide existing
-                                            spectrum of visible mobile applications &amp; found yourself in a wide,
-                                            straggling with.</p>
+                                        <p>{content.post_meta['pr-details-one-ptag']}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="project-info ps-xl-5">
                                         <div className="row gx-xxl-5">
                                             <div className="col-sm-6 mb-25">
-                                                <div className="pt-title">DATe</div>
-                                                <div className="pt-text">23 July, 2020</div>
+                                                <div className="pt-title">{content.post_meta['pt-title1']}</div>
+                                                <div className="pt-text">{content.post_meta['pt-text1']}</div>
                                             </div>
                                             <div className="col-sm-6 mb-25">
-                                                <div className="pt-title">Client</div>
-                                                <div className="pt-text">17 Riverwood Drive, Central Califirnia, USA</div>
+                                                <div className="pt-title">{content.post_meta['pt-title2']}</div>
+                                                <div className="pt-text">{content.post_meta['pt-text2']}</div>
                                             </div>
                                             <div className="col-sm-6 mb-25">
-                                                <div className="pt-title">Project Type</div>
-                                                <div className="pt-text">Branding, Interface Design &amp; User Exprience</div>
+                                                <div className="pt-title">{content.post_meta['pt-title3']}</div>
+                                                <div className="pt-text">{content.post_meta['pt-text3']}</div>
                                             </div>
                                             <div className="col-sm-6 mb-25">
-                                                <div className="pt-title">Duration</div>
-                                                <div className="pt-text">2 Months 18 Days</div>
+                                                <div className="pt-title">{content.post_meta['pt-title4']}</div>
+                                                <div className="pt-text">{content.post_meta['pt-text4']}</div>
                                             </div>
                                         </div>
                                         <ul className="d-flex social-icon style-none mt-20">
@@ -173,32 +173,28 @@ const CaseStudy = (slug) => {
                                 </div>
                             </div>
                             {/* /.portfolio-block-two */}
-                            <h3 className="sub-title">Working Process</h3>
+                            <h3 className="sub-title">{content.post_meta['sub-title']}</h3>
                             <BlockStyleSixteen />
                             <div
                                 className="mt-80 pt-80 pb-40 mb-60 lg-mt-50 lg-pt-50 lg-pb-20 lg-mb-40 border-top border-bottom">
                                 <div className="row gx-xxl-5">
                                     <div className="col-lg-6">
-                                        <h3 className="sub-title">The Challange</h3>
-                                        <p>Complete lineup of features from any major Maecena quis interdu, orci at euis
-                                            dapibus, mass pharet ellus done. Any right to find fault with a man who chooses
-                                            to enjoy a pleasure that has annoying consequences, or one who avoids.</p>
+                                        <h3 className="sub-title">{content.post_meta['block-two-sub-title1']}</h3>
+                                        <p>{content.post_meta['block-two-ptag']}</p>
                                     </div>
                                     <div className="col-xl-5 col-lg-6 ms-auto">
-                                        <h3 className="sub-title">Our Goal</h3>
+                                        <h3 className="sub-title">{content.post_meta['block-two-sub-title2']}</h3>
                                         <ul className="style-none list-item">
-                                            <li>Various analysis options with ai.</li>
-                                            <li>Page Load (time, number of requests) lorem quis.</li>
-                                            <li>Big data analysis with fast process.R</li>
-                                            <li>Lorem analysis somthing quis dummy.</li>
+                                            <li>{content.post_meta['block-two-list1']}</li>
+                                            <li>{content.post_meta['block-two-list2']}</li>
+                                            <li>{content.post_meta['block-two-list3']}</li>
+                                            <li>{content.post_meta['block-two-list4']}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <h3 className="sub-title">Result</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum,
-                                orci at dapibus, massa ante pharetra tellus. Maecenas interdum, orci at euismod
-                                dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3 className="sub-title">{content.post_meta['block-two-sub-title3']}</h3>
+                            <p>{content.post_meta['block-two-sub-title3-ptag']}</p>
                         </div>
                         {/* /.wrapper */}
                     </div>
@@ -208,7 +204,7 @@ const CaseStudy = (slug) => {
                 <div className="fancy-short-banner-one position-relative bottom-transform">
                     <div className="container">
                         <div className="bg-wrapper">
-                            <BannerOne />
+                            <BannerFive />
                         </div>
                         {/* /.bg-wrapper */}
                     </div>
@@ -248,8 +244,9 @@ const CaseStudy = (slug) => {
                 {/* /.footer-style-four */}
 
             </div>
+        }
         </Fragment>
     )
 }
 
-export default CaseStudy
+export default WhitePaper
