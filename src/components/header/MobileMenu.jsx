@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {
     ProSidebar,
@@ -10,6 +10,27 @@ import {
     SubMenu
 } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
+
+import apiConfig from '../../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
+ 
 
 const ServiceMenu =[{
   name: 'Consultation',
@@ -68,6 +89,48 @@ const Products = [
 const MobileMenu = () => {
 
     const [click, setClick] = useState(false);
+    const [menus, setMenus] = useState([])
+    // const replace = 'http://localhost/abacies/'
+    const replace = 'https://abacies.bettertomorrow.green/'
+    
+    const getMenus = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/header-menu`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setMenus(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getMenus()
+    }, [])
+    console.log(menus)
+    console.log(replace)
 
    
     const handleClick = () => {
@@ -94,45 +157,27 @@ const MobileMenu = () => {
                        </div>
                     </SidebarHeader>
                     <SidebarContent>
-                        <Menu iconShape="square">
+                      <Menu iconShape="square">
+                      {menus && menus.map(menuItems => (
+                      <>
+                          {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 &&
                             <MenuItem>
                                 {""}
-                                <Link to="/">Home</Link>
+                                <Link to={menuItems.url.replace(replace, '/')} >{menuItems.title}</Link>
                             </MenuItem>
-                            <MenuItem>
-                                {""}
-                                <Link to="/about-one">About US</Link>
-                            </MenuItem>
+                          }
+                          {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 &&
                             <SubMenu title="Services">
-                              {ServiceMenu.map((val, i)=>(
+                              {menuItems.children.map((val, i)=>(
                                 <MenuItem key={i}>
-                                  <Link to={val.routerPath}>{val.name}</Link>
+                                  <Link to={val.url.replace(replace, '/')}>{val.title}</Link>
                                 </MenuItem>
                               ))}
                             </SubMenu>
-                            <SubMenu title="Solutions">
-                              {Solutions.map((val, i)=>(
-                                <MenuItem key={i}>
-                                  <Link to={val.routerPath}>{val.name}</Link>
-                                </MenuItem>
-                              ))}
-                            </SubMenu>
-                            <SubMenu title="Products">
-                              {Products.map((val, i)=>(
-                                <MenuItem key={i}>
-                                  <Link to={val.routerPath}>{val.name}</Link>
-                                </MenuItem>
-                              ))}
-                            </SubMenu>
-                            <MenuItem>
-                                {""}
-                                <Link to="/contact">Contact</Link>
-                            </MenuItem>
-                            <MenuItem>
-                                {""}
-                                <Link to="/careers">Careers</Link>
-                            </MenuItem>
-
+                          }
+                           </>
+                           ))
+                       }
                             {/* <SubMenu title="Pages">
                               <SubMenu title="About Us">
                                 {AboutMenu.map((val, i)=>(
