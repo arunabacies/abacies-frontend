@@ -43,7 +43,7 @@ const ToastContent = ({ message = null }) => (
 //         fadeUp: 'fade-up',
 //         dataDelay: '300'
 //     },
-// ]
+// ] 
 
 const FancyFeatureThree = () => {
     const [content, setContent] = useState([])

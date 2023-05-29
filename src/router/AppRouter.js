@@ -19,6 +19,7 @@ import AboutUsTwo from '../views/inner-pages/pages/about-us/AboutUsTwo';
 
 //All Service Page Routes
 import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
+import Consultation from '../views/inner-pages/pages/services/Consultation';
 import ServicesTwo from '../views/inner-pages/pages/services/ServicesTwo';
 import ServicesDetails from '../views/inner-pages/pages/services/ServicesDetails';
 
@@ -57,6 +58,8 @@ import Cloud from '../views/inner-pages/pages/cloud/Cloud';
 // Contact Page Routes
 import Contact from '../views/inner-pages/contact/Contact';
 
+import Careers from '../views/inner-pages/careers/Careers'
+
 // Not Found Page
 import NotFound from "../views/NotFound";
 
@@ -82,9 +85,9 @@ const ToastContent = ({ message = null }) => (
 
 const AppRouter = () => {
   const [menus, setMenus] = useState([])
-  const replace = 'https://abacies.bettertomorrow.green/'
-  
-  // const replace = 'http://localhost/abacies/'
+  const [content, setContent] = useState([])
+  // const replace = 'https://abacies.bettertomorrow.green/'
+  const replace = 'http://localhost/abacies/'
     const getMenus = () => {
         const config = {
             method: 'get',
@@ -118,8 +121,42 @@ const AppRouter = () => {
         })
     }
 
+    const getServices = () => {
+      const config = {
+          method: 'get',
+          url: `${apiConfig.api.url}view/v1/services`
+      }
+      axios(config)
+      .then(function (response) {
+          console.log(response)
+          if (response.status === 200) {
+              setContent(response.data)
+          } else {
+             toast.error(
+              <ToastContent message={response.data.message} />,
+              {duration:3000}             
+            )
+          }
+      })
+      .catch(error => {
+        console.log(error)
+        if (error && error.status === 401) {
+          toast.error(
+            <ToastContent message={error.message} />,
+            { duration:2000 }
+          )
+        } else if (error) {
+          toast.error(
+            <ToastContent message={error.message} />,
+            { duration:2000 }
+          )
+        } 
+      })
+  }
+
     useEffect(() => {
         getMenus()
+        getServices()
     }, [])
     console.log(menus)
     console.log(replace)
@@ -136,7 +173,7 @@ const AppRouter = () => {
           <Route path={menuItems.url.replace(replace, '/')} element={<AboutUsOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Consultation' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Consultation slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Bespoke Software development' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
@@ -165,17 +202,54 @@ const AppRouter = () => {
         {menuItems.title === 'ChatGPT integration' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
-        {menuItems.title === 'Contact' &&
+        {menuItems.title === 'Contact Us' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Contact slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Careers' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<FAQ slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<Careers slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'Case Study' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<PortfolioSingle slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'White Paper' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<PortfolioSingle slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'Decisions' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'Better Tomorrow' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
+        }
+        {menuItems.title === 'Telegram LMS' &&
+          <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
         </>
        ))}
-        
-        {/* <Route path="/" element={<HomePage />} /> */}
-        {/* <Route path="/data-analytics" element={<DataAnalytics />} />
+       {content.map((val, i) => (
+        <>
+        {val.title === 'Data Machine Learning' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        {val.title === 'AI, Machine Learning' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        {val.title === 'Data Development' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        {val.title === 'Big Data Consulting' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        {val.title === 'Health Care' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        {val.title === 'Statistical Modeling' && 
+          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        }
+        </>
+        ))}
+        <Route path="/service-details" element={<ServicesDetails />} />
+        {/* <Route path="/" element={<HomePage />} />
+        <Route path="/data-analytics" element={<DataAnalytics />} />
         <Route path="/chatboot" element={<ChatBoot />} />
         <Route path="/careers" element={<FAQ />} />
         <Route path="/cloud" element={<Cloud />} />
@@ -208,9 +282,9 @@ const AppRouter = () => {
         <Route path="/blog-standard" element={<BlogStandard />} />
         <Route path="/blog-details" element={<BlogDetails />} />
 
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} />
 
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Fragment>
   )

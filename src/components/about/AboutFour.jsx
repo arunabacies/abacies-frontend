@@ -1,25 +1,25 @@
 import React,{Fragment} from 'react'
 import { Link } from 'react-router-dom'
-
-const AboutFour = () => {
+ 
+const AboutFour = (postMeta) => {
+    console.log(postMeta)
     return (
         <Fragment>
             <div className="block-style-two" data-aos="fade-left">
                 <div className="title-style-one">
-                    <div className="sc-title-four">WHO WE ARE</div>
-                    <h2 className="main-title">World best AI for your business.
+                    <div className="sc-title-four">{postMeta.post_meta['sc-title']}</div>
+                    <h2 className="main-title">{postMeta.post_meta['main-title']}
                     </h2>
                 </div>
                 {/* /.title-style-one */}
-                <p className="pt-10 pb-20 lg-pb-10">AI technology is perfect for best business
-                    solutions &amp; we offer help to achieve your goals.</p>
+                <p className="pt-10 pb-20 lg-pb-10">{postMeta.post_meta['p-tag']}</p>
                 <ul className="style-none list-item color-rev">
-                    <li>Various analysis options.</li>
-                    <li>Page Load (time, size, number of requests).</li>
-                    <li>Big data analysis.</li>
-                    <li>Adance Data analysis operation.</li>
+                    <li>{postMeta.post_meta['list-item-1']}</li>
+                    <li>{postMeta.post_meta['list-item-2']}</li>
+                    <li>{postMeta.post_meta['list-item-3']}</li>
+                    <li>{postMeta.post_meta['list-item-4']}</li>
                 </ul>
-                <Link to="/contact" className="btn-one mt-30">Contact us</Link>
+                <Link to={postMeta.post_meta['btn-one-link']} className="btn-one mt-30">{postMeta.post_meta['btn-one-link-content']}</Link>
             </div>
         </Fragment>
     )

@@ -16,6 +16,8 @@ import PortfolioGallery from '../../components/portfolio/PortfolioGallery'
 import PricingTab from '../../components/pricing/pricetab/PricingTab';
 import TestimonialOne from '../../components/testimonial/TestimonialOne';
 import FooterTwo from '../../components/footer/FooterTwo';
+import FooterFour from '../../components/footer/FooterFour';
+import FooterThree from '../../components/footer/FooterThree';
 import CopyRightFour from '../../components/footer/CopyRightFour';
 
 
@@ -38,14 +40,14 @@ const ToastContent = ({ message = null }) => (
     )}
     </>
 )
-
+ 
 const HomePage = (slug) => {
     console.log(slug)
     const [content, setContent] = useState([])
     const slugValue = 'home'
     // if(slug === '/'){
         // slugValue = 'home'
-    // }
+    // } 
     const getHomePageView = () => {
         const config = {
             method: 'get',
@@ -360,7 +362,7 @@ const HomePage = (slug) => {
                         <div className="footer-style-one theme-basic-footer">
                             <div className="container">
                                 <div className="inner-wrapper">
-                                    <FooterTwo />
+                                    <FooterFour />
                                     <div className="bottom-footer">
                                         <CopyRightFour />
                                     </div>

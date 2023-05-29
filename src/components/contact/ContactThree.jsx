@@ -1,19 +1,16 @@
 import React, {Fragment} from 'react';
 
 
-const ContactThree = () => {
+const ContactThree = (postMeta) => {
+    console.log(postMeta)
     return (
         <Fragment>
             <div className="row">
                 <div className="col-md-4">
                     <div className="address-block-two text-center mb-40 sm-mb-20">
                         <div className="icon d-flex align-items-center justify-content-center m-auto"><img src="images/icon/icon_17.svg" alt=""/></div>
-                        <h5 className="title">Our Address</h5>
-                        <p>28A, Ground floor, INFOPARK TBC, 
-                            <br/>SECTOR E, JNI STADIUM, Kaloor, 
-                            <br/>Ernakulam, Jawaharlal Nehru
-                            <br/> International Stadium, Kaloor,
-                            <br/> Kochi, Kerala 682017
+                        <h5 className="title">{postMeta.post_meta['title1']}</h5>
+                        <p>{postMeta.post_meta['des1']}
                         </p>
                     </div>
                     {/* /.address-block-two */}
@@ -21,10 +18,11 @@ const ContactThree = () => {
                 <div className="col-md-4">
                     <div className="address-block-two text-center mb-40 sm-mb-20">
                         <div className="icon d-flex align-items-center justify-content-center m-auto"><img src="images/icon/icon_18.svg" alt=""/></div>
-                        <h5 className="title">Contact Info</h5>
-                        <p>Open a chat or give us call at
+                        <h5 className="title">{postMeta.post_meta['title2']}</h5>
+                        <p>{postMeta.post_meta['des2']}
                             <br/>
-                            <a href="tel:310.841.5500" className="call">310.841.5500</a>
+                            <a href={`tel:${postMeta.post_meta['phone_no']}`} className="call">{postMeta.post_meta['phone_no']}</a>
+                            {/* <a href="tel:310.841.5500" className="call">{postMeta.post_meta['phone_no']}</a> */}
                         </p>
                     </div>
                     {/* /.address-block-two */}
@@ -32,10 +30,10 @@ const ContactThree = () => {
                 <div className="col-md-4">
                     <div className="address-block-two text-center mb-40 sm-mb-20">
                         <div className="icon d-flex align-items-center justify-content-center m-auto"><img src="images/icon/icon_19.svg" alt=""/></div>
-                        <h5 className="title">Live Support</h5>
-                        <p>live chat service
+                        <h5 className="title">{postMeta.post_meta['title3']}</h5>
+                        <p>{postMeta.post_meta['des3']}
                             <br/>
-                            <a href="#" className="webaddress">www.sincochat.com</a>
+                            <a href={postMeta.post_meta['des3_link']} className="webaddress">{postMeta.post_meta['des3_link_content']}</a>
                         </p>
                     </div>
                     {/* /.address-block-two */}

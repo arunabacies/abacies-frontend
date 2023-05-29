@@ -1,5 +1,25 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+
+import apiConfig from '../../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
 
 const SocialContent = [
     {
@@ -66,15 +86,62 @@ const LegalContent = [
 ];
 
 const FooterFour = () => {
+    const [content, setContent] = useState([])
+    
+    const getFooter = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/footer-widget`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setContent(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getFooter()
+    }, [])
+    console.log(content)
+    function removeHtmlTags(html) {
+        const regex = /(<([^>]+)>)/gi;
+        return html.replace(regex, '');
+      }
     return (
         <Fragment>
             <div className="row">
                 <div className="col-lg-4 footer-intro mb-40">
                     <div className="logo">
-                        <Link to="/"><img src="images/logo/abacies-white-desktop-logo.png" alt="" width={130}/></Link>
+                        <Link to="/"><img src="images/logo/abacies-white-desktop-logo.png" alt="" width={250}/></Link>
                     </div>
-                    <p>In this class, you will learn about the most effective machine learning
-                        techniques, and gain practice implementing them.</p>
+                    {content.map(value=>(
+                        <>
+                    {value.widget_area === 'sidebar-1' &&
+                        <p>{removeHtmlTags(value.widget_content)}</p>
+                    }</>
+                    ))}
                     <ul className="d-flex social-icon style-none">
                         {SocialContent.map((val, i) => (
                             <li key={i}>
@@ -82,14 +149,59 @@ const FooterFour = () => {
                             </li>
                         ))}
                     </ul>
+                        
                 </div>
                 <div className="col-lg-2 col-sm-4 ms-auto mb-30">
                     <h5 className="footer-title">Links</h5>
                     <ul className="footer-nav-link style-none">
-                        {PageContent.map((val, i) => (
-                            <li key={i}>
-                                <Link to={val.routerPath}>{val.name}</Link>
-                            </li>
+                        {content.map((value) => (
+                            <>
+                            {value.widget_area === 'sidebar-2' &&
+                                <>
+                                {value.widget_content.map((val, i) => (
+                                    <li key={i}>
+                                        <Link to={val.link}>{val.content}</Link>
+                                    </li>
+                                ))}
+                                </>
+                            }
+                            </>
+                        ))}
+                    </ul>
+                </div>
+                <div className="col-lg-2 col-sm-4 ms-auto mb-30">
+                    <h5 className="footer-title">Solutions</h5>
+                    <ul className="footer-nav-link style-none">
+                        {content.map((value) => (
+                            <>
+                            {value.widget_area === 'sidebar-3' &&
+                                <>
+                                {value.widget_content.map((val, i) => (
+                                    <li key={i}>
+                                        <Link to={val.link}>{val.content}</Link>
+                                    </li>
+                                ))}
+                                </>
+                            }
+                            </>
+                        ))}
+                    </ul>
+                </div>
+                <div className="col-lg-2 col-sm-4 ms-auto mb-30">
+                    <h5 className="footer-title">Products</h5>
+                    <ul className="footer-nav-link style-none">
+                        {content.map((value) => (
+                            <>
+                            {value.widget_area === 'sidebar-4' &&
+                                <>
+                                {value.widget_content.map((val, i) => (
+                                    <li key={i}>
+                                        <Link to={val.link}>{val.content}</Link>
+                                    </li>
+                                ))}
+                                </>
+                            }
+                            </>
                         ))}
                     </ul>
                 </div>
@@ -101,7 +213,7 @@ const FooterFour = () => {
                             <Link to={val.routerPath}>{val.name}</Link>
                         </li>
                         ))}
-                       
+                    
                     </ul>
                 </div> */}
                 {/* <div className="col-xl-2 col-lg-3 col-sm-4 mb-30">

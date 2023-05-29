@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const AboutThree = (postMeta) => {
     console.log(postMeta)
-    return (
+    return ( 
         <Fragment>
             {postMeta && 
                 <div className="block-style-two" data-aos="fade-left">

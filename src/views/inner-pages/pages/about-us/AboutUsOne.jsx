@@ -39,7 +39,7 @@ const AboutUsOne = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     console.log(slugValue)
     const [content, setContent] = useState([])
-    const getHomePageView = () => {
+    const getAboutUsView = () => {
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -73,7 +73,7 @@ const AboutUsOne = (slug) => {
     }
 
     useEffect(() => {
-        getHomePageView()
+        getAboutUsView()
     }, [])
     console.log(content)
     return (
@@ -82,14 +82,14 @@ const AboutUsOne = (slug) => {
                 <div className="main-page-wrapper">
 
                     <Helmet>
-                        <title>{content.post_meta['contentTitle']}</title>
+                        <title>{content.post_meta['contenttitle']}</title>
                         {/* <title>About Us One || Abacies - Data Science & Analytics React Template</title> */}
                     </Helmet>
 
                     <TopNavOne/> {/* theme-menu-one */}
 
                     <div className="theme-inner-banner">
-                        <InnerBanner intro='About Company' currpage='About Us'/>
+                        <InnerBanner intro='About Company' currpage={content.title}/>
                         <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
                         <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
                     </div>
@@ -97,9 +97,9 @@ const AboutUsOne = (slug) => {
 
                     <div className="fancy-feature-two position-relative mt-140 lg-mt-100">
                         <div className="container">
-                            <div className="row">
+                            <div className="row"> 
                                 <div className="col-xxl-5 col-lg-6 col-md-7 ms-auto">
-                                    <AboutFour/> {/* /.block-style-two */}
+                                    <AboutFour post_meta={content.post_meta}/> {/* /.block-style-two */}
                                 </div>
                             </div>
                         </div>
@@ -155,11 +155,11 @@ const AboutUsOne = (slug) => {
                                 <div className="col-xxl-4 col-lg-5 col-md-6">
                                     <div className="block-style-five pt-60 md-pt-20" data-aos="fade-right">
                                         <div className="title-style-one">
-                                            <div className="sc-title-four">WHY CHOOSE US</div>
-                                            <h2 className="main-title">Why you should choose us?</h2>
+                                            <div className="sc-title-four">{content.post_meta['sc-title-2']}</div>
+                                            <h2 className="main-title">{content.post_meta['main-title-2']}</h2>
                                         </div>
                                         {/* /.title-style-one */}
-                                        <p className="pt-10 pb-70">Tell us about your product and we will give you expert assistance.</p>
+                                        <p className="pt-10 pb-70">{content.post_meta['p-tag-2']}</p>
                                         <Skill/> {/* /.skills-progress */}
                                     </div>
                                     {/* /.block-style-five */}

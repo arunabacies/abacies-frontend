@@ -31,14 +31,14 @@ const ToastContent = ({ message = null }) => (
     </>
 )
 
-const Contact = (slug) => {
+const Careers = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     console.log(slugValue)
     const [content, setContent] = useState([])
     const  slugname = useParams();
     console.log(slugname)
 
-    const getContactUsView = () => {
+    const getCareersView = () => {
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -72,7 +72,7 @@ const Contact = (slug) => {
     }
 
     useEffect(() => {
-        getContactUsView()
+        getCareersView()
     }, [])
 
     console.log(content)
@@ -179,4 +179,4 @@ const Contact = (slug) => {
     )
 }
 
-export default Contact
+export default Careers

@@ -216,13 +216,13 @@ const Consultation = (slug) => {
                                             </div>
                                             {/* /.title-style-four */}
                                         </div>
-                                        <div className="col-md-6">
+                                        {/* <div className="col-md-6">
                                             <div className="subscribe-form">
                                             <NewsLetterForm />
                                                 <p>We only send interesting and relevant emails.</p>
-                                            </div>
+                                            </div> */}
                                             {/* /.subscribe-form */}
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 </div>
                                 {/* /.subscribe-area */}
