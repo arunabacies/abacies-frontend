@@ -73,7 +73,7 @@ const FancyFeature24 = () => {
                         data-aos={val.fade}
                         data-aos-delay={val.datadelay}>
                         <div className="block-style-four">
-                            <div className="icon d-flex align-items-end justify-content-center"><img src={`images/icon/${val.post_meta['icon']}.svg`} alt=""/></div>
+                            <div className="icon d-flex align-items-end justify-content-center"><img src={val.image_1} alt=""/></div>
                             <Link to={`${val.url.replace(replace, '/')}`}>
                                 <h5>{val.title}</h5>
                             </Link>

@@ -35,7 +35,7 @@ const SliderThree = [
         img: 'img_06',
         icon: 'icon_15',
         desc: `Having a home based business is a wonderful asset to your life. The problem still stands it comes time advertise your business for a cheap cost you have looked.`,
-        name: 'Carolyna Tylor',
+        name: 'Carolyna TylorCarolyna Tylor',
         desig: 'Senior Developer, Abacies inc.'
     }, {
         img: 'img_07',
@@ -108,10 +108,10 @@ const TestimonialThree = () => {
                     <div key={i} className="item">
                         <div className="feedback-block-three d-md-flex">
                             <div className="img-meta">
-                                <img src={`images/media/${val.img}.jpg`} alt=""/>
+                                <img src={val.image_2} alt=""/>
                             </div>
                             <div className="text-wrapper">
-                                <div className="icon d-flex justify-content-center align-items-center"><img src={`images/icon/${val.icon}.svg`} alt=""/></div>
+                                <div className="icon d-flex justify-content-center align-items-center"><img src={val.image_1} alt=""/></div>
                                 <p>{removeHtmlTags(val.content)}</p>
                                 <div className="name">
                                     <h6>{val.post_meta['author_name']}</h6>
