@@ -168,22 +168,22 @@ const AboutUsOne = (slug) => {
                                 </div>
                                 <div className="col-xxl-8 col-lg-7 col-md-6 text-end">
                                     <div className="illustration-holder d-inline-block position-relative xs-mt-20">
-                                        <img src="images/assets/ils_06.svg" alt="" className="main-illustration w-100"/>
-                                        <img src="images/assets/ils_06_1.svg" alt="" className="shapes shape-one"/>
-                                        <img src="images/assets/ils_06_2.svg" alt="" className="shapes shape-two"/>
+                                        <img src={content.image_7} alt="" className="main-illustration w-100"/>
+                                        <img src={content.image_8} alt="" className="shapes shape-one"/>
+                                        <img src={content.image_9} alt="" className="shapes shape-two"/>
                                         <img
-                                            src="images/assets/ils_06_3.svg"
+                                            src={content.image_10}
                                             alt=""
                                             className="shapes shape-three"
                                             data-aos="fade-down"
                                             data-aos-duration={1800}/>
                                         <img
-                                            src="images/assets/ils_06_4.svg"
+                                            src={content.image_11}
                                             alt=""
                                             className="shapes shape-four"
                                             data-aos="fade-left"
                                             data-aos-duration={1800}/>
-                                        <img src="images/assets/ils_06_5.svg" alt="" className="shapes shape-five"/>
+                                        <img src={content.image_11} alt="" className="shapes shape-five"/>
                                     </div>{/*  /.illustration-holder */}
                                 </div>
                             </div>

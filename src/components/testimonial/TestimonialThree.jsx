@@ -1,7 +1,28 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import apiConfig from '../../configs/apiConfig'
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
+
 
 const SliderThree = [
     {
@@ -36,11 +57,54 @@ const settings3 = {
     slidesToScroll: 1
 };
 const TestimonialThree = () => {
+    const [content, setContent] = useState([])
+    
+    const getCounter = () => {
+        const config = {
+            method: 'get',
+            url: `${apiConfig.api.url}view/v1/testimonials`
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                setContent(response.data)
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
+
+    useEffect(() => {
+        getCounter()
+    }, [])
+    console.log(content)
+    function removeHtmlTags(html) {
+        const regex = /(<([^>]+)>)/gi;
+        return html.replace(regex, '');
+      }
 
     return (
         <Fragment>
             <Slider className="feedback_slider_three" {...settings3}>
-                {SliderThree.map((val, i) => (
+                {content.map((val, i) => (
                     <div key={i} className="item">
                         <div className="feedback-block-three d-md-flex">
                             <div className="img-meta">
@@ -48,9 +112,9 @@ const TestimonialThree = () => {
                             </div>
                             <div className="text-wrapper">
                                 <div className="icon d-flex justify-content-center align-items-center"><img src={`images/icon/${val.icon}.svg`} alt=""/></div>
-                                <p>{val.desc}</p>
+                                <p>{removeHtmlTags(val.content)}</p>
                                 <div className="name">
-                                    <h6>{val.name}</h6>
+                                    <h6>{val.post_meta['author_name']}</h6>
                                     <span>{val.desig}</span>
                                 </div>
                                 {/* /.name */}
