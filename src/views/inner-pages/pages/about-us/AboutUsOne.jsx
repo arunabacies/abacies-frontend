@@ -92,8 +92,8 @@ const AboutUsOne = (slug) => {
 
                     <div className="theme-inner-banner">
                         <InnerBanner intro='About Company' currpage={content.title}/>
-                        <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
-                        <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
+                        <img src={content.image_1} alt="" className="shapes shape-one"/>
+                        <img src={content.image_2} alt="" className="shapes shape-two"/>
                     </div>
                     {/* /.theme-inner-banner */}
 
@@ -107,10 +107,10 @@ const AboutUsOne = (slug) => {
                         </div>
                         {/* /.container */}
                         <div className="illustration-holder-two sm-mt-40">
-                            <img src="images/assets/ils_05.svg" alt="" className="main-illustration w-100"/>
-                            <img src="images/assets/ils_05_1.svg" alt="" className="shapes shape-one"/>
+                            <img src={content.image_3} alt="" className="main-illustration w-100"/>
+                            <img src={content.image_4} alt="" className="shapes shape-one"/>
                             <img
-                                src="images/assets/ils_05_2.svg"
+                                src={content.image_4}
                                 alt=""
                                 className="shapes shape-two"
                                 data-aos="fade-up"
@@ -118,15 +118,15 @@ const AboutUsOne = (slug) => {
                                 data-aos-delay={100}
                                 data-aos-duration={2000}/>
                             <img
-                                src="images/assets/ils_05_3.svg"
+                                src={content.image_4}
                                 alt=""
                                 className="shapes shape-three"
                                 data-aos="fade-up"
                                 data-aos-anchor=".fancy-feature-two"
                                 data-aos-delay={150}
                                 data-aos-duration={2000}/>
-                            <img src="images/assets/ils_05_4.svg" alt="" className="shapes shape-four"/>
-                            <img src="images/assets/ils_05_5.svg" alt="" className="shapes shape-five"/>
+                            <img src={content.image_5} alt="" className="shapes shape-four"/>
+                            <img src={content.image_6} alt="" className="shapes shape-five"/>
                         </div>
                         {/* /.illustration-holder-two */}
                     </div>

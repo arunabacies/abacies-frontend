@@ -133,12 +133,12 @@ const HomePage = (slug) => {
                             </div>
                             {/* /.container */}
                             <div className="illustration-holder sm-mt-20">
-                                <img src="images/assets/ils_02.svg" alt="" className="main-illustration w-100"/>
-                                <img src="images/assets/ils_02_1.svg" alt="" className="shapes shape-one"/>
-                                <img src="images/assets/ils_02_1.svg" alt="" className="shapes shape-two"/>
-                                <img src="images/assets/ils_02_1.svg" alt="" className="shapes shape-three"/>
+                                <img src={content.image_1} alt="" className="main-illustration w-100"/>
+                                <img src={content.image_2} alt="" className="shapes shape-one"/>
+                                <img src={content.image_2} alt="" className="shapes shape-two"/>
+                                <img src={content.image_2} alt="" className="shapes shape-three"/>
                                 <img
-                                    src="images/assets/ils_02_2.svg"
+                                    src={content.image_3}
                                     alt=""
                                     className="shapes shape-four"
                                     data-aos="fade-up"
@@ -146,7 +146,7 @@ const HomePage = (slug) => {
                                     data-aos-delay={100}
                                     data-aos-duration={1500}/>
                                 <img
-                                    src="images/assets/ils_02_2.svg"
+                                    src={content.image_3}
                                     alt=""
                                     className="shapes shape-five"
                                     data-aos="fade-down"
@@ -154,7 +154,7 @@ const HomePage = (slug) => {
                                     data-aos-delay={200}
                                     data-aos-duration={1500}/>
                                 <img
-                                    src="images/assets/ils_02_3.svg"
+                                    src={content.image_4}
                                     alt=""
                                     className="shapes shape-six"
                                     data-aos="fade-down"
@@ -162,7 +162,7 @@ const HomePage = (slug) => {
                                     data-aos-delay={100}
                                     data-aos-duration={1500}/>
                                 <img
-                                    src="images/assets/ils_02_4.svg"
+                                    src={content.image_5}
                                     alt=""
                                     className="shapes shape-seven"
                                     data-aos="fade-up"

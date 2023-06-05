@@ -82,17 +82,18 @@ const HeroBannerOne = () => {
                                 </ul>
                             </div>
                         </div>
+                      {console.log(contentItems.image_1)}
                     </div> 
                     <div className="illustration-holder">
-                        <img src="images/assets/ils_01.svg" alt="" className="main-illustration ms-auto" />
-                        <img src="images/assets/bg_01.png" alt="" className="shapes bg-shape" />
-                        <img src="images/assets/ils_01_1.svg" alt="" className="shapes shape-one" />
-                        <img src="images/assets/ils_01_2.svg" alt="" className="shapes shape-two" />
-                        <img src="images/assets/ils_01_3.svg" alt="" className="shapes shape-three" />
-                        <img src="images/assets/ils_01_4.svg" alt="" className="shapes shape-four" />
-                        <img src="images/assets/ils_01_5.svg" alt="" className="shapes shape-five" />
-                        <img src="images/assets/ils_01_6.svg" alt="" className="shapes shape-six" />
-                        <img src="images/assets/ils_01_7.svg" alt="" className="shapes shape-seven" />
+                        <img src={contentItems.image_1} alt="" className="main-illustration ms-auto" />
+                        <img src={contentItems.image_2} alt="" className="shapes bg-shape" />
+                        <img src={contentItems.image_3} alt="" className="shapes shape-one" />
+                        <img src={contentItems.image_4} alt="" className="shapes shape-two" />
+                        <img src={contentItems.image_5} alt="" className="shapes shape-three" />
+                        <img src={contentItems.image_6} alt="" className="shapes shape-four" />
+                        <img src={contentItems.image_7} alt="" className="shapes shape-five" />
+                        <img src={contentItems.image_8} alt="" className="shapes shape-six" />
+                        <img src={contentItems.image_9} alt="" className="shapes shape-seven" />
                         <div className="card-one shapes">
                             <div className="icon"><i className="bi bi-check-lg" /></div>
                             <h6>{contentItems.post_meta['card-one_shapes_h6']}</h6>
