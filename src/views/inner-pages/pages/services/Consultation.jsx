@@ -89,8 +89,8 @@ const Consultation = (slug) => {
 
                     <div className="theme-inner-banner">
                         <InnerBanner intro={content.title} currpage={content.title}/>
-                        <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
-                        <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
+                        <img src={content.image_1} alt="" className="shapes shape-one"/>
+                        <img src={content.image_2} alt="" className="shapes shape-two"/>
                     </div>
                     {/* /.theme-inner-banner */}
 
@@ -112,27 +112,27 @@ const Consultation = (slug) => {
                         </div>
                         {/* /.container */}
                         <div className="illustration-holder" data-aos="fade-left">
-                            <img src="images/assets/ils_15.svg" alt="" className="w-100 main-illustration"/>
-                            <img src="images/assets/ils_15_1.svg" alt="" className="shapes shape-one"/>
-                            <img src="images/assets/ils_15_2.svg" alt="" className="shapes shape-two"/>
-                            <img src="images/assets/ils_15_3.svg" alt="" className="shapes shape-three"/>
-                            <img src="images/assets/ils_15_4.svg" alt="" className="shapes shape-four"/>
+                            <img src={content.image_3} alt="" className="w-100 main-illustration"/>
+                            <img src={content.image_4} alt="" className="shapes shape-one"/>
+                            <img src={content.image_5} alt="" className="shapes shape-two"/>
+                            <img src={content.image_6} alt="" className="shapes shape-three"/>
+                            <img src={content.image_7} alt="" className="shapes shape-four"/>
                             <img
-                                src="images/assets/ils_15_5.svg"
+                                src={content.image_8}
                                 alt=""
                                 className="shapes shape-five"
                                 data-aos="fade-down"
                                 data-aos-delay={200}
                                 data-aos-duration={2000}/>
                             <img
-                                src="images/assets/ils_15_6.svg"
+                                src={content.image_9}
                                 alt=""
                                 className="shapes shape-six"
                                 data-aos="fade-down"
                                 data-aos-delay={100}
                                 data-aos-duration={2000}/>
                             <img
-                                src="images/assets/ils_15_7.svg"
+                                src={content.image_10}
                                 alt=""
                                 className="shapes shape-seven"
                                 data-aos="fade-down"
@@ -141,7 +141,7 @@ const Consultation = (slug) => {
                         {/* /.illustration-holder */}
                         <div className="shapes oval-one"/>
                         <div className="shapes oval-two"/>
-                        <img src="images/shape/shape_47.svg" alt="" className="shapes bg-shape-two"/>
+                        <img src={content.image_11} alt="" className="shapes bg-shape-two"/>
                     </div>
                     {/* /.fancy-feature-nineteen */}
 
@@ -156,7 +156,7 @@ const Consultation = (slug) => {
                             <TestimonialFive/> {/* /.feedback_slider_four */}
                         </div>
                         <img
-                            src="images/media/img_08.jpg"
+                            src={content.image_12}
                             alt=""
                             className="shapes avatar-one"
                             width={45}
@@ -165,7 +165,7 @@ const Consultation = (slug) => {
                             outlineWidth: '6px'
                         }}/>
                         <img
-                            src="images/media/img_09.jpg"
+                            src={content.image_13}
                             alt=""
                             className="shapes avatar-two"
                             width={85}
@@ -174,7 +174,7 @@ const Consultation = (slug) => {
                             outlineWidth: '10px'
                         }}/>
                         <img
-                            src="images/media/img_10.jpg"
+                            src={content.image_14}
                             alt=""
                             className="shapes avatar-three"
                             width={85}
@@ -183,7 +183,7 @@ const Consultation = (slug) => {
                             outlineWidth: '10px'
                         }}/>
                         <img
-                            src="images/media/img_11.jpg"
+                            src={content.image_15}
                             alt=""
                             className="shapes avatar-four"
                             width={50}

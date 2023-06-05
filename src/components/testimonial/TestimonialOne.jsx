@@ -93,7 +93,7 @@ const settings1 = {
     ]
 };
 
-const TestimonialOne = () => {
+const TestimonialOne = () => { 
     const [content, setContent] = useState([])
     
     const getCounter = () => {
