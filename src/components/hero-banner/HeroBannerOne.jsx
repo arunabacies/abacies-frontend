@@ -72,13 +72,13 @@ const HeroBannerOne = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 col-md-7">
-                                <a href="pricing.html" className="slogan"><strong>{contentItems.post_meta['slogan_bold']}</strong> {contentItems.post_meta['slogan_text']} <i className="fas fa-chevron-right" /></a>
+                                {/* <a href="pricing.html" className="slogan"><strong>{contentItems.post_meta['slogan_bold']}</strong> {contentItems.post_meta['slogan_text']} <i className="fas fa-chevron-right" /></a> */}
                                 <h1 className="hero-heading">{contentItems.post_meta['hero-heading']}</h1>
                                 <p className="text-lg mb-60 lg-mb-40">{contentItems.post_meta['text-lg']}</p>
                                 <ul className="style-none button-group d-lg-flex align-items-center">
                                     <li className="me-4"><Link to={contentItems.post_meta['ripple-btn-1-link']} className="btn-one ripple-btn">{contentItems.post_meta['ripple-btn-1']}</Link></li>
                                     {/* <li className="help-btn">{contentItems.post_meta['help-btn']}<Link to=`{${}}`>{contentItems.post_meta['help-btn-link-content']}</Link></li> */}
-                                    <li className="help-btn">{contentItems.post_meta['help-btn']}<Link to={contentItems.post_meta['help-btn-link']}>{contentItems.post_meta['help-btn-link-content']}</Link></li>
+                                    {/* <li className="help-btn">{contentItems.post_meta['help-btn']}<Link to={contentItems.post_meta['help-btn-link']}>{contentItems.post_meta['help-btn-link-content']}</Link></li> */}
                                 </ul>
                             </div>
                         </div>
@@ -99,10 +99,10 @@ const HeroBannerOne = () => {
                             <h6>{contentItems.post_meta['card-one_shapes_h6']}</h6>
                             <span className="info">{contentItems.post_meta['card-one_shapes_span_info']}</span>
                         </div> 
-                        <div className="card-two shapes">
+                        {/* <div className="card-two shapes">
                             <div className="icon"><i className="bi bi-check-lg" /></div>
                             <h6>{contentItems.post_meta['card-two_shapes']}</h6>
-                        </div> 
+                        </div>  */}
                     </div> 
                 </div>
             ))}

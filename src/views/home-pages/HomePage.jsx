@@ -269,7 +269,7 @@ const HomePage = (slug) => {
                         {/* </div> */}
                         {/* /.pricing-section-one */}
 
-                        <div className="feedback-section-one mt-130 lg-mt-100">
+                        <div className="feedback-section-one mt-100 lg-mt-100">
                             <div className="container">
                                 <div className="title-style-one text-center" data-aos="fade-up">
                                     <div className="sc-title">{content.post_meta['tsnl-sc-title']}</div>
@@ -321,21 +321,21 @@ const HomePage = (slug) => {
                         </div> */}
                         {/* /.blog-section-one */}
 
-                        <div className="address-section-one pt-130 lg-pt-100">
-                            <div className="container">
-                                <div className="row">
+                        <div className="address-section-one">
+                            {/* <div className="container"> */}
+                                {/* <div className="row">
                                     <div className="col-xl-8 col-lg-7 col-md-9 m-auto">
                                         <div className="title-style-one text-center mb-50" data-aos="fade-up">
                                             <div className="sc-title-two">{content.post_meta['address-sc-title']}</div>
                                             <h2 className="main-title">{content.post_meta['address-main-title']}</h2>
                                         </div>
-                                        {/* /.title-style-one */}
+                                        /.title-style-one
                                         <div className="text-center" data-aos="fade-up" data-aos-delay={150}>
                                             <Link to={content.post_meta['address-btn-four-link']} className="btn-four ripple-btn">{content.post_meta['address-btn-four']}<i className="fas fa-chevron-right"/></Link>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="inner-content" data-aos="fade-up" data-aos-delay={100}>
+                                </div> */}
+                                <div className="inner-content-address container" style={{margin: 'auto', backgroundColor: '#fffafa', borderRadius: '6px'}} data-aos="fade-up" data-aos-delay={100}>
                                     <div className="row g-0">
                                         <div className="col-md-6 d-flex">
                                             <AdressOne 
@@ -350,12 +350,12 @@ const HomePage = (slug) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <img src="images/assets/bg_05.svg" alt="" className="shapes shape-one"/>
+                            {/* </div> */}
+                            {/* <img src="images/assets/bg_05.svg" alt="" className="shapes shape-one"/>
                             <img src="images/shape/shape_01.svg" alt="" className="shapes shape-two"/>
                             <img src="images/shape/shape_02.svg" alt="" className="shapes shape-three"/>
                             <img src="images/shape/shape_02.svg" alt="" className="shapes shape-four"/>
-                            <img src="images/shape/shape_03.svg" alt="" className="shapes shape-five"/>
+                            <img src="images/shape/shape_03.svg" alt="" className="shapes shape-five"/> */}
                         </div>
                         {/* /.address-section-one */}
 
