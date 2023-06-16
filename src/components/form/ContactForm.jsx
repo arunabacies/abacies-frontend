@@ -43,7 +43,7 @@ const ContactForm = () => {
                     <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
                             <label>Name*</label>
-                            <input type="text" placeholder="Rashed Kabir" name="name"{...register("name")}
+                            <input type="text" placeholder="" name="name"{...register("name")}
                         className={`${errors.name ? "is-invalid" : ""}`}
                         /> 
                         {errors.name && (
@@ -55,7 +55,7 @@ const ContactForm = () => {
                     <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
                             <label>Email*</label>
-                            <input type="text" placeholder="rshdkabir@gmail.com" name="email" {...register("email")}
+                            <input type="text" placeholder="" name="email" {...register("email")}
                         className={`${errors.email ? "is-invalid" : ""}`}
                         /> 
                         {errors.name && (
@@ -66,7 +66,7 @@ const ContactForm = () => {
                     </div>
                     <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
-                            <textarea placeholder="Your message*" name="sendMessage" {...register("message")}
+                            <textarea placeholder="" name="sendMessage" {...register("message")}
                         className={`${errors.sendMessage ? "is-invalid" : ""}`}
                         /> 
                         {errors.sendMessage && (

@@ -8,6 +8,8 @@ import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
 
+import ReadMoreReact from 'read-more-react';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -137,12 +139,30 @@ const TestimonialOne = () => {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
       }
+
+    //   const ReadMore = ({ children }) => {
+    //     const text = children;
+    //     const [isReadMore, setIsReadMore] = useState(true);
+    //     const toggleReadMore = () => {
+    //       setIsReadMore(!isReadMore);
+    //       console.log('check')
+    //     };
+    //     return (
+    //       <p className="text" style={{fontSize: '18px'}}>
+    //         {isReadMore ? text.slice(0, 150) : text}
+    //         <button  onClick={toggleReadMore} className="read-or-hide" style={{color: 'red'}}>
+    //           {isReadMore ? "...read more" : " show less"}
+    //         </button>
+    //       </p>
+    //     );
+    //   };
+      
     return (
         <Fragment>
             <Slider className="feedback_slider_one" {...settings1}>
                 {content.map((val, i)=>(
-                    <div key={i} className="item">
-                    <div className="feedback-block-one margin-2">
+                    <div key={i} className="item" >
+                    <div className="feedback-block-one margin-2" style={{border: '1px solid #e0e7f1', height: '300px'}}>
                         <div className="top-header d-flex align-items-center justify-content-between">
                             <div>
                                 {/* <img src={`images/logo/${val.logo}.png`} alt=""/> */}
@@ -157,8 +177,18 @@ const TestimonialOne = () => {
                             </div>
                             <img src={`images/icon/${val.icon}.svg`} alt="" width={50}/>
                         </div>
+                        {/* <p style={{fontSize: '18px'}}> */}
+                        {/* <ReadMore>
+                        {removeHtmlTags(val.content)}
+                        </ReadMore> */}
+                        {/* </p> */}
+                        {/* <ReadMoreReact text={removeHtmlTags(val.content)}
+                        min={80}
+                        ideal={100}
+                        max={200}
+                        readMoreText="click here to read more"/> */}
                         {/* /.top-header */}
-                        <p style={{fontSize: '18px'}}>{removeHtmlTags(val.content)}</p>
+                        <p style={{fontSize: '18px', border: '0', height: '150px', overflow: 'hidden'}}>{removeHtmlTags(val.content)}</p>
                     </div>
                     {/* /.feedback-block-one */}
                 </div>
