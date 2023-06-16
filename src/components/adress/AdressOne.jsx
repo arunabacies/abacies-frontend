@@ -4,7 +4,7 @@ const AdressOne = ({address_title, address_p_tag}) => {
     
     return (
         <Fragment>
-            <div className="address-block-one d-flex border-right">
+            <div className="address-block-one d-flex">
                 <div className="icon"><img src="images/icon/icon_06.svg" alt=""/></div>
                 <div className="text-meta">
                     <h4 className="title">{address_title}</h4>

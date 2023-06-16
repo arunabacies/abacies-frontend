@@ -158,7 +158,7 @@ const TestimonialOne = () => {
                             <img src={`images/icon/${val.icon}.svg`} alt="" width={50}/>
                         </div>
                         {/* /.top-header */}
-                        <p>{removeHtmlTags(val.content)}</p>
+                        <p style={{fontSize: '18px'}}>{removeHtmlTags(val.content)}</p>
                     </div>
                     {/* /.feedback-block-one */}
                 </div>

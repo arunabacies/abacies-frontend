@@ -110,7 +110,7 @@ const HomePage = (slug) => {
                                             <h2 className="main-title">{content.post_meta['sc-main-title']}</h2>
                                         </div>
                                         <p className="sub-heading mt-25 mb-50 md-mb-20">{content.post_meta['sc-sub-heading']}</p>
-                                        <div className="btn-three">{content.post_meta['sc-btn-three']}<Link to={content.post_meta['sc-btn-three-link']}>{content.post_meta['sc-btn-three-link-content']} <i className="fas fa-chevron-right"/></Link>
+                                        <div className="btn-three">{content.post_meta['sc-btn-three']}<Link to={content.post_meta['sc-btn-three-link']} style={{marginLeft: '10px'}}>{content.post_meta['sc-btn-three-link-content']} <i className="fas fa-chevron-right"/></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@ const HomePage = (slug) => {
                                             </div>
                                             {/* /.title-style-one */}
                                             <p className="pt-20 pb-30 lg-pb-10">{content.post_meta['wp-p-tag']}</p>
-                                            <div className="btn-three">{content.post_meta['wp-btn-three']} <Link to={content.post_meta['wp-btn-three-link']}>{content.post_meta['wp-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link>
+                                            <div className="btn-three">{content.post_meta['wp-btn-three']} <Link style={{marginLeft: '10px'}} to={content.post_meta['wp-btn-three-link']}>{content.post_meta['wp-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link>
                                             </div>
                                         </div>
                                         {/* /.block-style-two */}
@@ -337,17 +337,17 @@ const HomePage = (slug) => {
                                 </div> */}
                                 <div className="inner-content-address container" style={{margin: 'auto', backgroundColor: '#fffafa', borderRadius: '6px'}} data-aos="fade-up" data-aos-delay={100}>
                                     <div className="row g-0">
-                                        <div className="col-md-6 d-flex">
+                                        <div className="col-md-6 d-flex m-auto">
                                             <AdressOne 
                                             address_title={content.post_meta['address-title-h4']} 
                                             address_p_tag={content.post_meta['address-p-tag']} />
                                         </div>
-                                        <div className="col-md-6 d-flex">
+                                        {/* <div className="col-md-6 d-flex">
                                             <Info 
                                             contact_title={content.post_meta['contact-title']} 
                                             contact_p_tag={content.post_meta['contact-p-tag']} 
                                             contact_num={content.post_meta['contact-num']}/>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             {/* </div> */}

@@ -18,7 +18,7 @@ const AboutThree = (postMeta) => {
                         <li>{postMeta.post_meta['abt_list_li2']}</li>
                         <li>{postMeta.post_meta['abt_list_li3']}</li>
                     </ul>
-                    <div className="btn-three mt-45 lg-mt-30">{postMeta.post_meta['abt-btn-three']}<Link to={postMeta.post_meta['abt-btn-three-link']}>{postMeta.post_meta['abt-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link>
+                    <div className="btn-three mt-45 lg-mt-30">{postMeta.post_meta['abt-btn-three']}<Link to={postMeta.post_meta['abt-btn-three-link']} style={{marginLeft: '10px'}}>{postMeta.post_meta['abt-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link>
                     </div>
                 </div>
             }
