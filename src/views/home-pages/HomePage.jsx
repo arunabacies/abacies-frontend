@@ -101,7 +101,7 @@ const HomePage = (slug) => {
                         {/* {content.post_meta['banner'][0]} */}
                         <HeroBannerOne/> 
 
-                        <div className="fancy-feature-one position-relative mt-225 xl-mt-200 lg-mt-150">
+                        <div className="fancy-feature-one position-relative mt-125 xl-mt-100 lg-mt-150">
                             <div className="container">
                                 <div className="row">
                                     <div className="col-xl-4 col-lg-4">
