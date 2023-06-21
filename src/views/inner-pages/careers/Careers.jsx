@@ -96,7 +96,7 @@ const Careers = (slug) => {
                 </div>
                 {/* /.theme-inner-banner */}
 
-                <div className="contact-section-one mb-170 lg-mb-120">
+                <div className="contact-section-one lg-mb-120">
                     <div className="container">
                         <ContactThree post_meta={content.post_meta}/>
                     </div>
@@ -131,15 +131,15 @@ const Careers = (slug) => {
                 </div>
                 {/* /.contact-section-one */}
 
-                <div className="fancy-short-banner-five">
+                {/* <div className="fancy-short-banner-five">
                     <div className="container">
                         <div className="bg-wrapper">
                             <BannerFive/>
-                        </div>
+                        </div> */}
                         {/* /.bg-wrapper */}
-                    </div>
+                    {/* </div> */}
                     {/* /.container */}
-                </div>
+                {/* </div> */}
                 {/* /.fancy-short-banner-five */}
 
                 <div className="footer-style-four space-fix-one theme-basic-footer">

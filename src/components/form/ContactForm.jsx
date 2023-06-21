@@ -66,6 +66,7 @@ const ContactForm = () => {
                     </div>
                     <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
+                            <label>Message*</label>
                             <textarea placeholder="" name="sendMessage" {...register("message")}
                         className={`${errors.sendMessage ? "is-invalid" : ""}`}
                         /> 

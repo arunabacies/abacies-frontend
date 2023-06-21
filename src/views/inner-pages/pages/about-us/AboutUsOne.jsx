@@ -132,7 +132,7 @@ const AboutUsOne = (slug) => {
                     </div>
                     {/* /.fancy-feature-two */}
 
-                    <div className="fancy-feature-twentyTwo mt-150 lg-mt-60">
+                    <div className="fancy-feature-twentyTwo mt-100 lg-mt-60">
                         <div className="container">
                             <FancyFeatureTwentyTwo/>
                         </div>
@@ -144,8 +144,8 @@ const AboutUsOne = (slug) => {
                             <div className="container">
                                 <CommonCounter/>
                             </div>
-                            <img src={content.image_7} alt="" className="shapes shape-three"/>
-                            <img src={content.image_8} alt="" className="shapes shape-four"/>
+                            {/* <img src={content.image_7} alt="" className="shapes shape-three"/>
+                            <img src={content.image_8} alt="" className="shapes shape-four"/> */}
                         </div>
                         {/* /.inner-container */}
                     </div>
@@ -192,7 +192,7 @@ const AboutUsOne = (slug) => {
                     </div>
                     {/* /.fancy-feature-five */}
 
-                    <div
+                    {/* <div
                         className="team-section-one mt-110 pt-110 pb-170 lg-mt-80 lg-pt-80 lg-pb-80">
                         <div className="container">
                             <div className="row align-items-center">
@@ -204,7 +204,7 @@ const AboutUsOne = (slug) => {
                                         <h2 className="main-title">Our Members</h2>
                                     </div>
                                     {/* /.title-style-one */}
-                                </div>
+                                {/* </div>
                                 <div
                                     className="col-sm-6 ms-auto d-flex justify-content-center justify-content-sm-end"
                                     data-aos="fade-left">
@@ -216,11 +216,11 @@ const AboutUsOne = (slug) => {
                         </div>
                         <img src="images/shape/shape_42.svg" alt="" className="shapes shape-one"/>
                         <img src="images/shape/shape_43.svg" alt="" className="shapes shape-two"/>
-                    </div>
+                    </div> */} 
                     {/* /.team-section-one */}
 
                     <div
-                        className="feedback-section-three style-two mt-150 lg-mt-90"
+                        className="feedback-section-three style-two mt-100 lg-mt-90"
                         data-aos="fade-up">
                         <div className="container">
                             <div className="slider-wrapper">
@@ -250,21 +250,21 @@ const AboutUsOne = (slug) => {
                     </div>
                     {/* /.partner-section-two */}
 
-                    <div className="address-section-one">
+                    <div className="address-section-one" style={{marginBottom: '50px'}}>
                         <div className="container">
-                            <div className="inner-content bg-white" data-aos="fade-up" data-aos-delay={100}>
+                            <div className="inner-content" data-aos="fade-up" data-aos-delay={100}>
                                 <div className="row g-0">
-                                    <div className="col-md-6 d-flex">
+                                    <div className="col-md-6 d-flex" style={{margin: 'auto', backgroundColor: '#fff8f8', borderRadius: '6px'}}>
                                     <AdressOne 
                                             address_title={content.post_meta['address-title-h4']} 
                                             address_p_tag={content.post_meta['address-p-tag']} />{/* /.address-block-one */}
                                     </div>
-                                    <div className="col-md-6 d-flex">
+                                    {/* <div className="col-md-6 d-flex">
                                     <Info 
                                             contact_title={content.post_meta['contact-title']} 
                                             contact_p_tag={content.post_meta['contact-p-tag']} 
                                             contact_num={content.post_meta['contact-num']}/>{/* /.address-block-one */}
-                                    </div>
+                                    {/* </div> */} 
                                 </div>
                             </div>
                         </div>

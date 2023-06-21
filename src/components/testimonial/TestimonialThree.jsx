@@ -112,7 +112,7 @@ const TestimonialThree = () => {
                             </div>
                             <div className="text-wrapper">
                                 <div className="icon d-flex justify-content-center align-items-center"><img src={val.image_1} alt=""/></div>
-                                <p>{removeHtmlTags(val.content)}</p>
+                                <p style={{fontSize: '20px'}}>{removeHtmlTags(val.content)}</p>
                                 <div className="name">
                                     <h6>{val.post_meta['author_name']}</h6>
                                     <span>{val.desig}</span>
