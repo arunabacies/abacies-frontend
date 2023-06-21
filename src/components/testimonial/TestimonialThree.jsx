@@ -106,7 +106,7 @@ const TestimonialThree = () => {
             <Slider className="feedback_slider_three" {...settings3}>
                 {content.map((val, i) => (
                     <div key={i} className="item">
-                        <div className="feedback-block-three d-md-flex">
+                        <div className="feedback-block-three d-md-flex justify-content-center">
                             {/* <div className="img-meta">
                                 <img src={val.image_2} alt=""/>
                             </div> */}
