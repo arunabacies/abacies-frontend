@@ -253,8 +253,8 @@ const AboutUsOne = (slug) => {
                     <div className="address-section-one" style={{marginBottom: '50px'}}>
                         <div className="container">
                             <div className="inner-content" data-aos="fade-up" data-aos-delay={100}>
-                                <div className="row g-0">
-                                    <div className="col-md-6 d-flex" style={{margin: 'auto', backgroundColor: '#fff8f8', borderRadius: '6px'}}>
+                                <div className="row g-0" style={{backgroundColor: '#fff8f8'}}>
+                                    <div className="col-md-6 d-flex" style={{margin: 'auto', borderRadius: '6px'}}>
                                     <AdressOne 
                                             address_title={content.post_meta['address-title-h4']} 
                                             address_p_tag={content.post_meta['address-p-tag']} />{/* /.address-block-one */}

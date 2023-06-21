@@ -107,9 +107,9 @@ const TestimonialThree = () => {
                 {content.map((val, i) => (
                     <div key={i} className="item">
                         <div className="feedback-block-three d-md-flex">
-                            <div className="img-meta">
+                            {/* <div className="img-meta">
                                 <img src={val.image_2} alt=""/>
-                            </div>
+                            </div> */}
                             <div className="text-wrapper">
                                 <div className="icon d-flex justify-content-center align-items-center"><img src={val.image_1} alt=""/></div>
                                 <p style={{fontSize: '20px'}}>{removeHtmlTags(val.content)}</p>
