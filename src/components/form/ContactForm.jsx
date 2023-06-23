@@ -57,6 +57,7 @@ const ContactForm = () => {
                             <label>Email*</label>
                             <input type="text" placeholder="" name="email" {...register("email")}
                         className={`${errors.email ? "is-invalid" : ""}`}
+                        style={{padding: '7px'}}
                         /> 
                         {errors.name && (
                         <div className="invalid-feedback">{errors.email
@@ -72,6 +73,18 @@ const ContactForm = () => {
                         /> 
                         {errors.sendMessage && (
                         <div className="invalid-feedback">{errors.sendMessage
+                                ?.message}</div>
+                    )}
+                        </div>
+                    </div>
+                    <div className="col-12">
+                        <div className="input-group-meta form-group mb-30">
+                            <label>Documents*</label>
+                            <input type="file" id='files' name="files" {...register("files")}
+                        className={`${errors.files ? "is-invalid" : ""}`}
+                        /> 
+                        {errors.name && (
+                        <div className="invalid-feedback">{errors.files
                                 ?.message}</div>
                     )}
                         </div>
