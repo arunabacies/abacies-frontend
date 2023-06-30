@@ -28,7 +28,7 @@ const FancyFeatureNineteen = () => {
             <div className="block-style-thirteen" data-aos="fade-right">
                 <div className="title-style-three pb-15">
                     <div className="sc-title">WORK PROCESS</div>
-                    <h2 className="main-title">How sinco <span>process</span> & works.</h2>
+                    <h2 className="main-title">How Abacies <span>process</span> & works.</h2>
                 </div>
                 {/* /.title-style-three */}
                 <ul className="style-none list-item">
