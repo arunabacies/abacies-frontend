@@ -361,7 +361,7 @@ const HomePage = (slug) => {
                         </div> */}
                         {/* /.blog-section-one */}
 
-                        <div className="address-section-one">
+                        <div className="address-section-one" style={{marginBottom: '50px'}}>
                             {/* <div className="container"> */}
                                 {/* <div className="row">
                                     <div className="col-xl-8 col-lg-7 col-md-9 m-auto">
@@ -399,17 +399,31 @@ const HomePage = (slug) => {
                         </div>
                         {/* /.address-section-one */}
 
-                        <div className="footer-style-one theme-basic-footer">
+                        {/* <div className="footer-style-one theme-basic-footer">
                             <div className="container">
                                 <div className="inner-wrapper">
                                     <FooterFour />
                                     <div className="bottom-footer">
                                         <CopyRightFour />
                                     </div>
-                                </div>
+                                </div> */}
                                 {/* /.inner-wrapper */}
+                            {/* </div>
+                        </div> */}
+
+                    <div className="footer-style-one bg-color theme-basic-footer">
+                        <div className="container">
+                            <div className="inner-wrapper">
+                                <FooterFour />
+                                <div className="bottom-footer">
+                                        <CopyRightFour />
+                                </div>
                             </div>
+                            {/* /.inner-wrapper */}
                         </div>
+                        <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                        <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
+                    </div>
                         {/* /.footer-style-one */}
 
                     </div>

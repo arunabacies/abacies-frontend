@@ -2051,7 +2051,7 @@ body .btn-eight:hover {
 }
 .footer-style-one.bg-color {
     background: #f4f4f4;
-    padding-top: 200px;
+    padding-top: 100px;
 }
 .theme-basic-footer .inner-wrapper {
     max-width: 1170px;
@@ -2145,9 +2145,9 @@ body .btn-eight:hover {
     font-size: 14px;
     color: #979797;
 }
-.theme-basic-footer.footer-style-one.bg-color .bottom-footer {
-    border-top: 1px solid #e5ebf5;
-}
+// .theme-basic-footer.footer-style-one.bg-color .bottom-footer {
+//     border-top: 1px solid #e5ebf5;
+// }
 .theme-basic-footer .bottom-footer {
     border-top: 1px solid #f2f7ff;
     margin-top: 40px;
@@ -5597,9 +5597,9 @@ body .btn-eight:hover {
 
 //input-file 
 input#files {
-    padding-left: 55px;
+    padding-left: 50px;
     padding-top: 8px;
-    color: #ED1F24;
+    color: #00284e80;
 }
 
 input#files::-webkit-file-upload-button {

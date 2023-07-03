@@ -24,13 +24,7 @@ const ToastContent = ({ message = null }) => (
 )
 const CareerForm = () => {
 
-    const MAX_FILE_SIZE = 102400; //100KB
 
-    const validFileExtensions = { files: ['jpg', 'gif', 'png', 'jpeg', 'svg', 'webp'] };
-
-    function isValidFileType(fileName, fileType) {
-    return fileName && validFileExtensions[fileType].indexOf(fileName.split('.').pop()) > -1;
-    }
 
     //for validation
     const validationSchema = Yup
@@ -47,12 +41,14 @@ const CareerForm = () => {
                 .string()
                 .required("Please, leave us a message."),
             files: Yup
-                .mixed()
-                .required("Required")
-                .test("is-valid-type", "Not a valid file type",
-                  value => isValidFileType(value && value.name.toLowerCase(), "files"))
-                .test("is-valid-size", "Max allowed size is 100KB",
-                  value => value && value.size <= MAX_FILE_SIZE)
+            .mixed()
+            .test('fileType', 'File is Required', (value) => {
+              if (value && value[0]) {
+                return value[0].type === 'application/pdf';
+              }
+              return false;
+            })
+            .required('PDF file is Required'),
         });
 
     const formOptions = {
@@ -154,10 +150,10 @@ const CareerForm = () => {
                         <div className="input-group-meta form-group mb-30">
                             <label>Documents*</label>
                             <input type="file" id='files' name="files" {...register("files")}
-                        className={`${errors.files ? "is-invalid" : ""}`}
+                        className={`${errors.file ? "is-invalid" : ""}`}
                         /> 
-                        <span> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADfElEQVR4nO2ZTWgUSRSAKyisfysiaBycvDeZ95rRgIrCXl1dcEEQD8oe1ov4F/9AFP//9qS7ot7Xg+BN2LOaoCCCh0Xci4ooXlSiEpN51Qka1FWTkZepTibjTDITkuke6A8aQlVSXV9X9XtdL8bExMTExIyTt83NjRb4rAA9sEh9eg3+DPxnF+ICUw9Y4N8s0nuLnCt9UZ+PvMlEGR95tyAP6IQFuD0L6V86G5fO1CuLtEqQrg32IQ+ELtODOKcbFiWK2y3yrgKJ0+X+XsA7FaxMqXFqQleSWIA7BLg3x/xDKQkLfHSscQTpel6Y/jJhSFikV/nJ0s2cMQ3ablPezmokFN1ybos9MrWkBzMpAXqRvznd7ZrXMkvbLdB2Qe537ScrHS+byfzoXv4PJpSVQL79JpGYUWIljlQzpjDPDt4TE6oEUOt4JRRJ8a8uKDw00ZDwDlc7bs6YBot0yz2EM6YeJRQNzS5gvOtMp+ebECR2DEvQofGM7SMfCxKiAG80UZYQ4BYButQLXrqchOadMCSGQuxYEn4yvUSAut3vbq+5RLk8IchbC/LE8dHGEPQWW+BOF43agsyv8oFEFmhvLDEa8UqU2U4vEKcVbycfeY8JcyX0Ba1Coj2WmOCV2FI3K9FVJk+MDLF8oNI8oYejIMSOyBNArTWX8IHXFUjsr1gC+EbNJXqbmEpJ6EQs0mv3dE9MgMSOSS0UWOBnxRKKNPEaN4nHOWOmVCjRVkKif1IlFAG66iTuF0ooenN3Srtsoizhp7xl+f1PfbKQk8X9gt4Gd7i5U4lEEJ2KJIY+DCcNQb7g9v/5Uv29yZa5evh3Ex1xNugGWlEg0R6ahJKvu3Ium2z+yYxRLNOJ5bchHdStJkCfIyGhCLKvN9ZypRnl/CxI5wT563c1WqAroUsoFvijhsWc+XmqGYNsKpPRyQrQ33qm7kFeHvQVSgjwNlNrxH2K6GfJeMcIXUIR5H/cFmmtWwnFove7E3kyWsKLtISik7dAT6sthBV+xU5qoaAaskirBemLqyP9EVTQy4kL8MWhlUDeaqKEzdek8uEV6F62idZ3JJPTg34Nz/rvsiDvaA6RVHqziSIW02st8NsgRwjQJ0F6LsAvBej/4Xbu8FPeShNlOgefvHfYIv83VDUcfqH/FfD2BQmwbniTSMzQw5aWNQu3WUxMjIk83wAGttDGU8tC7AAAAABJRU5ErkJggg==" 
-                        alt=""  className="shapes shape-one" style={{height: '30px', position: 'absolute', width: '30px', top: "50%", left: "2%"}}/> </span>
+                        <span> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+0lEQVR4nO2Za2/TMBSG31ZsgLgIEAgmkAaijZ3AuKyM66ASY6NabacI5QsXAQKqcRMbAgFlrPvp6NhpktF2bSM1SbU8Ur40reOnPvXxOQVycnJycuLieIdhiSUwtQYmW+ZSa7DFkr43Edjykj/57T5XC8ydQ6axxAK4ausJW/IFLHkBjjetL+aeBxPP9D39nrRlZqsHwNSRrteZuhFIcFHt+3lbPQhXpsc4ieB4J8DVBrj6hWp1X08JSywOHIe5ZmVs9QgpSXwzExAvARRiSRAUcib8PiBRrrrHYMl1ExLqjY55gov5QIJCZlhKtf3+WH+Qykpw+QqV5lT3Ssh7I41Z6ojIFlKV4I1KbAmi1LiYXGiNSwIo6N+Y+fxDTKgE9NZsxv2NK8uHkLxEPZRg7t1YY1tiMUiIjnKQaYlS7RS4FJirH+8rQRtF8hKRLXaQxGV5Gkz98LP7fPIS/fKEra4HEmX3/sCVYOK7P8bzIPOTfEeiXL+ZS+xKvhIjhJMlFpDqSgw6AEYlqPbIJfbsSjh98kRUgos7Q+cJKo46EtE8QceYFM5OVighbw8vEflhJyex0luCJhJUfAOS3VAS9cqYGwXyS5dEtCbg4iOAYnYlCCae+g97v0OCoIebySlkWsJZPePHfwul2tGu++WG7Zebr+NLRA6GY4OLFT+klnveP+cd1MU/vef/2oA/mQkkolts4hKE6btuo1w/i0HNMr1yFIaUC5QCl3+zIUFw+dN8237S601BN8m42urq0Vqikb4EwdSmfjDa/XekDpY4qSdLlR3V1PzxTOReihJE5yhCx5K4pC5BMOWZScTMtpmQIKhtbybyadeEl2kJQxFcfh65ERY9xY61UTAK1PXmYsv/ZqtBB703xTD3qLY+FWcKrntSZnvl7jswxVCphMcV2p7132V+3qEcUnavIZPY9XJYW+sjxyaY+gou14PkZ1ZiA/bqLDKN403rfi2XzbDh1gkj+Ra2urXjX6iJoNKc0sUWtTWjYZaTk4Os8w8dPqBpQ0lC5QAAAABJRU5ErkJggg=="
+                        alt=""  className="shapes shape-one" style={{height: '25px', position: 'absolute', width: '25px', top: "50%", left: "2%"}}/> </span>
                         {errors.name && (
                         <div className="invalid-feedback">{errors.files
                                 ?.message}</div>
