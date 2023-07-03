@@ -105,7 +105,7 @@ const TestimonialFive = () => {
                         <div className="col-xxl-9 col-xl-10 col-lg-8 m-auto">
                             <div className="feedback-block-four mb-80 ms-xxl-4 me-xxl-4">
                                 <img src={val.image_1} alt="avatar" className="m-auto"/>
-                                <p>{removeHtmlTags(val.content)}</p>
+                                <p style={{fontSize: '20px'}}>{removeHtmlTags(val.content)}</p>
                                 <div className="cp-info">
                                     <h6>{val.post_meta['author_name']}</h6>
                                     <span>{val.post_meta['role']}</span>
