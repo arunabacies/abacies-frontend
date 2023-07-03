@@ -3,6 +3,26 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { toast} from 'react-hot-toast'
+import axios from "axios"
+
+import apiConfig from '../../configs/apiConfig'
+
+const ToastContent = ({ message = null }) => (
+    <>
+    {message !== null && (
+      <div className='d-flex'>
+        <div className='me-1'>
+        </div>
+        <div className='d-flex flex-column'>
+          <div className='d-flex justify-content-between'>
+            <span>{message}</span>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+)
 const ContactForm = () => {
 
     //for validation
@@ -25,15 +45,54 @@ const ContactForm = () => {
         resolver: yupResolver(validationSchema)
     };
     // get functions to build form with useForm() hook
-    const {register, handleSubmit, formState} = useForm(formOptions);
+    const {register, handleSubmit, setValue, formState} = useForm(formOptions);
     const {errors} = formState;
+
+    const sendMessage = (dt) => {
+        const config = {
+            method: 'post',
+            url: `${apiConfig.api.url}v2/send-mail`,
+            data: { to: "smijith@abacies.com", subject: "From Abacies Contact Form", content: { name: dt.name, email: dt.email, message: dt.sendMessage } }
+        }
+        axios(config)
+        .then(function (response) {
+            console.log(response)
+            if (response.status === 200) {
+                console.log("2000")
+            } else {
+               toast.error(
+                <ToastContent message={response.data.message} />,
+                {duration:3000}             
+              )
+            }
+        })
+        .catch(error => {
+          console.log(error)
+          if (error && error.status === 401) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } else if (error) {
+            toast.error(
+              <ToastContent message={error.message} />,
+              { duration:2000 }
+            )
+          } 
+        })
+    }
 
     function onSubmit(data, e) {
         //display form data on success
         console.log("Message submited: " + JSON.stringify(data));
-        e
-            .target
-            .reset();
+        sendMessage(data)
+        // e.target.reset();
+    }
+
+    const handleMessage = (e) => {
+        console.log("asdasd")
+        console.log(e)
+        setValue("sendMessage", e.target.value)
     }
 
     return (
@@ -68,7 +127,7 @@ const ContactForm = () => {
                     <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
                             <label>Message*</label>
-                            <textarea placeholder="" name="sendMessage" {...register("message")}
+                            <textarea onChange={handleMessage} placeholder="" name="sendMessage" 
                         className={`${errors.sendMessage ? "is-invalid" : ""}`}
                         /> 
                         {errors.sendMessage && (
@@ -77,7 +136,7 @@ const ContactForm = () => {
                     )}
                         </div>
                     </div>
-                    <div className="col-12">
+                    {/* <div className="col-12">
                         <div className="input-group-meta form-group mb-30">
                             <label>Documents*</label>
                             <input type="file" id='files' name="files" {...register("files")}
@@ -88,7 +147,7 @@ const ContactForm = () => {
                                 ?.message}</div>
                     )}
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col-12">
                         <button className="btn-eight ripple-btn">Send Message</button>
                     </div>

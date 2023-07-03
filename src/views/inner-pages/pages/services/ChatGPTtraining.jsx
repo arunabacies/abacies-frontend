@@ -194,14 +194,12 @@ const ChatGPTtraining = (slug) => {
                     </div>
                     {/* /.feedback-section-five */}
 
-                    <div className="fancy-short-banner-five">
+                    {/*<div className="fancy-short-banner-five">
                         <div className="container">
                             <div className="bg-wrapper">
                                 <BannerFive/>
                             </div>
-                            {/* /.bg-wrapper */}
                         </div>
-                        {/* /.container */}
                     </div>
                     {/* /.fancy-short-banner-five */}
 

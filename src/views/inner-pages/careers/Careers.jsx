@@ -100,12 +100,12 @@ const Careers = (slug) => {
                     <div className="container">
                         <ContactThree post_meta={content.post_meta}/>
                     </div>
-                    <div className="mt-100 lg-mt-70">
+                    <div className="mt-100 mb-50 lg-mt-70">
                         <div className="container">
                             <div className="row gx-xxl-5">
                                 <div className="col-lg-6 d-flex order-lg-last">
                                     <div className="form-style-one">
-                                        <h3 className="form-title pb-40 lg-pb-20">Send Message.</h3>
+                                        <h3 className="form-title pb-40 lg-pb-20">Join Our Team.</h3>
                                         <ContactForm/>
                                     </div>
                                     {/* /.form-style-one */}

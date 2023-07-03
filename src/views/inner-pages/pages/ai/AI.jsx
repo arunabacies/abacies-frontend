@@ -220,15 +220,13 @@ const AI = () => {
             </div>
             {/* /.blog-section-two */}
 
-            <div
+            {/*<div
                 className="fancy-short-banner-one position-relative mt-160 lg-mt-100 md-mt-80">
                 <div className="container">
                     <div className="bg-wrapper">
                         <CallToAction2/>
                     </div>
-                    {/* /.bg-wrapper */}
                 </div>
-                {/* /.container */}
                 <img src="images/shape/shape_10.svg" alt="" className="shapes shape-one"/>
                 <img src="images/shape/shape_11.svg" alt="" className="shapes shape-two"/>
             </div>

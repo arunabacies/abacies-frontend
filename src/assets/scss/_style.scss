@@ -696,15 +696,15 @@ body .btn-eight:hover {
     top: 0;
     left: 0;
     right: 0;
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     transition: all 0.4s ease-out;
 }
 .theme-main-menu.sticky-menu.fixed {
     position: fixed;
     z-index: 990;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background: #fff;
     box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.1);
 }
@@ -1041,7 +1041,7 @@ body .btn-eight:hover {
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 11% 3% 0 0;
+    padding: 9% 2% 0 0;
     z-index: -1;
 }
 .hero-banner-one .illustration-holder .main-illustration {
@@ -4365,10 +4365,10 @@ body .btn-eight:hover {
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Theme Inner Banner ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .theme-inner-banner {
-    background: #f5e7e7;
+    background: #e5e5e5;
     position: relative;
     z-index: 1;
-    padding: 205px 0 115px;
+    padding: 185px 0 90px;
     overflow: hidden;
 }
 .theme-inner-banner.space-fix-one {
@@ -5426,7 +5426,7 @@ body .btn-eight:hover {
     right: 0;
     height: 120px;
     z-index: -1;
-    background: #f5e7e7;
+    background: #e5e5e5;
 }
 .contact-section-one .address-block-two {
     background: #ffffff;
@@ -5587,3 +5587,15 @@ input#files {
 //   color: rgb(192,192,192);
 //   cursor: pointer;
 // }
+
+.theme-main-menu .logo img {
+    height: 72px;
+    width: auto;
+}
+.theme-main-menu.sticky-menu.fixed .logo img { 
+    height: 52px;
+}
+.theme-main-menu.sticky-menu.fixed .navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
