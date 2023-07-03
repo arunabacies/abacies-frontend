@@ -102,7 +102,7 @@ const Contact = (slug) => {
                     <div className="container">
                         <ContactThree post_meta={content.post_meta}/>
                     </div>
-                    <div className="mt-100 lg-mt-70">
+                    <div className="mt-100 mb-50 lg-mt-70">
                         <div className="container">
                             <div className="row gx-xxl-5">
                                 <div className="col-lg-6 d-flex order-lg-last">
@@ -116,7 +116,7 @@ const Contact = (slug) => {
                                     <div className="map-area-one mt-10 me-lg-4 md-mt-50">
                                         <div className="mapouter">
                                             <iframe
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7292.882391085675!2d90.37429724010617!3d23.944834037065423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1652150281517!5m2!1sen!2sbd"
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.2582167947693!2d76.36281346951566!3d10.014143820054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080dc6d3a091e1%3A0x8da708cf730555e5!2sGreentouch%20spaces!5e0!3m2!1sen!2sin!4v1688377320799!5m2!1sen!2sin"
                                                 style={{
                                                 border: 0
                                             }}

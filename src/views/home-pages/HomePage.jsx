@@ -375,7 +375,7 @@ const HomePage = (slug) => {
                                         </div>
                                     </div>
                                 </div> */}
-                                <div className="inner-content-address container" style={{margin: 'auto', backgroundColor: '#fffafa', borderRadius: '6px'}} data-aos="fade-up" data-aos-delay={100}>
+                                <div className="inner-content-address container" style={{margin: 'auto', backgroundColor: '#f4f4f4', borderRadius: '8px'}} data-aos="fade-up" data-aos-delay={100}>
                                     <div className="row g-0">
                                         <div className="col-md-6 d-flex m-auto">
                                             <AdressOne 
