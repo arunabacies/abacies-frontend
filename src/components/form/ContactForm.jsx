@@ -1,10 +1,12 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import { toast} from 'react-hot-toast'
 import axios from "axios"
+
+import ClockLoader from "react-spinners/ClockLoader";
 
 import apiConfig from '../../configs/apiConfig'
 
@@ -24,6 +26,8 @@ const ToastContent = ({ message = null }) => (
     </>
 )
 const ContactForm = () => {
+
+    let [loading, setLoading] = useState(false);
 
     //for validation
     const validationSchema = Yup
@@ -45,45 +49,56 @@ const ContactForm = () => {
         resolver: yupResolver(validationSchema)
     };
     // get functions to build form with useForm() hook
-    const {register, handleSubmit, setValue, formState} = useForm(formOptions);
+    const {register, handleSubmit, setValue, reset, formState} = useForm(formOptions);
     const {errors} = formState;
+
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+    };
 
     const sendMessage = (dt) => {
         const config = {
             method: 'post',
             url: `${apiConfig.api.url}v2/send-mail`,
-            data: { to: "smijith@abacies.com", subject: "From Abacies Contact Form", content: { name: dt.name, email: dt.email, message: dt.sendMessage } }
+            data: { to: "smijith@abacies.com", content: { name: dt.name, email: dt.email, message: dt.sendMessage } }
         }
         axios(config)
         .then(function (response) {
             console.log(response)
             if (response.status === 200) {
-                console.log("2000")
+                reset()
+                toast.success(
+                <ToastContent message="Successfully Submitted" />,
+                {duration:5000}             
+                )
             } else {
                toast.error(
                 <ToastContent message={response.data.message} />,
                 {duration:3000}             
               )
-            }
+            } setLoading(false)
         })
         .catch(error => {
-          console.log(error)
-          if (error && error.status === 401) {
+            console.log(error)
+            if (error && error.message) {
             toast.error(
               <ToastContent message={error.message} />,
               { duration:2000 }
             )
-          } else if (error) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          } 
+            } else {
+                toast.error(
+                <ToastContent message="Error!. Please try agin later." />,
+                {duration:3000}             
+                )
+            } setLoading(false)
         })
     }
 
     function onSubmit(data, e) {
         //display form data on success
+        setLoading(true)
         console.log("Message submited: " + JSON.stringify(data));
         sendMessage(data)
         // e.target.reset();
@@ -97,6 +112,17 @@ const ContactForm = () => {
 
     return (
         <Fragment>
+            {loading &&
+            <div className='loaderWrap'>
+                <ClockLoader
+                    color={'#ed1f24'}
+                    cssOverride={override}
+                    size={70}
+                    // aria-label="Loading Spinner"
+                    // data-testid="loader"
+                />
+            </div>
+            }
             <form id="contact-form" action="#" onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                     <div className="col-12">

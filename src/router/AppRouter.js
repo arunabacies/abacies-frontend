@@ -51,6 +51,10 @@ import PortfolioSingle from '../views/inner-pages/portfolio/PortfolioSingle';
 import CaseStudy from '../views/inner-pages/portfolio/CaseStudy';
 import WhitePaper from '../views/inner-pages/portfolio/WhitePaper';
 
+import ProductTemplate from '../views/inner-pages/product-templates/product';
+import ServiceTemplate from '../views/inner-pages/service-templates/service';
+import SolutionTemplate from '../views/inner-pages/solution-templates/solution';
+
 // All Blog Page Routes
 import GridLayout from '../views/inner-pages/blog/GridLayout';
 import GridWithSidebar from '../views/inner-pages/blog/GridWithSidebar';
@@ -95,82 +99,151 @@ const ToastContent = ({ message = null }) => (
 )
 
 const AppRouter = () => {
-  const [menus, setMenus] = useState([])
-  const [content, setContent] = useState([])
   const replace = 'https://abacies.bettertomorrow.green/'
+  const [menus, setMenus] = useState([])
+  const [product, setProduct] = useState([])
+  const [solutions, setSolutions] = useState([])
+  const [services, setServices] = useState([])
+  
   // const replace = 'http://localhost/abacies/'
-    const getMenus = () => {
-        const config = {
-            method: 'get',
-            url: `${apiConfig.api.url}view/v1/header-menu`
-        }
-        axios(config)
-        .then(function (response) {
-            console.log(response)
-            if (response.status === 200) {
-                setMenus(response.data)
-            } else {
-               toast.error(
-                <ToastContent message={response.data.message} />,
-                {duration:3000}             
-              )
-            }
-        })
-        .catch(error => {
-          console.log(error)
-          if (error && error.status === 401) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          } else if (error) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          } 
-        })
+  const getMenus = () => {
+    const config = {
+        method: 'get',
+        url: `${apiConfig.api.url}view/v1/header-menu`
     }
-
-    const getServices = () => {
-      const config = {
-          method: 'get',
-          url: `${apiConfig.api.url}view/v1/services`
-      }
-      axios(config)
-      .then(function (response) {
-          console.log(response)
-          if (response.status === 200) {
-              setContent(response.data)
-          } else {
-             toast.error(
-              <ToastContent message={response.data.message} />,
-              {duration:3000}             
-            )
-          }
-      })
-      .catch(error => {
-        console.log(error)
-        if (error && error.status === 401) {
-          toast.error(
-            <ToastContent message={error.message} />,
-            { duration:2000 }
+    axios(config)
+    .then(function (response) {
+        console.log(response)
+        if (response.status === 200) {
+            setMenus(response.data)
+        } else {
+            toast.error(
+            <ToastContent message={response.data.message} />,
+            {duration:3000}             
           )
-        } else if (error) {
-          toast.error(
-            <ToastContent message={error.message} />,
-            { duration:2000 }
-          )
-        } 
-      })
+        }
+    })
+    .catch(error => {
+      console.log(error)
+      if (error && error.message) {
+        toast.error(
+          <ToastContent message={error.message} />,
+          { duration:2000 }
+        )
+      } else {
+        toast.error(
+          <ToastContent message="Error!. Please try again later." />,
+          {duration:3000}             
+        )
+      } 
+    })
   }
 
-    useEffect(() => {
-        getMenus()
-        getServices()
-    }, [])
-    console.log(menus)
-    console.log(replace)
+  const getProducts = () => {
+    const config = {
+        method: 'get',
+        url: `${apiConfig.api.url}view/v1/products`
+    }
+    axios(config)
+    .then(function (response) {
+        console.log(response)
+        if (response.status === 200) {
+            setProduct(response.data)
+        } else {
+            toast.error(
+            <ToastContent message={response.data.message} />,
+            {duration:3000}             
+          )
+        }
+    })
+    .catch(error => {
+      console.log(error)
+      if (error && error.message) {
+        toast.error(
+          <ToastContent message={error.message} />,
+          { duration:2000 }
+        )
+      } else {
+        toast.error(
+          <ToastContent message="Error!. Please try again later." />,
+          {duration:3000}             
+        )
+      } 
+    })
+  }
+
+  const getSolutions = () => {
+    const config = {
+        method: 'get',
+        url: `${apiConfig.api.url}view/v1/solutions`
+    }
+    axios(config)
+    .then(function (response) {
+        console.log(response)
+        if (response.status === 200) {
+            setSolutions(response.data)
+        } else {
+            toast.error(
+            <ToastContent message={response.data.message} />,
+            {duration:3000}             
+          )
+        }
+    })
+    .catch(error => {
+      console.log(error)
+      if (error && error.message) {
+        toast.error(
+          <ToastContent message={error.message} />,
+          { duration:2000 }
+        )
+      } else {
+        toast.error(
+          <ToastContent message="Error!. Please try again later." />,
+          {duration:3000}             
+        )
+      } 
+    })
+  }
+
+  const getServices = () => {
+    const config = {
+        method: 'get',
+        url: `${apiConfig.api.url}view/v1/services`
+    }
+    axios(config)
+    .then(function (response) {
+      console.log(response)
+      if (response.status === 200) {
+          setServices(response.data)
+      } else {
+          toast.error(
+          <ToastContent message={response.data.message} />,
+          {duration:3000}             
+        )
+      }
+    })
+    .catch(error => {
+      console.log(error)
+      if (error && error.message) {
+        toast.error(
+          <ToastContent message={error.message} />,
+          { duration:2000 }
+        )
+      } else {
+        toast.error(
+          <ToastContent message="Error!. Please try again later." />,
+          {duration:3000}             
+        )
+      } 
+    })
+  }
+
+  useEffect(() => {
+      getMenus()
+      // getProducts()
+  }, [])
+  console.log(menus)
+  console.log(replace)
 
   return (
     <Fragment>
@@ -234,30 +307,31 @@ const AppRouter = () => {
         {menuItems.title === 'Telegram LMS' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<TelegramLMS slug={menuItems.url.replace(replace, '/')}/>} />
         }
-        </>
-       ))}
-       {content.map((val, i) => (
-        <>
-        {val.title === 'Data Machine Learning' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        {menuItems.title === 'Products' &&
+          menuItems.children && menuItems.children.map((child, idx) => 
+            <Route path={child.url.replace(replace, '/')} element={<ProductTemplate slug={child.post_id}/>} />
+          )
         }
-        {val.title === 'AI, Machine Learning' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        {menuItems.title === 'Solutions' &&
+          menuItems.children && menuItems.children.map((child, idx) => 
+            <Route path={child.url.replace(replace, '/')} element={<SolutionTemplate slug={child.post_id}/>} />
+          )
         }
-        {val.title === 'Data Development' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
-        }
-        {val.title === 'Big Data Consulting' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
-        }
-        {val.title === 'Health Care' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
-        }
-        {val.title === 'Statistical Modeling' && 
-          <Route path={val.url.replace(replace, '/')} element={<ServicesDetails slug={val.id}/>} />
+        {menuItems.title === 'Services' &&
+          menuItems.children && menuItems.children.map((child, idx) => 
+            <Route path={child.url.replace(replace, '/')} element={<ServiceTemplate slug={child.post_id}/>} />
+          )
         }
         </>
         ))}
+        
+        {/*product.map((val, i) => (
+        <>
+        {val.title && 
+          <Route path={val?.url?.replace(replace, '/')} element={<ProductTemplate slug={val.id} />} />
+        }
+        </>
+      ))*/}
         <Route path="/service-details" element={<ServicesDetails />} />
         {/* <Route path="/" element={<HomePage />} />
         <Route path="/data-analytics" element={<DataAnalytics />} />

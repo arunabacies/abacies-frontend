@@ -114,7 +114,7 @@ const WhitePaper = (slug) => {
                     <div className="container">
                         <div className="wrapper ps-xxl-4 pe-xxl-4 ms-xxl-5 me-xxl-5">
                             <div className="row gx-xxl-5">
-                                <div className="col-lg-6">
+                                <div className="col-xs-12">
                                     <div className="title-style-five">
                                         <div className="upper-title">{content.post_meta['upper-title']}</div>
                                         <h2 className="main-title">{content.post_meta['main-title']}</h2>
@@ -123,7 +123,7 @@ const WhitePaper = (slug) => {
                                         <p>{content.post_meta['pr-details-one-ptag']}</p>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
+                                {/* <div className="col-lg-6">
                                     <div className="project-info ps-xl-5">
                                         <div className="row gx-xxl-5">
                                             <div className="col-sm-6 mb-25">
@@ -155,8 +155,7 @@ const WhitePaper = (slug) => {
                                             </li>
                                         </ul>
                                     </div>
-                                    {/* /.project-info */}
-                                </div>
+                                </div> */}
                             </div>
                             <div className="portfolio-block-two mt-40 mb-80 lg-mt-20 lg-mb-40">
                                 <div className="img-meta">
@@ -201,18 +200,7 @@ const WhitePaper = (slug) => {
                 </div>
                 {/* /.pr-details-one */}
 
-                <div className="fancy-short-banner-one position-relative bottom-transform">
-                    <div className="container">
-                        <div className="bg-wrapper">
-                            <BannerFive />
-                        </div>
-                        {/* /.bg-wrapper */}
-                    </div>
-                    {/* /.container */}
-                </div>
-                {/* /.fancy-short-banner-one */}
-
-                <div className="footer-style-four space-fix-one theme-basic-footer">
+                <div className="footer-style-one theme-basic-footer">
                     <div className="container">
                         <div className="inner-wrapper">
                             {/* <div className="subscribe-area">
@@ -240,8 +228,10 @@ const WhitePaper = (slug) => {
                         </div>
                         {/* /.inner-wrapper */}
                     </div>
+                    <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                    <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                 </div>
-                {/* /.footer-style-four */}
+                {/* /.footer-style-one */}
 
             </div>
         }

@@ -117,7 +117,7 @@ const HomePage = (slug) => {
                             </div>
                             {/* /.container */}
                             <div className="slider-wrapper">
-                                <FancyFeatureOne/>
+                                <FancyFeatureOne services={content.services} />
                             </div>
                             {/* /.slider-wrapper */}
                         </div>
@@ -411,19 +411,19 @@ const HomePage = (slug) => {
                             {/* </div>
                         </div> */}
 
-                    <div className="footer-style-one bg-color theme-basic-footer">
-                        <div className="container">
-                            <div className="inner-wrapper">
-                                <FooterFour />
-                                <div className="bottom-footer">
+                        <div className="footer-style-one theme-basic-footer">
+                            <div className="container">
+                                <div className="inner-wrapper">
+                                    <FooterFour />
+                                    <div className="bottom-footer">
                                         <CopyRightFour />
+                                    </div>
                                 </div>
+                                {/* /.inner-wrapper */}
                             </div>
-                            {/* /.inner-wrapper */}
+                            <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                            <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                         </div>
-                        <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
-                        <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
-                    </div>
                         {/* /.footer-style-one */}
 
                     </div>

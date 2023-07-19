@@ -145,67 +145,7 @@ const TelegramLMS = (slug) => {
                     </div>
                     {/* /.fancy-feature-nineteen */}
 
-                    <div className="feedback-section-five bg-white pt-200 pb-95 lg-pt-100 lg-pb-40">
-                        <div className="container">
-                            <div className="title-style-three text-center" data-aos="fade-up">
-                                <div className="sc-title">Testimonials</div>
-                                <h2 className="main-title">Words from <span>Client</span>
-                                </h2>
-                            </div>
-                            {/* /.title-style-three */}
-                            <TestimonialFive/> {/* /.feedback_slider_four */}
-                        </div>
-                        <img
-                            src="images/media/img_08.jpg"
-                            alt=""
-                            className="shapes avatar-one"
-                            width={45}
-                            height={45}
-                            style={{
-                            outlineWidth: '6px'
-                        }}/>
-                        <img
-                            src="images/media/img_09.jpg"
-                            alt=""
-                            className="shapes avatar-two"
-                            width={85}
-                            height={85}
-                            style={{
-                            outlineWidth: '10px'
-                        }}/>
-                        <img
-                            src="images/media/img_10.jpg"
-                            alt=""
-                            className="shapes avatar-three"
-                            width={85}
-                            height={85}
-                            style={{
-                            outlineWidth: '10px'
-                        }}/>
-                        <img
-                            src="images/media/img_11.jpg"
-                            alt=""
-                            className="shapes avatar-four"
-                            width={50}
-                            height={50}
-                            style={{
-                            outlineWidth: '5px'
-                        }}/>
-                    </div>
-                    {/* /.feedback-section-five */}
-
-                    <div className="fancy-short-banner-five">
-                        <div className="container">
-                            <div className="bg-wrapper">
-                                <BannerFive/>
-                            </div>
-                            {/* /.bg-wrapper */}
-                        </div>
-                        {/* /.container */}
-                    </div>
-                    {/* /.fancy-short-banner-five */}
-
-                    <div className="footer-style-four space-fix-one theme-basic-footer">
+                    <div className="footer-style-one theme-basic-footer">
                         <div className="container">
                             <div className="inner-wrapper">
                                 {/* <div className="subscribe-area">
@@ -233,8 +173,10 @@ const TelegramLMS = (slug) => {
                             </div>
                             {/* /.inner-wrapper */}
                         </div>
+                        <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                        <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                     </div>
-                    {/* /.footer-style-four */}
+                    {/* /.footer-style-one */}
 
                 </div>
             }

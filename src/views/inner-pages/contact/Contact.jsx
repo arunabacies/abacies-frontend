@@ -106,7 +106,7 @@ const Contact = (slug) => {
                         <div className="container">
                             <div className="row gx-xxl-5">
                                 <div className="col-lg-6 d-flex order-lg-last">
-                                    <div className="form-style-one">
+                                    <div className="form-style-one" style={{"position": "relative"}}>
                                         <h3 className="form-title pb-40 lg-pb-20">Send Message.</h3>
                                         <ContactForm/>
                                     </div>
@@ -144,7 +144,7 @@ const Contact = (slug) => {
                 {/* </div> */}
                 {/* /.fancy-short-banner-five */}
 
-                <div className="footer-style-four space-fix-one theme-basic-footer">
+                <div className="footer-style-one theme-basic-footer">
                     <div className="container">
                         <div className="inner-wrapper">
                             {/* <div className="subscribe-area">
@@ -172,6 +172,8 @@ const Contact = (slug) => {
                         </div>
                         {/* /.inner-wrapper */}
                     </div>
+                    <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                    <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                 </div>
                 {/* /.footer-style-four */}
 

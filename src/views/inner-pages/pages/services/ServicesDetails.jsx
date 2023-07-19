@@ -280,7 +280,7 @@ const ServicesDetails = (slug) => {
                     </div>
                     {/* /.fancy-short-banner-five */}
 
-                    <div className="footer-style-four space-fix-one theme-basic-footer">
+                    <div className="footer-style-one theme-basic-footer">
                         <div className="container">
                             <div className="inner-wrapper">
                                 <div className="subscribe-area">
@@ -308,6 +308,8 @@ const ServicesDetails = (slug) => {
                             </div>
                             {/* /.inner-wrapper */}
                         </div>
+                        <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
+                        <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
                     </div>
                     {/* /.footer-style-four */}
 

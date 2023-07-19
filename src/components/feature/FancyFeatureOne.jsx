@@ -51,8 +51,8 @@ const settings4 = {
     ]
 };
 
-const FancyFeatureOne = () => {
-    const [content, setContent] = useState([])
+const FancyFeatureOne = ({ services }) => {
+    const [content, setContent] = useState(services)
     
     const getServices = () => {
         const config = {
@@ -88,21 +88,21 @@ const FancyFeatureOne = () => {
     }
 
     useEffect(() => {
-        getServices()
+        // getServices()
     }, [])
     console.log(content)
 
     return (
         <Fragment>
             <Slider className="service_slider_one" {...settings4}>
-                {content.map((val, i)=>(
+                {content && content.map((val, i)=>(
                     <div key={i} className="item">
                     <div className="block-style-one text-center margin-lr">
                         <div
-                            className="icon d-flex align-items-end justify-content-center mb-50 lg-mb-30"><img src={`images/icon/${val.post_meta['icon']}.svg`} alt="" className="m-auto"/></div>
-                        <h5 className="mb-40">{val.title}</h5>
-                        <Link to="/service-details" className="btn-two">{val.post_meta['learn_more']}
-                            <i className={val.post_meta['arrow']}/></Link>
+                            className="icon d-flex align-items-end justify-content-center mb-50 lg-mb-30"><img src={`${val.service_image.url}`} alt="" className="m-auto"/></div>
+                        <h5 className="mb-40">{val.service_name}</h5>
+                        <Link to={val.service_link.url} className="btn-two">{val.service_link.title}
+                            <i className="images/icon/icon_20.svg"/></Link>
                     </div>
                     {/* /.block-style-one */}
                 </div>

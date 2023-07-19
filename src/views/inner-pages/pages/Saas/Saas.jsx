@@ -24,9 +24,7 @@ const Saas = () => {
                 </div>
                 {/* /.theme-inner-banner */}
 
-                <div
-                    className="feedback-section-three position-relative mt-150 lg-mt-100"
-                    data-aos="fade-up">
+                <div className="feedback-section-three position-relative mt-150 lg-mt-100" data-aos="fade-up">
                     <div className="container">
                         <div className="title-style-one text-center">
                             <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
