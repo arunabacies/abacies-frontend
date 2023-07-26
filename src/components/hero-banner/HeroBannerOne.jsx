@@ -73,7 +73,7 @@ const HeroBannerOne = () => {
                         <div className="row">
                             <div className="col-lg-6 col-md-7">
                                 {/* <a href="pricing.html" className="slogan"><strong>{contentItems.post_meta['slogan_bold']}</strong> {contentItems.post_meta['slogan_text']} <i className="fas fa-chevron-right" /></a> */}
-                                <h1 className="hero-heading" style={{color: '#2f2f2f'}}>{contentItems.post_meta['hero-heading']}</h1>
+                                <h1 className="hero-heading">{contentItems.post_meta['hero-heading']}</h1>
                                 <p className="text-lg mb-60 lg-mb-40">{contentItems.post_meta['text-lg']}</p>
                                 <ul className="style-none button-group d-lg-flex align-items-center">
                                     <li className="me-4"><Link to={contentItems.post_meta['ripple-btn-1-link']} className="btn-one ripple-btn">{contentItems.post_meta['ripple-btn-1']}</Link></li>

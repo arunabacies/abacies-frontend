@@ -190,7 +190,8 @@ h4,
 h5,
 .h6,
 h6 {
-    color: var(--heading);
+    color: #2f2f2f;
+    // color: var(--heading);
     font-weight: normal;
 }
 .h1,
@@ -1016,7 +1017,7 @@ body .btn-eight:hover {
     background: var(--prime-one);
 }
 .hero-banner-one .hero-heading {
-    font-size: 82px;
+    font-size: 4rem;
     font-family: "gorditamedium";
     line-height: 1.18em;
     margin: 42px 0 55px;
