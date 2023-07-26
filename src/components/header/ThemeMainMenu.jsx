@@ -87,7 +87,7 @@ const ThemeMainMenu = () => {
                                         {menuItems.children.map((val, i) => (
                                             <li key={i}>
                                                 <Link to={val.url.replace(replace, '/')} className="dropdown-item">
-                                                    <span>{val.title}</span>
+                                                <span dangerouslySetInnerHTML={{ __html: val.title }} />
                                                 </Link>
                                             </li>
                                         ))}

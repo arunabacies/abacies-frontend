@@ -2033,6 +2033,34 @@ body .btn-eight:hover {
 .address-block-one .text-meta p a:hover {
     text-decoration: underline;
 }
+
+.address-block-two {
+    padding: 50px 70px 60px 15px;
+    width: 100%;
+}
+.address-block-two.border-right {
+    border-right: 1px solid #f9dfdf;
+}
+.address-block-two .text-meta {
+    padding-left: 40px;
+}
+.address-block-two .text-meta .title {
+    font-family: "gorditamedium";
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.address-block-two .text-meta p {
+    line-height: 1.75em;
+    margin-bottom: 0;
+}
+.address-block-two .text-meta p a {
+    font-size: 24px;
+    color: #000;
+    margin-top: 5px;
+}
+.address-block-two .text-meta p a:hover {
+    text-decoration: underline;
+}
 /*^^^^^^^^^^^^^^^^^^^^^ Footer ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .theme-basic-footer {
     position: relative;
