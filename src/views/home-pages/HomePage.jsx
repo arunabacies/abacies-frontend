@@ -20,10 +20,11 @@ import FooterFour from '../../components/footer/FooterFour';
 import FooterThree from '../../components/footer/FooterThree';
 import CopyRightFour from '../../components/footer/CopyRightFour';
 
-
 import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
+
+import FooterImages from '../../components/images/footerImg';
 
 const ToastContent = ({ message = null }) => (
     <>
@@ -421,8 +422,7 @@ const HomePage = (slug) => {
                                 </div>
                                 {/* /.inner-wrapper */}
                             </div>
-                            <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
-                            <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
+                            <FooterImages />
                         </div>
                         {/* /.footer-style-one */}
 

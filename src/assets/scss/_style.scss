@@ -5618,3 +5618,8 @@ input#files::-webkit-file-upload-button {
     justify-content: center;
     align-items: center;
 }
+
+.pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, .pageContent h6 { margin-top: 30px; margin-bottom: 10px; }
+@media screen and (min-width: 992px) {
+    .navbar .dropdown-menu .dropdown-menu { left: auto; }
+}

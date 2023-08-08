@@ -14,8 +14,8 @@ import MachineLearning from '../views/home-pages/MachineLearning';
 //All DropDown Page Routes
 
 //All About Page Routes
-import AboutUsOne from '../views/inner-pages/pages/about-us/AboutUsOne';
-import AboutUsTwo from '../views/inner-pages/pages/about-us/AboutUsTwo';
+import AboutUsOne from '../views/inner-pages/about-us/AboutUsOne';
+// import AboutUsTwo from '../views/inner-pages/pages/about-us/AboutUsTwo';
 
 //All Service Page Routes
 import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
@@ -309,17 +309,32 @@ const AppRouter = () => {
         }
         {menuItems.title === 'Products' &&
           menuItems.children && menuItems.children.map((child, idx) => 
+            <>
             <Route path={child.url.replace(replace, '/')} element={<ProductTemplate slug={child.post_id}/>} />
+            {child.children && child.children.map((child2, idx) => 
+              <Route path={child2.url.replace(replace, '/')} element={<ProductTemplate slug={child2.post_id}/>} />
+            )}
+            </>
           )
         }
         {menuItems.title === 'Solutions' &&
           menuItems.children && menuItems.children.map((child, idx) => 
+            <>
             <Route path={child.url.replace(replace, '/')} element={<SolutionTemplate slug={child.post_id}/>} />
+            {child.children && child.children.map((child2, idx) => 
+            <Route path={child2.url.replace(replace, '/')} element={<SolutionTemplate slug={child2.post_id}/>} />
+            )}
+            </>
           )
         }
         {menuItems.title === 'Services' &&
           menuItems.children && menuItems.children.map((child, idx) => 
+            <>
             <Route path={child.url.replace(replace, '/')} element={<ServiceTemplate slug={child.post_id}/>} />
+            {child.children && child.children.map((child2, idx) => 
+            <Route path={child2.url.replace(replace, '/')} element={<ServiceTemplate slug={child2.post_id}/>} />
+            )}
+            </>
           )
         }
         </>

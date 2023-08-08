@@ -10,6 +10,9 @@ import apiConfig from '../../../configs/apiConfig';
 import { toast} from 'react-hot-toast'
 import axios from "axios"
 
+import BannerImages from '../../../components/images/bannerImg';
+import FooterImages from '../../../components/images/footerImg';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -80,10 +83,25 @@ const Saas = ({slug}) => {
 
                 <div className="theme-inner-banner">
                     <InnerBanner intro={content.banner_title ? content.banner_title : content.post['post_title']} currpage={content.banner_title ? content.banner_title : content.post['post_title']}/>
-                    <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
-                    <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
+                    <BannerImages />
                 </div>
                 {/* /.theme-inner-banner */}
+
+                {content.content &&
+                <div className="feedback-section-three pageContent position-relative mt-120 lg-mt-100">
+                    <div className="container">
+                        {/* <div className="title-style-one text-center">
+                            <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
+                        </div> */}
+                        <div className="inner-content mt-90 lg-mt-60">
+                            <div className="htmlContent" style={{width: "100%"}} dangerouslySetInnerHTML={{ __html: content.content}} />
+                        </div>
+                        {/* /.slider-wrapper */}
+                    </div>
+                    {/* /.container */}
+                </div>
+                }
+                {/* /.feedback-section-three */}
 
                 <div className="feedback-section-three position-relative mt-150 lg-mt-100" data-aos="fade-up">
                     <div className="container">
@@ -133,8 +151,7 @@ const Saas = ({slug}) => {
                         </div>
                         {/* /.inner-wrapper */}
                     </div>
-                    <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
-                    <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
+                    <FooterImages />
                 </div>
                 {/* /.footer-style-four */}
 

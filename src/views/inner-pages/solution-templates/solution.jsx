@@ -18,6 +18,9 @@ import apiConfig from '../../../configs/apiConfig';
 import { toast} from 'react-hot-toast'
 import axios from "axios"
 
+import BannerImages from '../../../components/images/bannerImg';
+import FooterImages from '../../../components/images/footerImg';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -42,16 +45,12 @@ const CaseStudy = ({slug}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
     
-    // const slugValue = slug.slug.replace('/', '').replace('/', '')
-    const slugValue = slug
-
-    console.log(slugValue)
     const [content, setContent] = useState([])
 
     const getCaseStudyView = () => {
         const config = {
             method: 'get',
-            url: `${apiConfig.api.url}view/v1/post/${slugValue}`
+            url: `${apiConfig.api.url}view/v1/post/${slug}`
         }
         axios(config)
         .then(function (response) {
@@ -83,7 +82,7 @@ const CaseStudy = ({slug}) => {
     
     useEffect(() => {
         getCaseStudyView()
-    }, [content])
+    }, [slug])
     console.log(content)
 
     return (
@@ -107,12 +106,27 @@ const CaseStudy = ({slug}) => {
 
                 <div className="theme-inner-banner">
                     <InnerBanner intro={content.post['post_title']} currpage={content.post['post_title']}/>
-                    <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
-                    <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
+                    <BannerImages />
                 </div>
                 {/* /.theme-inner-banner */}
 
-                <div className="pr-details-one mt-120 lg-mt-90 mb-170 lg-mb-100">
+                {content.content &&
+                <div className="feedback-section-three pageContent position-relative mt-120 lg-mt-100">
+                    <div className="container">
+                        {/* <div className="title-style-one text-center">
+                            <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
+                        </div> */}
+                        <div className="inner-content mt-90 lg-mt-60">
+                            <div className="htmlContent" style={{width: "100%"}} dangerouslySetInnerHTML={{ __html: content.content}} />
+                        </div>
+                        {/* /.slider-wrapper */}
+                    </div>
+                    {/* /.container */}
+                </div>
+                }
+                {/* /.feedback-section-three */}
+
+                <div className="pr-details-one mt-120 lg-mt-90">
                     <div className="container">
                         <div className="wrapper ps-xxl-4 pe-xxl-4 ms-xxl-5 me-xxl-5">
                             <div className="row gx-xxl-5">
@@ -228,11 +242,10 @@ const CaseStudy = ({slug}) => {
                         </div>
                         {/* /.inner-wrapper */}
                     </div>
-                    <img src="images/shape/shape_44.svg" alt="" className="shapes shape-one"/>
-                    <img src="images/shape/shape_45.svg" alt="" className="shapes shape-two"/>
+                    <FooterImages />
                 </div>
                 {/* /.footer-style-one */}
-
+                
             </div>
         }
         </Fragment>

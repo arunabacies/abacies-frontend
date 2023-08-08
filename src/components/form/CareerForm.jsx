@@ -110,7 +110,7 @@ const CareerForm = () => {
                 toast.error(
                  <ToastContent message="Error!. Please try again later." />,
                  {duration:3000}             
-               )
+                )
              } setLoading(false)
             })
         } else {

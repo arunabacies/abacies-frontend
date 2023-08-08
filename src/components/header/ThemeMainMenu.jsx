@@ -85,10 +85,21 @@ const ThemeMainMenu = () => {
                                 <a className="nav-link dropdown-toggle" href="#" role="button">{menuItems.title}</a>
                                     <ul className="dropdown-menu">
                                         {menuItems.children.map((val, i) => (
-                                            <li key={i}>
-                                                <Link to={val.url.replace(replace, '/')} className="dropdown-item">
+                                            <li key={i} className={val.children && val.children.length > 0 ? 'dropdown-submenu dropdown' : ''}>
+                                                <Link to={val.url.replace(replace, '/')} className={val.children && val.children.length > 0 ? 'dropdown-item dropdown-toggle' : 'dropdown-item'}>
                                                     <span>{val.title}</span>
                                                 </Link>
+                                                {val.children && val.children.length > 0 &&
+                                                <ul className="dropdown-menu">
+                                                {val.children.map((val2, j) => (
+                                                    <li key={j}>
+                                                        <Link to={val2.url.replace(replace, '/')} className="dropdown-item">
+                                                            <span>{val2.title}</span>
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                                </ul>
+                                                }
                                             </li>
                                         ))}
                                     </ul>
