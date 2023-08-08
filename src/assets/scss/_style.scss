@@ -190,7 +190,8 @@ h4,
 h5,
 .h6,
 h6 {
-    color: var(--heading);
+    color: #2f2f2f;
+    // color: var(--heading);
     font-weight: normal;
 }
 .h1,
@@ -1016,7 +1017,7 @@ body .btn-eight:hover {
     background: var(--prime-one);
 }
 .hero-banner-one .hero-heading {
-    font-size: 82px;
+    font-size: 4rem;
     font-family: "gorditamedium";
     line-height: 1.18em;
     margin: 42px 0 55px;
@@ -2030,6 +2031,34 @@ body .btn-eight:hover {
     margin-top: 5px;
 }
 .address-block-one .text-meta p a:hover {
+    text-decoration: underline;
+}
+
+.address-block-two {
+    padding: 50px 70px 60px 15px;
+    width: 100%;
+}
+.address-block-two.border-right {
+    border-right: 1px solid #f9dfdf;
+}
+.address-block-two .text-meta {
+    padding-left: 40px;
+}
+.address-block-two .text-meta .title {
+    font-family: "gorditamedium";
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.address-block-two .text-meta p {
+    line-height: 1.75em;
+    margin-bottom: 0;
+}
+.address-block-two .text-meta p a {
+    font-size: 24px;
+    color: #000;
+    margin-top: 5px;
+}
+.address-block-two .text-meta p a:hover {
     text-decoration: underline;
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Footer ^^^^^^^^^^^^^^^^^^^^^^^^*/

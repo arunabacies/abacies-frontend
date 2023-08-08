@@ -4,20 +4,21 @@ import {Link} from 'react-router-dom';
 
 import AboutThree from '../../components/about/AboutThree';
 import AdressOne from '../../components/adress/AdressOne';
-import Info from '../../components/adress/Info';
-import Blog from '../../components/blog/Blog';
-import BrandOne from '../../components/brand/BrandOne';
+import AdressTwo from '../../components/adress/AdressTwo';
+// import Info from '../../components/adress/Info';
+// import Blog from '../../components/blog/Blog';
+// import BrandOne from '../../components/brand/BrandOne';
 import CounterThree from '../../components/counter/CounterThree'
 import FancyFeatureOne from '../../components/feature/FancyFeatureOne'
 import FancyFeatureThree from '../../components/feature/FancyFeatureThree'
 import TopNavOne from '../../components/header/TopNavOne'
 import HeroBannerOne from '../../components/hero-banner/HeroBannerOne'
-import PortfolioGallery from '../../components/portfolio/PortfolioGallery'
-import PricingTab from '../../components/pricing/pricetab/PricingTab';
+// import PortfolioGallery from '../../components/portfolio/PortfolioGallery'
+// import PricingTab from '../../components/pricing/pricetab/PricingTab';
 import TestimonialOne from '../../components/testimonial/TestimonialOne';
-import FooterTwo from '../../components/footer/FooterTwo';
+//import FooterTwo from '../../components/footer/FooterTwo';
 import FooterFour from '../../components/footer/FooterFour';
-import FooterThree from '../../components/footer/FooterThree';
+//import FooterThree from '../../components/footer/FooterThree';
 import CopyRightFour from '../../components/footer/CopyRightFour';
 
 import apiConfig from '../../configs/apiConfig'
@@ -382,6 +383,12 @@ const HomePage = (slug) => {
                                             <AdressOne 
                                             address_title={content.post_meta['address-title-h4']} 
                                             address_p_tag={content.post_meta['address-p-tag']} />
+                                        </div>
+                                        <div className="col-md-6 d-flex m-auto">
+                                            <AdressTwo 
+                                            contact_title={content.post_meta['contact-title']} 
+                                            contact_p_tag={content.post_meta['contact-p-tag']} 
+                                            contact_num={content.post_meta['contact-num']}/>
                                         </div>
                                         {/* <div className="col-md-6 d-flex">
                                             <Info 
