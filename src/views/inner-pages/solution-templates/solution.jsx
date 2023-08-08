@@ -135,7 +135,7 @@ const CaseStudy = ({slug}) => {
                                         <div className="upper-title">{content.sub_title}</div>
                                         <h2 className="main-title">{content.main_title}</h2>
                                     </div>
-                                    <div className="text-wrapper pt-30 md-pt-20">
+                                    <div className="text-wrapper pageContent pt-30 md-pt-20">
                                         <div className="htmlContent" style={{width: "100%"}} dangerouslySetInnerHTML={{ __html: content.main_content}} />
                                     </div>
                                 </div>
