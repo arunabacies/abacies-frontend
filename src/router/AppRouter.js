@@ -54,6 +54,7 @@ import WhitePaper from '../views/inner-pages/portfolio/WhitePaper';
 import ProductTemplate from '../views/inner-pages/product-templates/product';
 import ServiceTemplate from '../views/inner-pages/service-templates/service';
 import SolutionTemplate from '../views/inner-pages/solution-templates/solution';
+import CaseStudies from '../views/inner-pages/solution-templates/caseStudy';
 
 // All Blog Page Routes
 import GridLayout from '../views/inner-pages/blog/GridLayout';
@@ -320,7 +321,12 @@ const AppRouter = () => {
         {menuItems.title === 'Solutions' &&
           menuItems.children && menuItems.children.map((child, idx) => 
             <>
+            {child.title === 'Case Studies' && 
+            <Route path={child.url.replace(replace, '/')} element={<CaseStudies menuItems={child.children} slug={child.post_id}/>} />
+            }
+            {child.title !== 'Case Studies' && 
             <Route path={child.url.replace(replace, '/')} element={<SolutionTemplate slug={child.post_id}/>} />
+            }
             {child.children && child.children.map((child2, idx) => 
             <Route path={child2.url.replace(replace, '/')} element={<SolutionTemplate slug={child2.post_id}/>} />
             )}

@@ -5649,6 +5649,10 @@ input#files::-webkit-file-upload-button {
 }
 
 .pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, .pageContent h6 { margin-top: 30px; margin-bottom: 10px; }
-@media screen and (min-width: 992px) {
+.pricing-table-area-two .pr-table-wrapper { background-color: #eee; }
+.pricing-table-area-two .pr-table-wrapper .pack-name { color: #555555; }
+.pricing-table-area-two .pr-table-wrapper.active .pack-name { color: #ffffff; }
+
+/*@media screen and (min-width: 992px) {
     .navbar .dropdown-menu .dropdown-menu { left: auto; }
-}
+}*/

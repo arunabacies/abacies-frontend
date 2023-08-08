@@ -49,10 +49,11 @@ const ServiceContent = [
     }
 ]
 
-const FancyFeatureFour = () => {
+const FancyFeatureFour = ({content}) => {
+    const replace = 'https://abacies.bettertomorrow.green/'
     return (
         <Fragment>
-        {ServiceContent.map((val, i)=>(
+        {/*ServiceContent.map((val, i)=>(
             <div
             key={i}
             className={`${val.col} mt-40 d-flex`}
@@ -66,7 +67,22 @@ const FancyFeatureFour = () => {
                 <p>{val.desc}</p>
                 <Link to="/service-one" className="more-btn"><img src={`images/icon/${val.arrow}.svg`} alt="" className="tran3s"/></Link>
             </div>
-            {/* /.block-style-four */}
+        </div>
+       ))*/}
+       {content && content.map((val, i)=>(
+            <div
+            key={i}
+            className={`col-lg-4 col-sm-6 mt-40 d-flex`}
+            data-aos='fade-up'
+            data-aos-delay={100 * i + 1}>
+            <div className="block-style-four">
+                {/* <div className="icon d-flex align-items-end justify-content-center"><img src={`images/icon/${val.icon}.svg`} alt=""/></div> */}
+                <Link to={val.url.replace(replace, '/')}>
+                    <h5>{val.title}</h5>
+                </Link>
+                {/* <p>{val.desc}</p> */}
+                <Link to={val.url.replace(replace, '/')} className="more-btn"><img src={`images/icon/${val.arrow}.svg`} alt="" className="tran3s"/></Link>
+            </div>
         </div>
        ))}
         </Fragment>
