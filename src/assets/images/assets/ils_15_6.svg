@@ -1,19 +1,25 @@
 <svg width="113" height="82" viewBox="0 0 113 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.973633 33.0823L56.9476 0.729736L112.922 33.0475L56.9476 65.4261L0.973633 33.0823Z" fill="url(#paint0_linear_739_3)"/>
-<path d="M0.973633 33.0823V49.2194L56.9476 81.5632V65.4261L0.973633 33.0823Z" fill="url(#paint1_linear_739_3)"/>
-<path d="M56.9473 65.426V81.5631L112.921 49.1844V33.0474L56.9473 65.426Z" fill="url(#paint2_linear_739_3)"/>
+<g clip-path="url(#clip0_61_118)">
+<path d="M0.973633 33.0821L56.9476 0.729492L112.922 33.0473L56.9476 65.4259L0.973633 33.0821Z" fill="url(#paint0_linear_61_118)"/>
+<path d="M0.973633 33.0825V49.2196L56.9476 81.5634V65.4263L0.973633 33.0825Z" fill="url(#paint1_linear_61_118)"/>
+<path d="M56.9473 65.426V81.5631L112.921 49.1844V33.0474L56.9473 65.426Z" fill="url(#paint2_linear_61_118)"/>
+</g>
 <defs>
-<linearGradient id="paint0_linear_739_3" x1="0.971024" y1="33.0796" x2="112.919" y2="33.0796" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F22AFF"/>
-<stop offset="1" stop-color="#6C00E9"/>
+<linearGradient id="paint0_linear_61_118" x1="0.971024" y1="33.0794" x2="112.919" y2="33.0794" gradientUnits="userSpaceOnUse">
+<stop stop-color="#848B84"/>
+<stop offset="1" stop-color="#535453"/>
 </linearGradient>
-<linearGradient id="paint1_linear_739_3" x1="0.971024" y1="57.3231" x2="56.946" y2="57.3231" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E9F1FF"/>
+<linearGradient id="paint1_linear_61_118" x1="0.971024" y1="57.3233" x2="56.946" y2="57.3233" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE9E9"/>
+<stop offset="1" stop-color="#FFD1D2"/>
+</linearGradient>
+<linearGradient id="paint2_linear_61_118" x1="56.9457" y1="57.3058" x2="112.919" y2="57.3058" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE9E9"/>
+<stop offset="0.927083" stop-color="#FFD7D8"/>
 <stop offset="1" stop-color="#D4E0FF"/>
 </linearGradient>
-<linearGradient id="paint2_linear_739_3" x1="56.9457" y1="57.3058" x2="112.919" y2="57.3058" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E9F1FF"/>
-<stop offset="1" stop-color="#D4E0FF"/>
-</linearGradient>
+<clipPath id="clip0_61_118">
+<rect width="113" height="82" fill="white"/>
+</clipPath>
 </defs>
 </svg>

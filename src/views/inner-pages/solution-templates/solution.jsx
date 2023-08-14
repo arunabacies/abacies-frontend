@@ -41,7 +41,7 @@ const ToastContent = ({ message = null }) => (
 const images = ["/images/gallery/img_21.jpg", "/images/gallery/img_19.jpg", "/images/gallery/img_18.jpg",];
 
 const CaseStudy = ({slug}) => {
-    console.log(slug)
+    //console.log(slug)
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
     
@@ -54,7 +54,7 @@ const CaseStudy = ({slug}) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -65,7 +65,7 @@ const CaseStudy = ({slug}) => {
             }
         })
         .catch(error => {
-            console.log(error)
+            //console.log(error)
             if (error && error.status === 401) {
             toast.error(
                 <ToastContent message={error.message} />,
@@ -83,7 +83,7 @@ const CaseStudy = ({slug}) => {
     useEffect(() => {
         getCaseStudyView()
     }, [slug])
-    console.log(content)
+    //console.log(content)
 
     return (
         <Fragment>
@@ -126,6 +126,7 @@ const CaseStudy = ({slug}) => {
                 }
                 {/* /.feedback-section-three */}
 
+                {(content.sub_title || content.main_title) &&
                 <div className="pr-details-one mt-120 lg-mt-90">
                     <div className="container">
                         <div className="wrapper ps-xxl-4 pe-xxl-4 ms-xxl-5 me-xxl-5">
@@ -212,6 +213,7 @@ const CaseStudy = ({slug}) => {
                         {/* /.wrapper */}
                     </div>
                 </div>
+                }
                 {/* /.pr-details-one */}
 
                 <div className="footer-style-one theme-basic-footer">

@@ -2,7 +2,11 @@ import React,{Fragment} from 'react'
 import { Link } from 'react-router-dom'
  
 const AboutFour = (postMeta) => {
-    console.log(postMeta)
+
+    const handleExternalLink = (lnk) => {
+        window.location.href = lnk
+    }
+    
     return (
         <Fragment>
             <div className="block-style-two" data-aos="fade-left">
@@ -19,7 +23,7 @@ const AboutFour = (postMeta) => {
                     <li>{postMeta.post_meta['list-item-3']}</li>
                     <li>{postMeta.post_meta['list-item-4']}</li>
                 </ul>
-                <Link to={postMeta.post_meta['btn-one-link']} className="btn-one mt-30">{postMeta.post_meta['btn-one-link-content']}</Link>
+                <Link onClick={() => handleExternalLink(postMeta.post_meta['btn-one-link'])} to={postMeta.post_meta['btn-one-link']} className="btn-one mt-30">{postMeta.post_meta['btn-one-link-content']}</Link>
             </div>
         </Fragment>
     )

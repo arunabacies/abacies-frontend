@@ -84,12 +84,12 @@ const CareerForm = () => {
             }
             axios(config)
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 if (response.status === 200) {
                     reset()
                     setUploadFile('')
                     toast.success(
-                        <ToastContent message="Successfully Submitted" />,
+                        <ToastContent message="Successfully submitted!. Thanks for contacting us" />,
                         {duration:5000}             
                     )
                 } else {
@@ -100,7 +100,7 @@ const CareerForm = () => {
                 } setLoading(false)
             })
             .catch(error => {
-            console.log(error)
+            //console.log(error)
              if (error && error.message) {
                 toast.error(
                 <ToastContent message={error.message} />,
@@ -114,7 +114,7 @@ const CareerForm = () => {
              } setLoading(false)
             })
         } else {
-            console.log("errrr")
+            //console.log("errrr")
             toast.error(
                 <ToastContent message="Please Upload a file to submit" />,
                 { duration:2000 }
@@ -124,19 +124,19 @@ const CareerForm = () => {
 
     function onSubmit(data, e) {
         //display form data on success
-        console.log("Message submited: " + JSON.stringify(data));
+        //console.log("Message submited: " + JSON.stringify(data));
         sendMessage(data)
         // e.target.reset();
     }
 
     const handleMessage = (e) => {
-        console.log("asdasd")
-        console.log(e)
+        //console.log("asdasd")
+        //console.log(e)
         setValue("sendMessage", e.target.value)
     }
 
     const handleFile = (e) => {
-        console.log(e)
+        //console.log(e)
         setUploadFile(e.target.files[0])
     }
 

@@ -44,7 +44,7 @@ const ToastContent = ({ message = null }) => (
 )
  
 const HomePage = (slug) => {
-    console.log(slug)
+    //console.log(slug)
     const [content, setContent] = useState([])
     const slugValue = 'home'
     // if(slug === '/'){
@@ -57,7 +57,7 @@ const HomePage = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            // //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -68,7 +68,7 @@ const HomePage = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+        //   //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -86,13 +86,13 @@ const HomePage = (slug) => {
     useEffect(() => {
         getHomePageView()
     }, [])
-    console.log(content)
-    // console.log(content.post_meta['contentTitle'][0])
-    // console.log(content.post_meta['banner'][0])
+    // //console.log(content)
+    // //console.log(content.post_meta['contentTitle'][0])
+    // //console.log(content.post_meta['banner'][0])
 
     const handleExternalLink = (lnk) => {
         window.location.href = lnk
-    };
+    }
 
     return (
         <Fragment>
@@ -117,7 +117,7 @@ const HomePage = (slug) => {
                                             <h2 className="main-title">{content.post_meta['sc-main-title']}</h2>
                                         </div>
                                         <p className="sub-heading mt-25 mb-50 md-mb-20">{content.post_meta['sc-sub-heading']}</p>
-                                        <div className="btn-three">{content.post_meta['sc-btn-three']}<Link to={content.post_meta['sc-btn-three-link']} style={{marginLeft: '10px'}}>{content.post_meta['sc-btn-three-link-content']} <i className="fas fa-chevron-right"/></Link>
+                                        <div className="btn-three">{content.post_meta['sc-btn-three']}<Link onClick={() => handleExternalLink(content.post_meta['sc-btn-three-link'])} to={content.post_meta['sc-btn-three-link']} style={{marginLeft: '10px'}}>{content.post_meta['sc-btn-three-link-content']} <i className="fas fa-chevron-right"/></Link>
                                         </div>
                                     </div>
                                 </div>

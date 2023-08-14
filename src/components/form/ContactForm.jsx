@@ -66,11 +66,11 @@ const ContactForm = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 reset()
                 toast.success(
-                <ToastContent message="Successfully Submitted" />,
+                <ToastContent message="Successfully submitted!. Thanks for contacting us" />,
                 {duration:5000}             
                 )
             } else {
@@ -81,7 +81,7 @@ const ContactForm = () => {
             } setLoading(false)
         })
         .catch(error => {
-            console.log(error)
+            //console.log(error)
             if (error && error.message) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -99,14 +99,14 @@ const ContactForm = () => {
     function onSubmit(data, e) {
         //display form data on success
         setLoading(true)
-        console.log("Message submited: " + JSON.stringify(data));
+        //console.log("Message submited: " + JSON.stringify(data));
         sendMessage(data)
         // e.target.reset();
     }
 
     const handleMessage = (e) => {
-        console.log("asdasd")
-        console.log(e)
+        //console.log("asdasd")
+        //console.log(e)
         setValue("sendMessage", e.target.value)
     }
 

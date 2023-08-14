@@ -43,7 +43,7 @@ const ToastContent = ({ message = null }) => (
 const images = ["/images/gallery/img_21.jpg", "/images/gallery/img_19.jpg", "/images/gallery/img_18.jpg",];
 
 const WhitePaper = ({slug, menuItems}) => {
-    console.log(slug)
+    //console.log(slug)
     const [isOpen, setIsOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
     
@@ -57,7 +57,7 @@ const WhitePaper = ({slug, menuItems}) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -68,7 +68,7 @@ const WhitePaper = ({slug, menuItems}) => {
             }
         })
         .catch(error => {
-            console.log(error)
+            //console.log(error)
             if (error && error.status === 401) {
             toast.error(
                 <ToastContent message={error.message} />,
@@ -86,7 +86,7 @@ const WhitePaper = ({slug, menuItems}) => {
     useEffect(() => {
         getWhitePaperView()
     }, [slug, menuItems])
-    console.log(content)
+    //console.log(content)
 
     return (
         <Fragment>

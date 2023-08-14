@@ -18,7 +18,7 @@ import AboutUsOne from '../views/inner-pages/about-us/AboutUsOne';
 // import AboutUsTwo from '../views/inner-pages/pages/about-us/AboutUsTwo';
 
 //All Service Page Routes
-// import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
+import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
 import Consultation from '../views/inner-pages/pages/services/Consultation';
 import TelegramLMS from '../views/inner-pages/pages/services/TelegramLMS';
 import BetterTomorrow from '../views/inner-pages/pages/services/BetterTomorrow';
@@ -117,7 +117,7 @@ const AppRouter = () => {
     }
     axios(config)
     .then(function (response) {
-        console.log(response)
+        //console.log(response)
         if (response.status === 200) {
             setMenus(response.data)
         } else {
@@ -128,7 +128,7 @@ const AppRouter = () => {
         }
     })
     .catch(error => {
-      console.log(error)
+      //console.log(error)
       if (error && error.message) {
         toast.error(
           <ToastContent message={error.message} />,
@@ -150,7 +150,7 @@ const AppRouter = () => {
     }
     axios(config)
     .then(function (response) {
-        console.log(response)
+        //console.log(response)
         if (response.status === 200) {
             setProduct(response.data)
         } else {
@@ -161,7 +161,7 @@ const AppRouter = () => {
         }
     })
     .catch(error => {
-      console.log(error)
+      //console.log(error)
       if (error && error.message) {
         toast.error(
           <ToastContent message={error.message} />,
@@ -183,7 +183,7 @@ const AppRouter = () => {
     }
     axios(config)
     .then(function (response) {
-        console.log(response)
+        //console.log(response)
         if (response.status === 200) {
             setSolutions(response.data)
         } else {
@@ -194,7 +194,7 @@ const AppRouter = () => {
         }
     })
     .catch(error => {
-      console.log(error)
+      //console.log(error)
       if (error && error.message) {
         toast.error(
           <ToastContent message={error.message} />,
@@ -216,7 +216,7 @@ const AppRouter = () => {
     }
     axios(config)
     .then(function (response) {
-      console.log(response)
+      //console.log(response)
       if (response.status === 200) {
           setServices(response.data)
       } else {
@@ -227,7 +227,7 @@ const AppRouter = () => {
       }
     })
     .catch(error => {
-      console.log(error)
+      //console.log(error)
       if (error && error.message) {
         toast.error(
           <ToastContent message={error.message} />,
@@ -246,8 +246,8 @@ const AppRouter = () => {
       getMenus()
       // getProducts()
   }, [])
-  console.log(menus)
-  console.log(replace)
+  //console.log(menus)
+  //console.log(replace)
 
   return (
     <Fragment>
@@ -340,14 +340,18 @@ const AppRouter = () => {
           )
         }
         {menuItems.title === 'Services' &&
-          menuItems.children && menuItems.children.map((child, idx) => 
+          <>
+            <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne menuItems={menuItems.children} slug={menuItems.url.replace(replace, '/')}/>} />} />
+            {menuItems.children && menuItems.children.map((child, idx) => 
             <>
             <Route path={child.url.replace(replace, '/')} element={<ServiceTemplate slug={child.post_id}/>} />
             {child.children && child.children.map((child2, idx) => 
             <Route path={child2.url.replace(replace, '/')} element={<ServiceTemplate slug={child2.post_id}/>} />
             )}
             </>
+            )}
           )
+          </>
         }
         {menuItems.title !== 'Careers' && menuItems.title !== 'Services' && menuItems.title !== 'Solutions' && menuItems.title !== 'Products' && menuItems.title !== 'Contact Us' && menuItems.title !== 'About Us' && menuItems.title !== 'Home' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Default slug={menuItems.url.replace(replace, '/')}/>} />

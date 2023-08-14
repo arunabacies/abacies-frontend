@@ -34,7 +34,7 @@ const ThemeMainMenu = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setMenus(response.data)
             } else {
@@ -45,7 +45,7 @@ const ThemeMainMenu = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -63,8 +63,14 @@ const ThemeMainMenu = () => {
     useEffect(() => {
         getMenus()
     }, [])
-    console.log(menus)
-    console.log(replace)
+    //console.log(menus)
+    //console.log(replace)
+
+    function htmlDecode(input) {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+    }
+
     return (
         <Fragment>
             <ul className="navbar-nav">
@@ -77,17 +83,17 @@ const ThemeMainMenu = () => {
                     <>
                         {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 && !menuItems.classes.includes("hidden_menu") &&
                         <li className="nav-item">
-                            <Link className="nav-link" to={menuItems.url.replace(replace, '/')} role="button">{menuItems.title}</Link>
+                            <Link className="nav-link" to={menuItems.url.replace(replace, '/')} role="button">{htmlDecode(menuItems.title)}</Link>
                         </li>
                         }
                         {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 && !menuItems.classes.includes("hidden_menu") &&
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button">{menuItems.title}</a>
+                                <Link className="nav-link dropdown-toggle" to={menuItems.url ? menuItems.url.replace(replace, '/') : '#'} role="button">{htmlDecode(menuItems.title)}</Link>
                                     <ul className="dropdown-menu">
                                         {menuItems.children.map((val, i) => (
                                             <li key={i}> {/* className={val.children && val.children.length > 0 ? 'dropdown-submenu dropdown' : ''} */}
                                                 <Link to={val.url.replace(replace, '/')} className={val.children && val.children.length > 0 ? 'dropdown-item dropdown-toggle' : 'dropdown-item'}>
-                                                    <span>{val.title}</span>
+                                                    <span>{htmlDecode(val.title)}</span>
                                                 </Link>
                                                 {/*val.children && val.children.length > 0 &&
                                                 <ul className="dropdown-menu">

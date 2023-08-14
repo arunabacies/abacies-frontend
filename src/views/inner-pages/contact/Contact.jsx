@@ -36,10 +36,10 @@ const ToastContent = ({ message = null }) => (
 
 const Contact = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
-    console.log(slugValue)
+    //console.log(slugValue)
     const [content, setContent] = useState([])
     const  slugname = useParams();
-    console.log(slugname)
+    //console.log(slugname)
 
     const getContactUsView = () => {
         const config = {
@@ -48,7 +48,7 @@ const Contact = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -59,7 +59,7 @@ const Contact = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -78,7 +78,7 @@ const Contact = (slug) => {
         getContactUsView()
     }, [])
 
-    console.log(content)
+    //console.log(content)
     return (
         <Fragment>
              {content && Object.keys(content).length !== 0 &&

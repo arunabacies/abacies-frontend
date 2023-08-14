@@ -2,7 +2,6 @@ import React, {Fragment} from 'react'
 import { Link } from 'react-router-dom'
 
 const AboutThree = (postMeta) => {
-    console.log(postMeta)
 
     const handleExternalLink = (lnk) => {
         window.location.href = lnk

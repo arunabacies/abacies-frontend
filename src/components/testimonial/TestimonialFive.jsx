@@ -62,7 +62,7 @@ const TestimonialFive = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -73,7 +73,7 @@ const TestimonialFive = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -91,7 +91,7 @@ const TestimonialFive = () => {
     useEffect(() => {
         getCounter()
     }, [])
-    console.log(content)
+    //console.log(content)
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
@@ -103,8 +103,8 @@ const TestimonialFive = () => {
                 <div key={i} className="item">
                     <div className="row">
                         <div className="col-xxl-9 col-xl-10 col-lg-8 m-auto">
-                            <div className="feedback-block-four mb-80 ms-xxl-4 me-xxl-4">
-                                <img src={val.image_1} alt="avatar" className="m-auto"/>
+                            <div className="feedback-block-four mb-60 ms-xxl-4 me-xxl-4">
+                                {val.image_1 && <img src={val.image_1} alt="avatar" className="m-auto"/>}
                                 <p style={{fontSize: '20px'}}>{removeHtmlTags(val.content)}</p>
                                 <div className="cp-info">
                                     <h6>{val.post_meta['author_name']}</h6>

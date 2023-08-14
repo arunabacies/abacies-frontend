@@ -16,6 +16,11 @@ import apiConfig from '../../../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
 
+import BannerImages from '../../../../components/images/bannerImg';
+import FancyFeatImages from '../../../../components/images/fancyFeatImg';
+// import TestimonialImages from '../../../../components/images/testimonialImg';
+import FooterImages from '../../../../components/images/footerImg';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -34,7 +39,7 @@ const ToastContent = ({ message = null }) => (
 
 const ServicesOne = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
-    console.log(slugValue)
+    //console.log(slugValue)
     const [content, setContent] = useState([])
     const getServicesOneView = () => {
         const config = {
@@ -43,7 +48,7 @@ const ServicesOne = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -54,7 +59,7 @@ const ServicesOne = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -72,7 +77,7 @@ const ServicesOne = (slug) => {
     useEffect(() => {
         getServicesOneView()
     }, [])
-    console.log(content)
+    //console.log(content)
     
     return (
         <Fragment>
@@ -88,9 +93,8 @@ const ServicesOne = (slug) => {
                     {/* theme-menu-four */}
 
                     <div className="theme-inner-banner">
-                        <InnerBanner intro={content.title} currpage={content.title}/>
-                        <img src="images/shape/shape_38.svg" alt="" className="shapes shape-one"/>
-                        <img src="images/shape/shape_39.svg" alt="" className="shapes shape-two"/>
+                        <InnerBanner intro={content.banner_title ? content.banner_title : content.title} currpage={content.banner_title ? content.banner_title : content.title}/>
+                        <BannerImages />
                     </div>
                     {/* /.theme-inner-banner */}
 
@@ -101,51 +105,19 @@ const ServicesOne = (slug) => {
                     </div>
                     {/* /.fancy-feature-twentyFour */}
 
-                    <div className="fancy-feature-nineteen position-relative pt-160 lg-pt-100">
+                    {/* <div className="fancy-feature-nineteen position-relative pt-160 lg-pt-100">
                         <div className="container">
                             <div className="row">
                                 <div className="col-xxl-5 col-lg-6 col-md-7">
                                     <FancyFeatureNineteen/> 
-                                    {/* /.block-style-thirteen */}
                                 </div>
                             </div>
                         </div>
-                        {/* /.container */}
-                        <div className="illustration-holder" data-aos="fade-left">
-                            <img src="images/assets/ils_15.svg" alt="" className="w-100 main-illustration"/>
-                            <img src="images/assets/ils_15_1.svg" alt="" className="shapes shape-one"/>
-                            <img src="images/assets/ils_15_2.svg" alt="" className="shapes shape-two"/>
-                            <img src="images/assets/ils_15_3.svg" alt="" className="shapes shape-three"/>
-                            <img src="images/assets/ils_15_4.svg" alt="" className="shapes shape-four"/>
-                            <img
-                                src="images/assets/ils_15_5.svg"
-                                alt=""
-                                className="shapes shape-five"
-                                data-aos="fade-down"
-                                data-aos-delay={200}
-                                data-aos-duration={2000}/>
-                            <img
-                                src="images/assets/ils_15_6.svg"
-                                alt=""
-                                className="shapes shape-six"
-                                data-aos="fade-down"
-                                data-aos-delay={100}
-                                data-aos-duration={2000}/>
-                            <img
-                                src="images/assets/ils_15_7.svg"
-                                alt=""
-                                className="shapes shape-seven"
-                                data-aos="fade-down"
-                                data-aos-duration={2000}/>
-                        </div>
-                        {/* /.illustration-holder */}
-                        <div className="shapes oval-one"/>
-                        <div className="shapes oval-two"/>
-                        <img src="images/shape/shape_47.svg" alt="" className="shapes bg-shape-two"/>
-                    </div>
+                        <FancyFeatImages />
+                    </div> */}
                     {/* /.fancy-feature-nineteen */}
 
-                    <div className="feedback-section-five bg-white pt-200 pb-95 lg-pt-100 lg-pb-40">
+                    <div className="feedback-section-five bg-white pt-100 pb-75 lg-pt-100 lg-pb-40">
                         <div className="container">
                             <div className="title-style-three text-center" data-aos="fade-up">
                                 <div className="sc-title">Testimonials</div>
@@ -155,86 +127,42 @@ const ServicesOne = (slug) => {
                             {/* /.title-style-three */}
                             <TestimonialFive/> {/* /.feedback_slider_four */}
                         </div>
-                        <img
-                            src="images/media/img_08.jpg"
-                            alt=""
-                            className="shapes avatar-one"
-                            width={45}
-                            height={45}
-                            style={{
-                            outlineWidth: '6px'
-                        }}/>
-                        <img
-                            src="images/media/img_09.jpg"
-                            alt=""
-                            className="shapes avatar-two"
-                            width={85}
-                            height={85}
-                            style={{
-                            outlineWidth: '10px'
-                        }}/>
-                        <img
-                            src="images/media/img_10.jpg"
-                            alt=""
-                            className="shapes avatar-three"
-                            width={85}
-                            height={85}
-                            style={{
-                            outlineWidth: '10px'
-                        }}/>
-                        <img
-                            src="images/media/img_11.jpg"
-                            alt=""
-                            className="shapes avatar-four"
-                            width={50}
-                            height={50}
-                            style={{
-                            outlineWidth: '5px'
-                        }}/>
+                        {/* <TestimonialImages /> */}
                     </div>
                     {/* /.feedback-section-five */}
 
-                    <div className="fancy-short-banner-five">
-                        <div className="container">
-                            <div className="bg-wrapper">
-                                <BannerFive/>
-                            </div>
-                            {/* /.bg-wrapper */}
-                        </div>
-                        {/* /.container */}
-                    </div>
-                    {/* /.fancy-short-banner-five */}
-
-                    <div className="footer-style-four space-fix-one theme-basic-footer">
-                        <div className="container">
-                            <div className="inner-wrapper">
-                                {/* <div className="subscribe-area">
-                                    <div className="row align-items-center">
-                                        <div className="col-md-6">
-                                            <div className="title-style-four sm-pb-20">
-                                                <h4 className="main-title">Join Our <span>Newsletter</span> &amp; Get updated.</h4>
-                                            </div> */}
-                                            {/* /.title-style-four */}
-                                        {/* </div> */}
-                                        {/* <div className="col-md-6">
-                                            <div className="subscribe-form">
-                                            <NewsLetterForm />
-                                                <p>We only send interesting and relevant emails.</p>
-                                            </div> */}
-                                            {/* /.subscribe-form */}
-                                        {/* </div> */}
-                                    {/* </div>
-                                </div> */}
-                                {/* /.subscribe-area */}
-                                <FooterFour />
-                                <div className="bottom-footer">
-                                    <CopyRightFour />
+                    <div className="footer-style-one theme-basic-footer">
+                    <div className="container">
+                        <div className="inner-wrapper">
+                            {/*<div className="subscribe-area">
+                                <div className="row align-items-center">
+                                    <div className="col-md-6">
+                                        <div className="title-style-four sm-pb-20">
+                                            <h4 className="main-title">Join Our <span>Newsletter</span> &amp; Get updated.</h4>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="subscribe-form">
+                                            <form action="#">
+                                                <input type="email" placeholder="Enter your email"/>
+                                                <button className="ripple-btn tran3s">Subscribe</button>
+                                            </form>
+                                            <p>We only send interesting and relevant emails.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            {/* /.inner-wrapper */}
+                            {/* /.subscribe-area */}
+                            <FooterFour />
+                            <div className="bottom-footer">
+                                <CopyRightFour />
+                            </div>
                         </div>
+                        {/* /.inner-wrapper */}
                     </div>
-                    {/* /.footer-style-four */}
+                    <FooterImages />
+                </div>
+                {/* /.footer-style-four */}
 
                 </div>
             }

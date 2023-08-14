@@ -34,7 +34,7 @@ const ToastContent = ({ message = null }) => (
 
 const IntegrationsAutomations = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
-    console.log(slugValue)
+    //console.log(slugValue)
     const [content, setContent] = useState([])
     const getIntegrationsAutomationsView = () => {
         const config = {
@@ -43,7 +43,7 @@ const IntegrationsAutomations = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -54,7 +54,7 @@ const IntegrationsAutomations = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -72,7 +72,7 @@ const IntegrationsAutomations = (slug) => {
     useEffect(() => {
         getIntegrationsAutomationsView()
     }, [])
-    console.log(content)
+    //console.log(content)
     
     return (
         <Fragment>

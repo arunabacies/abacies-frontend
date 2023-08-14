@@ -21,7 +21,7 @@ const BlogDetailsForm = () => {
 
     function onSubmit(data, e) {
         //display form data on success
-        console.log("Message submited: " + JSON.stringify(data));
+        //console.log("Message submited: " + JSON.stringify(data));
         e.target.reset();
     }
 

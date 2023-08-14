@@ -44,7 +44,7 @@ const WhitePaper = (slug) => {
         setPhotoIndex] = useState(0);
     
         const slugValue = slug.slug.replace('/', '').replace('/', '')
-        console.log(slugValue)
+        //console.log(slugValue)
         const [content, setContent] = useState([])
         const getWhitePaperView = () => {
             const config = {
@@ -53,7 +53,7 @@ const WhitePaper = (slug) => {
             }
             axios(config)
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 if (response.status === 200) {
                     setContent(response.data)
                 } else {
@@ -64,7 +64,7 @@ const WhitePaper = (slug) => {
                 }
             })
             .catch(error => {
-              console.log(error)
+              //console.log(error)
               if (error && error.status === 401) {
                 toast.error(
                   <ToastContent message={error.message} />,
@@ -82,7 +82,7 @@ const WhitePaper = (slug) => {
         useEffect(() => {
             getWhitePaperView()
         }, [])
-        console.log(content)
+        //console.log(content)
 
     return (
         <Fragment>

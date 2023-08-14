@@ -61,7 +61,7 @@ const FancyFeatureOne = ({ services }) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -72,7 +72,7 @@ const FancyFeatureOne = ({ services }) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -90,7 +90,7 @@ const FancyFeatureOne = ({ services }) => {
     useEffect(() => {
         // getServices()
     }, [])
-    console.log(content)
+    //console.log(content)
 
     return (
         <Fragment>

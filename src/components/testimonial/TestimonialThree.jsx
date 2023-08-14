@@ -66,7 +66,7 @@ const TestimonialThree = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -77,7 +77,7 @@ const TestimonialThree = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -95,7 +95,7 @@ const TestimonialThree = () => {
     useEffect(() => {
         getCounter()
     }, [])
-    console.log(content)
+    //console.log(content)
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');

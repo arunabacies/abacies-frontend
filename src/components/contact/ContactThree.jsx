@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 
 const ContactThree = (postMeta) => {
-    console.log(postMeta)
+    //console.log(postMeta)
     return (
         <Fragment>
             <div className="row">

@@ -105,7 +105,7 @@ const TestimonialOne = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -116,7 +116,7 @@ const TestimonialOne = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -134,7 +134,7 @@ const TestimonialOne = () => {
     useEffect(() => {
         getCounter()
     }, [])
-    console.log(content)
+    //console.log(content)
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
@@ -145,7 +145,7 @@ const TestimonialOne = () => {
     //     const [isReadMore, setIsReadMore] = useState(true);
     //     const toggleReadMore = () => {
     //       setIsReadMore(!isReadMore);
-    //       console.log('check')
+    //       //console.log('check')
     //     };
     //     return (
     //       <p className="text" style={{fontSize: '18px'}}>

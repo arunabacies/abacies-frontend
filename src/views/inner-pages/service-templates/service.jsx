@@ -40,7 +40,7 @@ const Saas = ({slug}) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -51,7 +51,7 @@ const Saas = ({slug}) => {
             }
         })
         .catch(error => {
-            console.log(error)
+            //console.log(error)
             if (error && error.status === 401) {
             toast.error(
                 <ToastContent message={error.message} />,
@@ -88,7 +88,7 @@ const Saas = ({slug}) => {
                 {/* /.theme-inner-banner */}
 
                 {content.content &&
-                <div className="feedback-section-three pageContent position-relative mt-120 lg-mt-100">
+                <div className="feedback-section-three pageContent position-relative mt-120 mb-50 lg-mt-100">
                     <div className="container">
                         {/* <div className="title-style-one text-center">
                             <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
@@ -103,6 +103,7 @@ const Saas = ({slug}) => {
                 }
                 {/* /.feedback-section-three */}
 
+                {content.content_editor &&
                 <div className="feedback-section-three pageContent position-relative mt-150 lg-mt-100" data-aos="fade-up">
                     <div className="container">
                         {/* <div className="title-style-one text-center">
@@ -120,6 +121,7 @@ const Saas = ({slug}) => {
                     </div>
                     {/* /.container */}
                 </div>
+                }
                 {/* /.feedback-section-three */}
                
                 <div className="footer-style-one theme-basic-footer">

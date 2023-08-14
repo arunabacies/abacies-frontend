@@ -31,9 +31,9 @@ const ToastContent = ({ message = null }) => (
 )
 
 const ServicesDetails = (slug) => {
-    console.log(slug.slug)
+    //console.log(slug.slug)
     // const slugValue = slug.slug.replace('/', '')
-    // console.log(slugValue)
+    // //console.log(slugValue)
     const [content, setContent] = useState([])
     const [services, setServices] = useState([])
     
@@ -44,7 +44,7 @@ const ServicesDetails = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -55,7 +55,7 @@ const ServicesDetails = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -80,7 +80,7 @@ const ServicesDetails = (slug) => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setServices(response.data)
             } else {
@@ -91,7 +91,7 @@ const ServicesDetails = (slug) => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -110,7 +110,7 @@ const ServicesDetails = (slug) => {
         getServices()
         getServicesDetailsView()
     }, [])
-    console.log(content)
+    //console.log(content)
 
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;

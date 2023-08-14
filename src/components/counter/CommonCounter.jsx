@@ -57,7 +57,7 @@ const CommonCounter = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -68,7 +68,7 @@ const CommonCounter = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -86,7 +86,7 @@ const CommonCounter = () => {
     useEffect(() => {
         getCounter()
     }, [])
-    console.log(content)
+    //console.log(content)
     return ( 
     <Fragment> 
         <div className="row justify-content-center">

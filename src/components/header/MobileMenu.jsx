@@ -100,7 +100,7 @@ const MobileMenu = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setMenus(response.data)
             } else {
@@ -111,7 +111,7 @@ const MobileMenu = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -129,8 +129,8 @@ const MobileMenu = () => {
     useEffect(() => {
         getMenus()
     }, [])
-    console.log(menus)
-    console.log(replace)
+    //console.log(menus)
+    //console.log(replace)
 
    
     const handleClick = () => {

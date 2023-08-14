@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
+
+import ArrowMore from '../../assets/images/icon/icon_13.svg';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -32,7 +35,7 @@ const FancyFeature24 = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -43,7 +46,7 @@ const FancyFeature24 = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -61,7 +64,7 @@ const FancyFeature24 = () => {
     useEffect(() => {
         getServices()
     }, [])
-    console.log(content)
+    //console.log(content)
 
     return (
         <Fragment>
@@ -72,13 +75,13 @@ const FancyFeature24 = () => {
                         className="col-lg-4 col-sm-6 mb-40 xs-mb-30 d-flex"
                         data-aos={val.fade}
                         data-aos-delay={val.datadelay}>
-                        <div className="block-style-four">
-                            <div className="icon d-flex align-items-end justify-content-center"><img src={val.image_1} alt=""/></div>
+                        <div className="block-style-four" style={{border: "1px solid #f2f2f2"}}>
+                            {val.image_1 && <div className="icon d-flex align-items-end justify-content-center"><img src={val.image_1} alt=""/></div>}
                             <Link to={`${val.url.replace(replace, '/')}`}>
                                 <h5>{val.title}</h5>
                             </Link>
                             <p>{val.desc}</p>
-                            <Link to="/service-details" className="more-btn"><img src="images/icon/icon_13.svg" alt="" className="tran3s"/></Link>
+                            <Link to="/service-details" className="more-btn"><img src={ArrowMore} alt="" className="tran3s"/></Link>
                         </div>
                         {/* /.block-style-four */}
                     </div>

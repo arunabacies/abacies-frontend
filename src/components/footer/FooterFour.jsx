@@ -96,7 +96,7 @@ const FooterFour = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -107,7 +107,7 @@ const FooterFour = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -131,7 +131,7 @@ const FooterFour = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setMenus(response.data)
             } else {
@@ -142,7 +142,7 @@ const FooterFour = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -161,12 +161,21 @@ const FooterFour = () => {
         getFooter()
         getMenus()
     }, [])
-    console.log(content)
-    console.log(menus)
+
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
-      }
+    }
+
+    function getUrl(dt) { 
+        if (menus && menus.length > 0) {
+            const idx = menus.findIndex((x) => x.title === dt)
+            if (idx > -1) {
+                return menus[idx].url.replace(replace, '/')
+            } else return '#'
+        } else return '#'
+    }
+
     return (
         <Fragment>
             <div className="row">
@@ -201,17 +210,9 @@ const FooterFour = () => {
                             {value.widget_area === 'sidebar-2' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <>
-                                    {menus.map(menuItems => (
-                                        <>
-                                        {menuItems.title === val.content && 
-                                            <li key={i}>
-                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
-                                            </li>
-                                            }
-                                        </>
-                                    ))}
-                                    </>
+                                    <li key={i}>
+                                        <Link to={getUrl(val.content)}>{val.content}</Link>
+                                    </li>
                                 ))}
                                 </>
                             }
@@ -227,17 +228,9 @@ const FooterFour = () => {
                             {value.widget_area === 'sidebar-3' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <>
-                                    {menus.map(menuItems => (
-                                        <>
-                                        {menuItems.title === val.content && 
-                                            <li key={i}>
-                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
-                                            </li>
-                                            }
-                                        </>
-                                    ))}
-                                    </>
+                                    <li key={i}>
+                                        <Link to={getUrl(val.content)}>{val.content}</Link>
+                                    </li>
                                 ))}
                                 </>
                             }
@@ -246,24 +239,16 @@ const FooterFour = () => {
                     </ul>
                 </div>
                 <div className="col-lg-2 col-sm-4 ms-auto mb-30">
-                    <h5 className="footer-title" style={{color: '#ed1f24'}}>Products</h5>
+                    <h5 className="footer-title" style={{color: '#ed1f24'}}>Services</h5>
                     <ul className="footer-nav-link style-none">
                         {content.map((value) => (
                             <>
                             {value.widget_area === 'sidebar-4' &&
                                 <>
                                 {value.widget_content.map((val, i) => (
-                                    <>
-                                    {menus.map(menuItems => (
-                                        <>
-                                        {menuItems.title === val.content && 
-                                            <li key={i}>
-                                                <Link to={menuItems.url.replace(replace, '/')}>{val.content}</Link>
-                                            </li>
-                                            }
-                                        </>
-                                    ))}
-                                    </>
+                                    <li key={i}>
+                                        <Link to={getUrl(val.content)}>{val.content}</Link>
+                                    </li>
                                 ))}
                                 </>
                             }

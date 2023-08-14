@@ -8,13 +8,13 @@ const CopyRightFour = () => {
                 <ul
                     className="order-lg-1 pb-15 d-flex justify-content-center footer-nav style-none">
                     <li>
-                        <Link to="/faq">Privacy &amp; Terms.</Link>
+                        <Link to="/privacy-policy">Privacy &amp; Terms.</Link>
                     </li>
                     <li>
                         <Link to="/faq">FAQ</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact Us</Link>
+                        <Link to="/contact-us">Contact Us</Link>
                     </li>
                 </ul>
                 <p className="copyright text-center order-lg-0 pb-15">Copyright @{new Date().getFullYear()}{" "}

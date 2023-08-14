@@ -32,7 +32,7 @@ const HeroBannerOne = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -43,7 +43,7 @@ const HeroBannerOne = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -62,13 +62,12 @@ const HeroBannerOne = () => {
         getBanner()
     }, [])
 
-    console.log(content)
+    //console.log(content)
 
     return (
         <Fragment>
             {content && Object.keys(content).length !== 0 && content.map(contentItems => (
                 <div className="hero-banner-one">
-                {console.log(contentItems)}
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 col-md-7">
@@ -82,7 +81,6 @@ const HeroBannerOne = () => {
                                 </ul>
                             </div>
                         </div>
-                      {console.log(contentItems.image_1)}
                     </div> 
                     <div className="illustration-holder">
                         <img src={contentItems.image_1} alt="" className="main-illustration ms-auto" />

@@ -55,7 +55,7 @@ const FancyFeatureThree = () => {
         }
         axios(config)
         .then(function (response) {
-            console.log(response)
+            //console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -66,7 +66,7 @@ const FancyFeatureThree = () => {
             }
         })
         .catch(error => {
-          console.log(error)
+          //console.log(error)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -84,7 +84,7 @@ const FancyFeatureThree = () => {
     useEffect(() => {
         getProcesscontent()
     }, [])
-    console.log(content)
+    //console.log(content)
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
