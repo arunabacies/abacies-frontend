@@ -75,12 +75,12 @@ const ThemeMainMenu = () => {
                 </li>
                 {menus && menus.map(menuItems => (
                     <>
-                        {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 &&
+                        {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 && !menuItems.classes.includes("hidden_menu") &&
                         <li className="nav-item">
                             <Link className="nav-link" to={menuItems.url.replace(replace, '/')} role="button">{menuItems.title}</Link>
                         </li>
                         }
-                        {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 &&
+                        {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 && !menuItems.classes.includes("hidden_menu") &&
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button">{menuItems.title}</a>
                                     <ul className="dropdown-menu">

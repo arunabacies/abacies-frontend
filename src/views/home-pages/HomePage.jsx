@@ -89,6 +89,11 @@ const HomePage = (slug) => {
     console.log(content)
     // console.log(content.post_meta['contentTitle'][0])
     // console.log(content.post_meta['banner'][0])
+
+    const handleExternalLink = (lnk) => {
+        window.location.href = lnk
+    };
+
     return (
         <Fragment>
                 {content && Object.keys(content).length !== 0 &&
@@ -229,7 +234,7 @@ const HomePage = (slug) => {
                                             </div>
                                             {/* /.title-style-one */}
                                             <p className="pt-20 pb-30 lg-pb-10">{content.post_meta['wp-p-tag']}</p>
-                                            <div className="btn-three">{content.post_meta['wp-btn-three']} <Link style={{marginLeft: '10px'}} to={content.post_meta['wp-btn-three-link']}>{content.post_meta['wp-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link>
+                                            <div className="btn-three">{content.post_meta['wp-btn-three']} <Link style={{marginLeft: '10px'}} onClick={() => handleExternalLink(content.post_meta['wp-btn-three-link'])}>{content.post_meta['wp-btn-three-link-content']}<i className="fas fa-chevron-right"/></Link> {/* to={content.post_meta['wp-btn-three-link']} */}
                                             </div>
                                         </div>
                                         {/* /.block-style-two */}
