@@ -162,6 +162,11 @@ const FooterFour = () => {
         getMenus()
     }, [])
 
+    function htmlDecode(input) {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+      }
+
     function removeHtmlTags(html) {
         const regex = /(<([^>]+)>)/gi;
         return html.replace(regex, '');
@@ -169,7 +174,8 @@ const FooterFour = () => {
 
     function getUrl(dt) { 
         if (menus && menus.length > 0) {
-            const idx = menus.findIndex((x) => x.title === dt)
+            const idx = menus.findIndex((x) => htmlDecode(x.title) === dt)
+            console.log('idx', dt, idx)
             if (idx > -1) {
                 return menus[idx].url.replace(replace, '/')
             } else return '#'
@@ -247,7 +253,7 @@ const FooterFour = () => {
                                 <>
                                 {value.widget_content.map((val, i) => (
                                     <li key={i}>
-                                        <Link to={getUrl(val.content)}>{val.content}</Link>
+                                        <Link to={getUrl(val.content)}>{val.content}-test</Link>
                                     </li>
                                 ))}
                                 </>
