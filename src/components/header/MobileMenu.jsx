@@ -136,6 +136,12 @@ const MobileMenu = () => {
     const handleClick = () => {
         setClick(!click);
     }
+
+    function htmlDecode(input) {
+      var doc = new DOMParser().parseFromString(input, "text/html");
+      return doc.documentElement.textContent;
+    }
+
     return (
         <Fragment>
             <div className="mobile-menu-wrapper">
@@ -160,17 +166,17 @@ const MobileMenu = () => {
                       <Menu iconShape="square">
                       {menus && menus.map(menuItems => (
                       <>
-                          {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 &&
+                          {menuItems.menu_item_parent === '0' && menuItems.children.length === 0 && !menuItems.classes.includes("hidden_menu") &&
                             <MenuItem>
                                 {""}
-                                <Link to={menuItems.url.replace(replace, '/')} >{menuItems.title}</Link>
+                                <Link to={menuItems.url.replace(replace, '/')} >{htmlDecode(menuItems.title)}</Link>
                             </MenuItem>
                           }
-                          {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 &&
+                          {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 && !menuItems.classes.includes("hidden_menu") &&
                             <SubMenu title="Services">
                               {menuItems.children.map((val, i)=>(
                                 <MenuItem key={i}>
-                                  <Link to={val.url.replace(replace, '/')}>{val.title}</Link>
+                                  <Link to={val.url.replace(replace, '/')}>{htmlDecode(val.title)}</Link>
                                 </MenuItem>
                               ))}
                             </SubMenu>
