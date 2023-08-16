@@ -173,7 +173,7 @@ const MobileMenu = () => {
                             </MenuItem>
                           }
                           {menuItems.menu_item_parent === '0' && menuItems.children.length > 0 && !menuItems.classes.includes("hidden_menu") &&
-                            <SubMenu title="Services">
+                            <SubMenu title={menuItems.title}>
                               {menuItems.children.map((val, i)=>(
                                 <MenuItem key={i}>
                                   <Link to={val.url.replace(replace, '/')}>{htmlDecode(val.title)}</Link>

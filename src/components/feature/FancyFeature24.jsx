@@ -81,7 +81,7 @@ const FancyFeature24 = () => {
                                 <h5>{val.title}</h5>
                             </Link>
                             <p>{val.desc}</p>
-                            <Link to="/service-details" className="more-btn"><img src={ArrowMore} alt="" className="tran3s"/></Link>
+                            <Link to={`${val.url.replace(replace, '/')}`} className="more-btn"><img src={ArrowMore} alt="" className="tran3s"/></Link>
                         </div>
                         {/* /.block-style-four */}
                     </div>
