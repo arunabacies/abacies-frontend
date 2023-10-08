@@ -253,7 +253,7 @@ const FooterFour = () => {
                                 <>
                                 {value.widget_content.map((val, i) => (
                                     <li key={i}>
-                                        <Link to={getUrl(val.content)}>{val.content}-test</Link>
+                                        <Link to={getUrl(val.content)}>{val.content}</Link>
                                     </li>
                                 ))}
                                 </>
