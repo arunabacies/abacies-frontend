@@ -94,13 +94,13 @@ const Careers = (slug) => {
                 {/* theme-menu-four */}
 
                 <div className="theme-inner-banner">
-                    <InnerBanner intro="Get in Touch" currpage="Contact"/>
+                    <InnerBanner intro="Get in Touch" currpage="Careers"/>
                     <BannerImages />
 
                 </div>
                 {/* /.theme-inner-banner */}
 
-                <div className="contact-section-one lg-mb-120">
+                <div className="contact-section-one carrers-content lg-mb-120">
                     <div className="container">
                         <ContactThree post_meta={content.post_meta}/>
                     </div>
@@ -132,6 +132,20 @@ const Careers = (slug) => {
                             </div>
                         </div>
                     </div>
+                    {content.content &&
+                    <div className="feedback-section-three pageContent position-relative mt-120 mb-50 lg-mt-100">
+                        <div className="container">
+                            {/* <div className="title-style-one text-center">
+                                <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
+                            </div> */}
+                            <div className="inner-content mt-90 lg-mt-60">
+                                <div className="htmlContent" style={{width: "100%"}} dangerouslySetInnerHTML={{ __html: content.content}} />
+                            </div>
+                            {/* /.slider-wrapper */}
+                        </div>
+                        {/* /.container */}
+                    </div>
+                    }
                 </div>
                 {/* /.contact-section-one */}
 

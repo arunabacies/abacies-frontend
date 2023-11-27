@@ -366,7 +366,12 @@ const AppRouter = () => {
         }
         </>
       ))*/}
+        {menus && menus.length > 0 &&
+        <>
         <Route path="/service-details" element={<ServicesDetails />} />
+        <Route path="*" element={<NotFound />} />
+        </>
+        }
         {/* <Route path="/" element={<HomePage />} />
         <Route path="/data-analytics" element={<DataAnalytics />} />
         <Route path="/chatboot" element={<ChatBoot />} />
