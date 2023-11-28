@@ -5647,6 +5647,49 @@ input#files::-webkit-file-upload-button {
     justify-content: center;
     align-items: center;
 }
+//accordion session
+h3.career-heading {
+    margin-bottom: 30px !important;
+}
+.accordion-parent {
+    margin-bottom: 30px;
+}
+.accordion-button {
+    font-weight: 600;
+    font-size: 20px;
+    color: #2f2f2f;
+}
+.accordion-button:not(.collapsed) {
+    color: #2f2f2f;
+}
+.accordion-title {
+    font-size: 18px;
+    line-height: 35px;
+}
+.accordion-description {
+    font-size: 16px;
+    line-height: 35px;
+}
+.accordion-list {
+    list-style-type: disc;
+    font-size: 16px;
+    line-height: 35px;
+}
+button.apply-btn {
+    background-color: #ed1f24;
+    color: #f7f1f1;
+    border: 1px solid #ed1f24;
+}
+button.apply-btn:hover {
+    background-color: #eb3f42;
+    color: #f7f1f1;
+    border: 1px solid #ed1f24;
+}
+button.apply-btn.btn.btn-secondary {
+    background-color: #eb3f42;
+    color: #f7f1f1;
+    border: 1px solid #ed1f24;
+}
 
 .pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, .pageContent h6 { margin-top: 30px; margin-bottom: 10px; }
 .pricing-table-area-two .pr-table-wrapper { background-color: #eee; }
