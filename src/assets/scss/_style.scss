@@ -5647,12 +5647,26 @@ input#files::-webkit-file-upload-button {
     justify-content: center;
     align-items: center;
 }
+div.contact-section-one.carrers-content::before {
+    height: 80px !important;
+}
 //accordion session
+div.container.curent-openings {
+    padding: 24px 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px #ccc;
+}
 h3.career-heading {
     margin-bottom: 30px !important;
 }
-.accordion-parent {
+div.accordion-parent.accordion-item {
     margin-bottom: 30px;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+div.accordion-item:not(:first-of-type) {
+    border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .accordion-button {
     font-weight: 600;

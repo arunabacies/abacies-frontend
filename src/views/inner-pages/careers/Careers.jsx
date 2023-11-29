@@ -112,7 +112,7 @@ const Careers = (slug) => {
                 {/* /.theme-inner-banner */}
 
                 <div className="contact-section-one carrers-content lg-mb-120">
-                    <div className="container">
+                    <div className="container curent-openings">
                     <h3 className='career-heading'>Current Openings</h3>
                     <UncontrolledAccordion>
                     <AccordionItem className='accordion-parent'>
