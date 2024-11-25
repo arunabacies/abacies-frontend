@@ -321,27 +321,25 @@ const AppRouter = () => {
             </>
           )
         }
-        {menuItems.title === 'Solutions' &&
-          menuItems.children && menuItems.children.map((child, idx) => 
-            <>
-            {child.title === 'Case Studies' && 
-            <Route path={child.url.replace(replace, '/')} element={<CaseStudies menuItems={child.children} slug={child.post_id}/>} />
-            }
-            {child.title === 'White Paper' && 
-            <Route path={child.url.replace(replace, '/')} element={<WhitePaper menuItems={child.children} slug={child.post_id}/>} />
-            }
-            {child.title !== 'Case Studies' && child.title !== 'White Paper' && 
-            <Route path={child.url.replace(replace, '/')} element={<SolutionTemplate slug={child.post_id}/>} />
-            }
-            {child.children && child.children.map((child2, idx) => 
-            <Route path={child2.url.replace(replace, '/')} element={<SolutionTemplate slug={child2.post_id}/>} />
-            )}
-            </>
-          )
-        }
+        {menuItems.title === 'Solutions' && menuItems.children && menuItems.children.map((child, idx) => 
+          <>
+          {child.title === 'Case Studies' && 
+          <Route path={child.url.replace(replace, '/')} element={<CaseStudies menuItems={child.children} slug={child.post_id}/>} />
+          }
+          {child.title === 'White Paper' && 
+          <Route path={child.url.replace(replace, '/')} element={<WhitePaper menuItems={child.children} slug={child.post_id}/>} />
+          }
+          {child.title !== 'Case Studies' && child.title !== 'White Paper' && 
+          <Route path={child.url.replace(replace, '/')} element={<SolutionTemplate slug={child.post_id}/>} />
+          }
+          {child.children && child.children.map((child2, idx) => 
+          <Route path={child2.url.replace(replace, '/')} element={<SolutionTemplate slug={child2.post_id}/>} />
+          )}
+          </>
+        )}
         {menuItems.title === 'Services' &&
           <>
-            <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne menuItems={menuItems.children} slug={menuItems.url.replace(replace, '/')}/>} />} />
+            <Route path={menuItems.url.replace(replace, '/')} element={<ServicesOne menuItems={menuItems.children} slug={menuItems.url.replace(replace, '/')}/>} />
             {menuItems.children && menuItems.children.map((child, idx) => 
             <>
             <Route path={child.url.replace(replace, '/')} element={<ServiceTemplate slug={child.post_id}/>} />
@@ -350,11 +348,20 @@ const AppRouter = () => {
             )}
             </>
             )}
-          )
           </>
         }
         {menuItems.title !== 'Careers' && menuItems.title !== 'Services' && menuItems.title !== 'Solutions' && menuItems.title !== 'Products' && menuItems.title !== 'Contact Us' && menuItems.title !== 'About Us' && menuItems.title !== 'Home' &&
+          <>
           <Route path={menuItems.url.replace(replace, '/')} element={<Default slug={menuItems.url.replace(replace, '/')}/>} />
+          {menuItems.children && menuItems.children.map((child, idx) => 
+          <>
+          <Route path={child.url.replace(replace, '/')} element={<Default menuItems={child.children} slug={parseInt(child.post_id)}/>} />
+          {child.children && child.children.map((child2, idx) => 
+          <Route path={child2.url.replace(replace, '/')} element={<Default slug={parseInt(child2.post_id)}/>} />
+          )}
+          </>
+          )}
+          </>
         }
         </>
         ))}

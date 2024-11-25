@@ -75,7 +75,7 @@ const Saas = ({slug}) => {
             {content && Object.keys(content).length !== 0 &&
             <div className="main-page-wrapper">
                 <Helmet>
-                    <title>{content.banner_title}</title>
+                    <title>{content.banner_title ? content.banner_title : content.post['post_title']}</title>
                 </Helmet>
                 {/* helmet end */}
 

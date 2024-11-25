@@ -32,12 +32,14 @@ const ToastContent = ({ message = null }) => (
 const Saas = ({slug}) => {
 
     const [content, setContent] = useState([])
-    const slugValue = slug.replace('/', '').replace('/', '')
+    const slugValue = Number.isInteger(slug) === false ? slug.replace('/', '').replace('/', '') : slug
 
     const getContent = () => {
+        let url = `${apiConfig.api.url}view/v1/view-page/${slugValue}`
+        if (Number.isInteger(slugValue)) url = `${apiConfig.api.url}view/v1/post/${slugValue}`
         const config = {
             method: 'get',
-            url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
+            url
         }
         axios(config)
         .then(function (response) {
@@ -76,14 +78,14 @@ const Saas = ({slug}) => {
             {content && Object.keys(content).length !== 0 &&
             <div className="main-page-wrapper">
                 <Helmet>
-                    <title>{content.banner_title}</title>
+                    <title>{content.banner_title ? content.banner_title : content.post['post_title']}</title>
                 </Helmet>
                 {/* helmet end */}
 
                 <TopNavFour/> {/* theme-menu-four */}
 
                 <div className="theme-inner-banner">
-                    <InnerBanner intro={content.banner_title ? content.banner_title : content.title} currpage={content.banner_title ? content.banner_title : content.title}/>
+                    <InnerBanner intro={content.banner_title ? content.banner_title : content.post['post_title']} currpage={content.banner_title ? content.banner_title : content.post['post_title']}/>
                     <BannerImages />
                 </div>
                 {/* /.theme-inner-banner */}
