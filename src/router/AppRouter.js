@@ -365,7 +365,6 @@ const AppRouter = () => {
         }
         </>
         ))}
-        
         {/*product.map((val, i) => (
         <>
         {val.title && 
