@@ -43,7 +43,7 @@ const Saas = ({slug}) => {
         }
         axios(config)
         .then(function (response) {
-            //console.log(response)
+            console.log(response)
             if (response.status === 200) {
                 setContent(response.data)
             } else {
@@ -78,19 +78,19 @@ const Saas = ({slug}) => {
             {content && Object.keys(content).length !== 0 &&
             <div className="main-page-wrapper">
                 <Helmet>
-                    <title>{content.banner_title ? content.banner_title : content.post['post_title']}</title>
+                    <title>{content?.banner_title ? content?.banner_title : (Number.isInteger(slug) ? content?.post['post_title'] : content?.title)}</title>
                 </Helmet>
                 {/* helmet end */}
 
                 <TopNavFour/> {/* theme-menu-four */}
 
                 <div className="theme-inner-banner">
-                    <InnerBanner intro={content.banner_title ? content.banner_title : content.post['post_title']} currpage={content.banner_title ? content.banner_title : content.post['post_title']}/>
+                    <InnerBanner intro={content?.banner_title ? content?.banner_title : (Number.isInteger(slug) ? content?.post['post_title'] : content?.title)} currpage={content?.banner_title ? content?.banner_title : (Number.isInteger(slug) ? content?.post['post_title'] : content?.title)}/>
                     <BannerImages />
                 </div>
                 {/* /.theme-inner-banner */}
 
-                {content.content &&
+                {content?.content &&
                 <div className="feedback-section-three pageContent position-relative mt-120 lg-mt-100">
                     <div className="container">
                         {/* <div className="title-style-one text-center">

@@ -19,7 +19,7 @@ import AboutUsOne from '../views/inner-pages/about-us/AboutUsOne';
 
 //All Service Page Routes
 import ServicesOne from '../views/inner-pages/pages/services/ServicesOne';
-import Consultation from '../views/inner-pages/pages/services/Consultation';
+/*import Consultation from '../views/inner-pages/pages/services/Consultation';
 import TelegramLMS from '../views/inner-pages/pages/services/TelegramLMS';
 import BetterTomorrow from '../views/inner-pages/pages/services/BetterTomorrow';
 import Decisions from '../views/inner-pages/pages/services/Decisions';
@@ -28,7 +28,7 @@ import ChatGPTtraining from '../views/inner-pages/pages/services/ChatGPTtraining
 import ChaptGPTPromptEngineering from '../views/inner-pages/pages/services/ChaptGPTPromptEngineering';
 import Chatbots from '../views/inner-pages/pages/services/Chatbots';
 import IntegrationsAutomations from '../views/inner-pages/pages/services/IntegrationsAutomations';
-import BespokeSoftwareDevelopment from '../views/inner-pages/pages/services/BespokeSoftwareDevelopment';
+import BespokeSoftwareDevelopment from '../views/inner-pages/pages/services/BespokeSoftwareDevelopment';*/
 // import ServicesTwo from '../views/inner-pages/pages/services/ServicesTwo';
 import ServicesDetails from '../views/inner-pages/pages/services/ServicesDetails';
 
@@ -67,13 +67,13 @@ import BlogStandard from '../views/inner-pages/blog/BlogStandard';
 import BlogDetails from '../views/inner-pages/blog/BlogDetails';*/
 
 // Saas Page
-import Saas from '../views/inner-pages/pages/Saas/Saas';
+//import Saas from '../views/inner-pages/pages/Saas/Saas';
 // DataAnalytics Page
 // import DataAnalytics from '../views/inner-pages/pages/DataAnalytics/DataAnalytics';
 // AI Page
-import AI from '../views/inner-pages/pages/ai/AI';
+//import AI from '../views/inner-pages/pages/ai/AI';
 // Cloud Page
-import Cloud from '../views/inner-pages/pages/cloud/Cloud';
+//import Cloud from '../views/inner-pages/pages/cloud/Cloud';
 // Contact Page Routes
 import Contact from '../views/inner-pages/contact/Contact';
 
@@ -143,7 +143,7 @@ const AppRouter = () => {
     })
   }
 
-  const getProducts = () => {
+  /*const getProducts = () => {
     const config = {
         method: 'get',
         url: `${apiConfig.api.url}view/v1/products`
@@ -240,7 +240,7 @@ const AppRouter = () => {
         )
       } 
     })
-  }
+  }*/
 
   useEffect(() => {
       getMenus()

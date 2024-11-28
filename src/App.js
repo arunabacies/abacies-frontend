@@ -25,7 +25,7 @@ function App() {
         <meta name="description"
           content="Abacies - Data Science & Analytics React Template is designed especially for the agency, multipurpose and business and those who offer business-related services." />
         <meta property="og:site_name" content="Abacies" />
-        <meta property="og:url" content="https://themeforest.net/user/creativegigs" />
+        {/* <meta property="og:url" content="https://themeforest.net/user/creativegigs" /> */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Abacies - Data Science & Analytics React Template" />
       </Helmet>

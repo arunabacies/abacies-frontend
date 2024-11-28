@@ -159,7 +159,7 @@ const MobileMenu = () => {
                             <Link to="/"><img src="images/logo/abacies-dark-mobile-logo.png" alt=""/></Link>
                         </div>
                        <div className="close-menu" onClick={handleClick}>
-                        <i class="bi bi-x-lg"></i>
+                        <i className="bi bi-x-lg"></i>
                        </div>
                     </SidebarHeader>
                     <SidebarContent>
