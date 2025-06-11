@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState, useRef} from 'react';
 import {Helmet} from 'react-helmet';
 
 import TopNavFour from '../../../../components/header/TopNavFour';
@@ -38,6 +38,7 @@ const ToastContent = ({ message = null }) => (
 )
 
 const ServicesOne = (slug) => {
+    const hasFetched = useRef(false);
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     //console.log(slugValue)
     const [content, setContent] = useState([])
@@ -74,9 +75,12 @@ const ServicesOne = (slug) => {
         })
     }
 
-    useEffect(() => {
-        getServicesOneView()
-    }, [])
+     useEffect(() => {
+        if (!hasFetched.current) {
+            getServicesOneView();
+            hasFetched.current = true;
+        }
+        }, []);
     //console.log(content)
     
     return (

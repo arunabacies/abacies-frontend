@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8e49984.css",
-    "main.js": "/static/js/main.b00b4e1e.js",
+    "main.css": "/static/css/main.c255c9f4.css",
+    "main.js": "/static/js/main.8ddbcf5d.js",
     "static/js/787.1e4d070d.chunk.js": "/static/js/787.1e4d070d.chunk.js",
     "static/media/fa-solid-900.svg": "/static/media/fa-solid-900.3fbf3c2553ba03410a4f.svg",
     "static/media/fa-brands-400.svg": "/static/media/fa-brands-400.7b7d0ddbcc46b8bdd494.svg",
@@ -16,7 +16,7 @@
     "static/media/fa-brands-400.woff": "/static/media/fa-brands-400.329a95a9172fdb2cccb4.woff",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.ada6e6df937f7e5e8b79.woff2",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.c1210e5ebe4344da5083.woff2",
-    "static/media/ils_15.svg": "/static/media/ils_15.66c6fffa3c106ac26c0fa504683971a7.svg",
+    "static/media/ils_15.svg": "/static/media/ils_15.4e8854919fc3ea8bde88262a13afe0d8.svg",
     "static/media/gordita-medium-webfont.woff": "/static/media/gordita-medium-webfont.65e9b8ad56d349d2607b.woff",
     "static/media/gordita-regular-webfont.woff": "/static/media/gordita-regular-webfont.95d5dc360952b1ddc654.woff",
     "static/media/fa-regular-400.eot": "/static/media/fa-regular-400.4079ae2d2a15d0689568.eot",
@@ -41,24 +41,24 @@
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "static/media/ils_15_6.svg": "/static/media/ils_15_6.61cbfde482a856d7df855e119afaecf1.svg",
-    "static/media/ils_15_5.svg": "/static/media/ils_15_5.14623b4cf8de51b21731fb95c2a3e51b.svg",
-    "static/media/ils_15_7.svg": "/static/media/ils_15_7.da2d93680b5c657e0b2a149e23602fec.svg",
+    "static/media/ils_15_6.svg": "/static/media/ils_15_6.4cb10d2ad88bc78b1aa4c1dd77caeb34.svg",
+    "static/media/ils_15_5.svg": "/static/media/ils_15_5.9e8b4c172eb077e41b646deca2a55751.svg",
+    "static/media/ils_15_7.svg": "/static/media/ils_15_7.a5c5fe6bcff2e5a3ba9f41a12bbcf027.svg",
     "index.html": "/index.html",
-    "static/media/ils_15_4.svg": "/static/media/ils_15_4.59f8bd1018165cb1658d4052ecec6b3a.svg",
-    "static/media/ils_15_3.svg": "/static/media/ils_15_3.129b87cc102b645fb0f8c9e4641b77c7.svg",
-    "static/media/ils_15_1.svg": "/static/media/ils_15_1.74f6c227a3ce74016b4256f21701d77a.svg",
+    "static/media/ils_15_4.svg": "/static/media/ils_15_4.23c9ce5f10c9200cd5f89e6118af9ba4.svg",
+    "static/media/ils_15_3.svg": "/static/media/ils_15_3.1421b44e8c97e5d2f0100d8c0b40bde2.svg",
+    "static/media/ils_15_1.svg": "/static/media/ils_15_1.6cfbf2cabbcc6207ee5cfe922fb94e85.svg",
     "static/media/shape_47.svg": "/static/media/shape_47.ed7300e2bcc8196092332aaec759e011.svg",
     "static/media/icon_13.svg": "/static/media/icon_13.be15d89b97344e61c6efafaa09bf5721.svg",
     "static/media/shape_32.svg": "/static/media/shape_32.48b90e57c10717624d76.svg",
     "static/media/shape_24.svg": "/static/media/shape_24.5d2eb872091b188cfbbe.svg",
     "static/media/icon_16.svg": "/static/media/icon_16.1a09b167f4b75ab5f058.svg",
-    "main.e8e49984.css.map": "/static/css/main.e8e49984.css.map",
-    "main.b00b4e1e.js.map": "/static/js/main.b00b4e1e.js.map",
+    "main.c255c9f4.css.map": "/static/css/main.c255c9f4.css.map",
+    "main.8ddbcf5d.js.map": "/static/js/main.8ddbcf5d.js.map",
     "787.1e4d070d.chunk.js.map": "/static/js/787.1e4d070d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8e49984.css",
-    "static/js/main.b00b4e1e.js"
+    "static/css/main.c255c9f4.css",
+    "static/js/main.8ddbcf5d.js"
   ]
 }

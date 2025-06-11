@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState, useRef} from 'react';
 import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 
@@ -43,8 +43,9 @@ const ToastContent = ({ message = null }) => (
     </>
 )
  
-const HomePage = (slug) => {
-    //console.log(slug)
+const HomePage = ({slug, menus}) => {
+    console.log(slug)
+    const hasFetched = useRef(false);
     const [content, setContent] = useState([])
     const slugValue = 'home'
     // if(slug === '/'){
@@ -84,8 +85,11 @@ const HomePage = (slug) => {
     }
 
     useEffect(() => {
+    if (!hasFetched.current) {
         getHomePageView()
-    }, [])
+        hasFetched.current = true;
+    }
+    }, []);
     // //console.log(content)
     // //console.log(content.post_meta['contentTitle'][0])
     // //console.log(content.post_meta['banner'][0])
@@ -427,7 +431,7 @@ const HomePage = (slug) => {
                         <div className="footer-style-one theme-basic-footer">
                             <div className="container">
                                 <div className="inner-wrapper">
-                                    <FooterFour />
+                                    <FooterFour menus={menus}/>
                                     <div className="bottom-footer">
                                         <CopyRightFour />
                                     </div>

@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useState, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
@@ -35,6 +35,7 @@ const ToastContent = ({ message = null }) => (
 )
 
 const Contact = (slug) => {
+    const hasFetched = useRef(false);
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     //console.log(slugValue)
     const [content, setContent] = useState([])
@@ -74,9 +75,12 @@ const Contact = (slug) => {
         })
     }
 
-    useEffect(() => {
-        getContactUsView()
-    }, [])
+   useEffect(() => {
+        if (!hasFetched.current) {
+        getContactUsView();
+        hasFetched.current = true;
+        }
+    }, []);
 
     //console.log(content)
     return (

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useRef  } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 
@@ -103,6 +103,7 @@ const ToastContent = ({ message = null }) => (
 )
 
 const AppRouter = () => {
+  const hasFetched = useRef(false);
   const replace = 'https://abacies.bettertomorrow.green/'
   const [menus, setMenus] = useState([])
   const [product, setProduct] = useState([])
@@ -243,11 +244,13 @@ const AppRouter = () => {
   }*/
 
   useEffect(() => {
-      getMenus()
-      // getProducts()
-  }, [])
-  //console.log(menus)
-  //console.log(replace)
+    if (!hasFetched.current) {
+      getMenus();
+      hasFetched.current = true;
+    }
+  }, []);
+  // console.log(menus)
+  // console.log(replace)
 
   return (
     <Fragment>
@@ -255,62 +258,17 @@ const AppRouter = () => {
        {menus && menus.map(menuItems => (
         <>
         {menuItems.title === 'Home' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<HomePage slug={menuItems.url.replace(replace, '/')}/>} />
+          <Route path={menuItems.url.replace(replace, '/')} element={<HomePage slug={menuItems.url.replace(replace, '/')}  menus={menus}/>} />
         }
         {menuItems.title === 'About Us' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<AboutUsOne slug={menuItems.url.replace(replace, '/')}/>} />
         }
-        {/*menuItems.title === 'Consultation' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Consultation slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Bespoke Software development' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<BespokeSoftwareDevelopment slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Integrations and automations' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<IntegrationsAutomations slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'SaaS' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Saas slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Cloud' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Cloud slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'AI' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<AI slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Chatbots' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Chatbots slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'ChatGPT Training' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ChatGPTtraining slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'ChaptGPT Prompt Engineering' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ChaptGPTPromptEngineering slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'ChatGPT integration' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<ChatGPTIntegration slug={menuItems.url.replace(replace, '/')}/>} />
-        */}
         {menuItems.title === 'Contact Us' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Contact slug={menuItems.url.replace(replace, '/')}/>} />
         }
         {menuItems.title === 'Careers' &&
           <Route path={menuItems.url.replace(replace, '/')} element={<Careers slug={menuItems.url.replace(replace, '/')}/>} />
         }
-        {/*menuItems.title === 'Case Study' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<CaseStudy slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'White Paper' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<WhitePaper slug={menuItems.url.replace(replace, '/')}/>} />
-      */}
-        {/*menuItems.title === 'Decisions' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<Decisions slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Better Tomorrow' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<BetterTomorrow slug={menuItems.url.replace(replace, '/')}/>} />
-        }
-        {menuItems.title === 'Telegram LMS' &&
-          <Route path={menuItems.url.replace(replace, '/')} element={<TelegramLMS slug={menuItems.url.replace(replace, '/')}/>} />
-      */}
         {menuItems.title === 'Products' &&
           menuItems.children && menuItems.children.map((child, idx) => 
             <>
@@ -365,56 +323,12 @@ const AppRouter = () => {
         }
         </>
         ))}
-        {/*product.map((val, i) => (
-        <>
-        {val.title && 
-          <Route path={val?.url?.replace(replace, '/')} element={<ProductTemplate slug={val.id} />} />
-        }
-        </>
-      ))*/}
         {menus && menus.length > 0 &&
         <>
         <Route path="/service-details" element={<ServicesDetails />} />
         <Route path="*" element={<NotFound />} />
         </>
         }
-        {/* <Route path="/" element={<HomePage />} />
-        <Route path="/data-analytics" element={<DataAnalytics />} />
-        <Route path="/chatboot" element={<ChatBoot />} />
-        <Route path="/careers" element={<FAQ />} />
-        <Route path="/cloud" element={<Cloud />} />
-        <Route path="/machine-learning" element={<MachineLearning />} />
-
-        <Route path="/about-one" element={<AboutUsOne />} />
-        <Route path="/about-two" element={<AboutUsTwo />} />
-
-        <Route path="/service-one" element={<ServicesOne />} />
-        <Route path="/service-two" element={<ServicesTwo />} />
-        <Route path="/service-details" element={<ServicesDetails />} />
-
-        <Route path="/team-member" element={<TeamMember />} />
-        <Route path="/team-details" element={<TeamDetails />} />
-        <Route path='/software-service' element={<Saas/>}/>
-
-        <Route path="/testimonial" element={<Testimonial />} />
-        <Route path="/price" element={<OurPricing />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/error" element={<Error />} />
-
-        <Route path="/portfolio-3" element={<Portfolio3Column />} />
-        <Route path="/portfolio-2" element={<Portfolio2Column />} />
-        <Route path="/portfolio-masonry" element={<PortfolioMasonry />} />
-        <Route path="/portfolio-single" element={<PortfolioSingle />} />
-
-        <Route path="/blog-grid" element={<GridLayout />} />
-        <Route path="/blog-sidebar" element={<GridWithSidebar />} />
-        <Route path="/blog-masonry" element={<BlogMasonry />} />
-        <Route path="/blog-standard" element={<BlogStandard />} />
-        <Route path="/blog-details" element={<BlogDetails />} />
-
-        <Route path="/contact" element={<Contact />} />
-
-        <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Fragment>
   )

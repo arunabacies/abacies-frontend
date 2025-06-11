@@ -52,6 +52,7 @@ const Careers = (slug) => {
     const  slugname = useParams();
     //console.log(slugname)
     const careerFormRef = useRef(null);
+    const hasFetched = useRef(false);
 
     const getCareersView = () => {
         const config = {
@@ -86,9 +87,12 @@ const Careers = (slug) => {
         })
     }
 
-    useEffect(() => {
-        getCareersView()
-    }, [])
+     useEffect(() => {
+    if (!hasFetched.current) {
+        getCareersView();
+        hasFetched.current = true;
+    }
+    }, []);
 
     //console.log(content)
     return (

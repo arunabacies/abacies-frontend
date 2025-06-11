@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect, useRef} from 'react';
 import {Helmet} from 'react-helmet';
 
 import TopNavFour from '../../../components/header/TopNavOne';
@@ -30,7 +30,7 @@ const ToastContent = ({ message = null }) => (
 )
 
 const Saas = ({slug}) => {
-
+    const hasFetched = useRef(false);
     const [content, setContent] = useState([])
 
     const getContent = () => {
@@ -66,9 +66,18 @@ const Saas = ({slug}) => {
         })
     }
     
-    useEffect(() => {
-        getContent()
-    }, [slug])
+    // useEffect(() => {
+    // if (!hasFetched.current) {
+    //     getContent();
+    //     hasFetched.current = true;
+    // }
+    // }, []);
+   useEffect(() => {
+    if (slug) {
+        getContent();
+    //     hasFetched.current = true;
+    }
+    }, [slug]);
 
     return (
         <Fragment>
