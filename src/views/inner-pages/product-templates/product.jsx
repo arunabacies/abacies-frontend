@@ -88,7 +88,7 @@ const Saas = ({slug}) => {
                 {/* /.theme-inner-banner */}
 
                 {content.content &&
-                <div className="feedback-section-three pageContent position-relative mt-120 lg-mt-100">
+                <div className="feedback-section-three pageContent position-relative mt-60 lg-mt-100">
                     <div className="container">
                         {/* <div className="title-style-one text-center">
                             <h2 className="main-title">Driving Digital Disruption With SaaS</h2>
