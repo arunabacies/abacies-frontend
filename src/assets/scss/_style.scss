@@ -5445,7 +5445,7 @@ body .btn-eight:hover {
 /*^^^^^^^^^^^^^^^^^^^^^ Contact Section One ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .contact-section-one {
     position: relative;
-    z-index: 2;
+    // z-index: 2;
 }
 .contact-section-one:before {
     content: "";
@@ -5713,6 +5713,19 @@ button.apply-btn.btn.btn-secondary {
 .carrers-content h3 { font-family: "gorditamedium"; margin-bottom: 45px; }
 .carrers-content h4 { font-weight: 700; }
 .carrers-content hr { margin-top: 25px; margin-bottom: 40px; }
+.theme-inner-banner.featured{ padding: 0 !important; }
+@media (min-width:992px) {
+    .theme-main-menu.nav-white{ 
+        background-color: rgba(0,0,0,0.52);
+        .navbar-nav .nav-item > a { color: #fff; } 
+    }
+}
+/*@media (max-width:991.75px) {
+    .theme-inner-banner.featured{ background: none !important; height: auto !important; padding: 0 !important; }
+}*/
+@media (max-width:640px) {
+    .theme-main-menu .logo img { height: 52px; }
+}
 /*@media screen and (min-width: 992px) {
     .navbar .dropdown-menu .dropdown-menu { left: auto; }
 }*/

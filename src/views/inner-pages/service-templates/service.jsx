@@ -13,6 +13,8 @@ import axios from "axios"
 import BannerImages from '../../../components/images/bannerImg';
 import FooterImages from '../../../components/images/footerImg';
 
+import Spinner from "../../../components/Spinner"
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -32,8 +34,9 @@ const ToastContent = ({ message = null }) => (
 const Saas = ({slug}) => {
 
     const [content, setContent] = useState([])
-
+    const [loading, setLoading] = useState(false)
     const getContent = () => {
+        setLoading(true)
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/post/${slug}`
@@ -48,7 +51,7 @@ const Saas = ({slug}) => {
                 <ToastContent message={response.data.message} />,
                 {duration:3000}             
                 )
-            }
+            } setLoading(false)
         })
         .catch(error => {
             //console.log(error)
@@ -62,7 +65,7 @@ const Saas = ({slug}) => {
                 <ToastContent message={error.message} />,
                 { duration:2000 }
             )
-            } 
+            } setLoading(false)
         })
     }
     
@@ -159,6 +162,7 @@ const Saas = ({slug}) => {
 
             </div>
             }
+            {loading && <Spinner />}
         </Fragment>
     )
 }

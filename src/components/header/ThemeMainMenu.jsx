@@ -5,6 +5,8 @@ import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
 
+import Spinner from '../Spinner';
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -24,10 +26,12 @@ const ToastContent = ({ message = null }) => (
 const ThemeMainMenu = () => {
     
     const [menus, setMenus] = useState([])
+    const [loading, setLoading] = useState(false)
     // const replace = 'http://localhost/abacies/'
     const replace = 'https://abacies.bettertomorrow.green/'
     
     const getMenus = () => {
+        setLoading(true)
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/header-menu`
@@ -42,10 +46,11 @@ const ThemeMainMenu = () => {
                 <ToastContent message={response.data.message} />,
                 {duration:3000}             
               )
-            }
+            } setLoading(false)
         })
         .catch(error => {
           //console.log(error)
+          setLoading(false)
           if (error && error.status === 401) {
             toast.error(
               <ToastContent message={error.message} />,
@@ -56,7 +61,7 @@ const ThemeMainMenu = () => {
               <ToastContent message={error.message} />,
               { duration:2000 }
             )
-          } 
+          }
         })
     }
 
@@ -116,6 +121,7 @@ const ThemeMainMenu = () => {
                     ))
                 }
             </ul>
+            {loading && <Spinner />}
         </Fragment>
     )
 }

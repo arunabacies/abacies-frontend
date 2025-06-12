@@ -4,7 +4,7 @@ import SearchModal from '../../components/search-modal/SearchModal';
 import MobileMenu from './MobileMenu';
 import ThemeMainMenue from './ThemeMainMenu'
 
-const TopNavOne = () => {
+const TopNavOne = ({ navFont }) => {
     const [navbar, setNavbar] = useState(false);
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -26,7 +26,7 @@ const TopNavOne = () => {
     return (
         <Fragment>
             <SearchModal isOpen={modalIsOpen} onClick={closeModal} bgColor="" />
-            <header className={navbar ? "theme-main-menu sticky-menu theme-menu-one fixed" : "theme-main-menu sticky-menu theme-menu-one"}>
+            <header className={navbar ? `theme-main-menu sticky-menu theme-menu-one fixed` : `theme-main-menu sticky-menu theme-menu-one${navFont}`}>
                 <div className="inner-content">
                     <div className="d-flex align-items-center justify-content-between">
                         <div className="logo order-lg-0">

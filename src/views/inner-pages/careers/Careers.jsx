@@ -28,6 +28,8 @@ import {
 import BannerImages from '../../../components/images/bannerImg';
 import FooterImages from '../../../components/images/footerImg';
 
+import Spinner from "../../../components/Spinner"
+
 const ToastContent = ({ message = null }) => (
     <>
     {message !== null && (
@@ -48,12 +50,15 @@ const Careers = (slug) => {
     const slugValue = slug.slug.replace('/', '').replace('/', '')
     //console.log(slugValue)
     const [content, setContent] = useState([])
+    const [loading, setLoading] = useState(false)
+    
     console.log(content)
     const  slugname = useParams();
     //console.log(slugname)
     const careerFormRef = useRef(null);
 
     const getCareersView = () => {
+        setLoading(true)
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -68,7 +73,7 @@ const Careers = (slug) => {
                 <ToastContent message={response.data.message} />,
                 {duration:3000}             
               )
-            }
+            } setLoading(false)
         })
         .catch(error => {
           //console.log(error)
@@ -82,7 +87,7 @@ const Careers = (slug) => {
               <ToastContent message={error.message} />,
               { duration:2000 }
             )
-          } 
+          } setLoading(false)
         })
     }
 
@@ -313,6 +318,7 @@ const Careers = (slug) => {
 
             </div>
             }
+            {loading && <Spinner />}
         </Fragment>
     )
 }

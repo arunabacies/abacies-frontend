@@ -82,12 +82,19 @@ const Saas = ({slug}) => {
                 </Helmet>
                 {/* helmet end */}
 
-                <TopNavFour/> {/* theme-menu-four */}
-
-                <div className="theme-inner-banner">
+                <TopNavFour navFont={content?.featured_image ? ' nav-white' : ''} /> {/* theme-menu-four */}
+                {content?.featured_image ?
+                (<div className="theme-inner-banner featured"> {/* style={{backgroundImage: `url(${content?.featured_image})`, backgroundRepeat: "no-repeat", backgroundPosition: "top center", backgroundSize: "cover", height: "100vh"}} */}
+                    {//window.innerWidth < 992 && 
+                        <img src={content?.featured_image} alt='Banner Image' style={{width: "100%", height: "auto"}} />
+                    }
+                </div>)
+                :
+                (<div className="theme-inner-banner">
                     <InnerBanner intro={content?.banner_title ? content?.banner_title : (Number.isInteger(slug) ? content?.post['post_title'] : content?.title)} currpage={content?.banner_title ? content?.banner_title : (Number.isInteger(slug) ? content?.post['post_title'] : content?.title)}/>
                     <BannerImages />
-                </div>
+                </div>)
+                }
                 {/* /.theme-inner-banner */}
 
                 {content?.content &&

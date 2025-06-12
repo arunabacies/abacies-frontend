@@ -26,6 +26,7 @@ import { toast} from 'react-hot-toast'
 import axios from "axios"
 
 import FooterImages from '../../components/images/footerImg';
+import Spinner from '../../components/Spinner';
 
 const ToastContent = ({ message = null }) => (
     <>
@@ -46,11 +47,13 @@ const ToastContent = ({ message = null }) => (
 const HomePage = (slug) => {
     //console.log(slug)
     const [content, setContent] = useState([])
+    const [loading, setLoading] = useState(false)
     const slugValue = 'home'
     // if(slug === '/'){
         // slugValue = 'home'
     // } 
     const getHomePageView = () => {
+        setLoading(true)
         const config = {
             method: 'get',
             url: `${apiConfig.api.url}view/v1/view-page/${slugValue}`
@@ -65,7 +68,7 @@ const HomePage = (slug) => {
                 <ToastContent message={response.data.message} />,
                 {duration:3000}             
               )
-            }
+            } setLoading(false)
         })
         .catch(error => {
         //   //console.log(error)
@@ -79,7 +82,7 @@ const HomePage = (slug) => {
               <ToastContent message={error.message} />,
               { duration:2000 }
             )
-          } 
+          } setLoading(false)
         })
     }
 
@@ -440,7 +443,7 @@ const HomePage = (slug) => {
 
                     </div>
                 }
-            
+                {loading && <Spinner />}
         </Fragment>
     )
 }

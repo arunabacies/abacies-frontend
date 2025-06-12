@@ -82,6 +82,8 @@ import Careers from '../views/inner-pages/careers/Careers'
 // Not Found Page
 import NotFound from "../views/NotFound";
 
+import Spinner from "../components/Spinner";
+
 import apiConfig from '../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
@@ -105,12 +107,14 @@ const ToastContent = ({ message = null }) => (
 const AppRouter = () => {
   const replace = 'https://abacies.bettertomorrow.green/'
   const [menus, setMenus] = useState([])
-  const [product, setProduct] = useState([])
+  /*const [product, setProduct] = useState([])
   const [solutions, setSolutions] = useState([])
-  const [services, setServices] = useState([])
+  const [services, setServices] = useState([])*/
+  const [loading, setLoading] = useState([])
   
   // const replace = 'http://localhost/abacies/'
   const getMenus = () => {
+    setLoading(true)
     const config = {
         method: 'get',
         url: `${apiConfig.api.url}view/v1/header-menu`
@@ -125,7 +129,7 @@ const AppRouter = () => {
             <ToastContent message={response.data.message} />,
             {duration:3000}             
           )
-        }
+        } setLoading(false)
     })
     .catch(error => {
       //console.log(error)
@@ -139,7 +143,7 @@ const AppRouter = () => {
           <ToastContent message="Error!. Please try again later." />,
           {duration:3000}             
         )
-      } 
+      } setLoading(false)
     })
   }
 
@@ -416,6 +420,9 @@ const AppRouter = () => {
 
         <Route path="*" element={<NotFound />} /> */}
       </Routes>
+      {loading &&
+        <Spinner />
+      }
     </Fragment>
   )
 }
