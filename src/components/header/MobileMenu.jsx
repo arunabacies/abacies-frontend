@@ -130,9 +130,9 @@ const MobileMenu = () => {
         })
     }
 
-    useEffect(() => {
-        getMenus()
-    }, [])
+    // useEffect(() => {
+    //     // getMenus()
+    // }, [])
     //console.log(menus)
     //console.log(replace)
 

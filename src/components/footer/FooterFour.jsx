@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 
 import apiConfig from '../../configs/apiConfig'
@@ -88,6 +88,7 @@ const LegalContent = [
 ];
 
 const FooterFour = () => {
+    const hasFetched = useRef(false);
     const [content, setContent] = useState([])
     const [menus, setMenus] = useState([])
     const [loading, setLoading] = useState(false)
@@ -162,10 +163,12 @@ const FooterFour = () => {
         })
     }
 
-    useEffect(() => {
-        getFooter()
-        getMenus()
-    }, [])
+  useEffect(() => {
+    //    if (!hasFetched.current) {
+         getFooter();
+    //      hasFetched.current = true;
+    //    }
+     }, []);
 
     function htmlDecode(input) {
         var doc = new DOMParser().parseFromString(input, "text/html");

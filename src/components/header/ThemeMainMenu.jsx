@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 
 import apiConfig from '../../configs/apiConfig'
@@ -25,6 +25,7 @@ const ToastContent = ({ message = null }) => (
  
 const ThemeMainMenu = () => {
     
+    const hasFetched = useRef(false);
     const [menus, setMenus] = useState([])
     const [loading, setLoading] = useState(false)
     // const replace = 'http://localhost/abacies/'
@@ -65,9 +66,12 @@ const ThemeMainMenu = () => {
         })
     }
 
-    useEffect(() => {
-        getMenus()
-    }, [])
+   useEffect(() => {
+       if (!hasFetched.current) {
+         getMenus();
+         hasFetched.current = true;
+       }
+     }, []);
     //console.log(menus)
     //console.log(replace)
 

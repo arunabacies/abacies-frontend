@@ -19647,6 +19647,75 @@ input#files::-webkit-file-upload-button {
   align-items: center;
 }
 
+div.contact-section-one.carrers-content::before {
+  height: 80px !important;
+}
+
+div.container.curent-openings {
+  padding: 24px 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px #ccc;
+}
+
+h3.career-heading {
+  margin-bottom: 30px !important;
+}
+
+div.accordion-parent.accordion-item {
+  margin-bottom: 30px;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+div.accordion-item:not(:first-of-type) {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button {
+  font-weight: 600;
+  font-size: 20px;
+  color: #2f2f2f;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #2f2f2f;
+}
+
+.accordion-title {
+  font-size: 18px;
+  line-height: 35px;
+}
+
+.accordion-description {
+  font-size: 16px;
+  line-height: 35px;
+}
+
+.accordion-list {
+  list-style-type: disc;
+  font-size: 16px;
+  line-height: 35px;
+}
+
+button.apply-btn {
+  background-color: #ed1f24;
+  color: #f7f1f1;
+  border: 1px solid #ed1f24;
+}
+
+button.apply-btn:hover {
+  background-color: #eb3f42;
+  color: #f7f1f1;
+  border: 1px solid #ed1f24;
+}
+
+button.apply-btn.btn.btn-secondary {
+  background-color: #eb3f42;
+  color: #f7f1f1;
+  border: 1px solid #ed1f24;
+}
+
 .pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, .pageContent h6 {
   margin-top: 30px;
   margin-bottom: 10px;
@@ -19662,6 +19731,20 @@ input#files::-webkit-file-upload-button {
 
 .pricing-table-area-two .pr-table-wrapper.active .pack-name {
   color: #ffffff;
+}
+
+.carrers-content h3 {
+  font-family: "gorditamedium";
+  margin-bottom: 45px;
+}
+
+.carrers-content h4 {
+  font-weight: 700;
+}
+
+.carrers-content hr {
+  margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 /*@media screen and (min-width: 992px) {

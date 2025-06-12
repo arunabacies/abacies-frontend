@@ -85,7 +85,7 @@ const CaseStudy = ({slug, menuItems}) => {
     
     useEffect(() => {
         getCaseStudyView()
-    }, [slug, menuItems])
+    }, [slug])
     //console.log(content)
 
     return (

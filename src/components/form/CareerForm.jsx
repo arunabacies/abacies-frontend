@@ -27,6 +27,7 @@ const ToastContent = ({ message = null }) => (
 const CareerForm = () => {
 
     let [uploadFile, setUploadFile] = useState('');
+    console.log(uploadFile)
     let [loading, setLoading] = useState(false);
 
     //for validation
@@ -84,7 +85,7 @@ const CareerForm = () => {
             }
             axios(config)
             .then(function (response) {
-                //console.log(response)
+                console.log(response)
                 if (response.status === 200) {
                     reset()
                     setUploadFile('')
