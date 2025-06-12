@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
-
+import { useSelector } from 'react-redux';
 import Spinner from '../Spinner';
 
 const ToastContent = ({ message = null }) => (
@@ -24,54 +24,54 @@ const ToastContent = ({ message = null }) => (
 )
  
 const ThemeMainMenu = () => {
-    
+    const { menus, loading } = useSelector((state) => state.menu);
     const hasFetched = useRef(false);
-    const [menus, setMenus] = useState([])
-    const [loading, setLoading] = useState(false)
+    // const [menus, setMenus] = useState([])
+    // const [loading, setLoading] = useState(false)
     // const replace = 'http://localhost/abacies/'
     const replace = 'https://abacies.bettertomorrow.green/'
     
-    const getMenus = () => {
-        setLoading(true)
-        const config = {
-            method: 'get',
-            url: `${apiConfig.api.url}view/v1/header-menu`
-        }
-        axios(config)
-        .then(function (response) {
-            //console.log(response)
-            if (response.status === 200) {
-                setMenus(response.data)
-            } else {
-               toast.error(
-                <ToastContent message={response.data.message} />,
-                {duration:3000}             
-              )
-            } setLoading(false)
-        })
-        .catch(error => {
-          //console.log(error)
-          setLoading(false)
-          if (error && error.status === 401) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          } else if (error) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          }
-        })
-    }
+    // const getMenus = () => {
+    //     setLoading(true)
+    //     const config = {
+    //         method: 'get',
+    //         url: `${apiConfig.api.url}view/v1/header-menu`
+    //     }
+    //     axios(config)
+    //     .then(function (response) {
+    //         //console.log(response)
+    //         if (response.status === 200) {
+    //             setMenus(response.data)
+    //         } else {
+    //            toast.error(
+    //             <ToastContent message={response.data.message} />,
+    //             {duration:3000}             
+    //           )
+    //         } setLoading(false)
+    //     })
+    //     .catch(error => {
+    //       //console.log(error)
+    //       setLoading(false)
+    //       if (error && error.status === 401) {
+    //         toast.error(
+    //           <ToastContent message={error.message} />,
+    //           { duration:2000 }
+    //         )
+    //       } else if (error) {
+    //         toast.error(
+    //           <ToastContent message={error.message} />,
+    //           { duration:2000 }
+    //         )
+    //       }
+    //     })
+    // }
 
-   useEffect(() => {
-       if (!hasFetched.current) {
-         getMenus();
-         hasFetched.current = true;
-       }
-     }, []);
+//    useEffect(() => {
+//        if (!hasFetched.current) {
+//          getMenus();
+//          hasFetched.current = true;
+//        }
+//      }, []);
     //console.log(menus)
     //console.log(replace)
 

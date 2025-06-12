@@ -1,4 +1,4 @@
-import React,{Fragment, useState, useEffect} from 'react'
+import React,{Fragment, useState, useEffect, useRef} from 'react'
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
@@ -48,6 +48,7 @@ const ToastContent = ({ message = null }) => (
 // ]
 
 const CommonCounter = () => {
+    const hasFetched = useRef(false);
     const [content, setContent] = useState([])
     
     const getCounter = () => {
@@ -84,8 +85,11 @@ const CommonCounter = () => {
     }
 
     useEffect(() => {
-        getCounter()
-    }, [])
+      if (!hasFetched.current) {
+        getCounter();
+        hasFetched.current = true;
+      }
+    }, []);
     //console.log(content)
     return ( 
     <Fragment> 

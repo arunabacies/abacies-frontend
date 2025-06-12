@@ -1,0 +1,324 @@
+.abacies-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease-in-out;
+
+  .loader-container {
+    text-align: center;
+    position: relative;
+    animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  }
+
+  .loader-logo {
+    margin-bottom: 2rem;
+    
+    .logo-animation {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      
+      .loader-circles {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+        .circle {
+          position: absolute;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          
+          &.circle-1 {
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(237, 31, 36, 0.2);
+            border-top: 3px solid #ED1F24;
+            animation: rotate 2s linear infinite;
+          }
+          
+          &.circle-2 {
+            width: 90px;
+            height: 90px;
+            border: 2px solid rgba(83, 84, 83, 0.3);
+            border-right: 2px solid #535453;
+            animation: rotate 1.5s linear infinite reverse;
+            animation-delay: 0.2s;
+          }
+          
+          &.circle-3 {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ED1F24, #535453);
+            animation: pulse 2s ease-in-out infinite;
+            animation-delay: 0.4s;
+          }
+        }
+      }
+      
+      .loader-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        background: #ED1F24;
+        border-radius: 50%;
+        animation: innerPulse 1.5s ease-in-out infinite;
+        box-shadow: 0 0 20px rgba(237, 31, 36, 0.4);
+      }
+    }
+  }
+
+  .loader-progress {
+    margin: 2rem 0;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(83, 84, 83, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ED1F24, #535453, #ED1F24);
+        background-size: 200% 100%;
+        border-radius: 10px;
+        animation: progressFill 3s ease-in-out infinite, shimmer 2s linear infinite;
+        width: 0%;
+      }
+    }
+  }
+
+  .loader-text {
+    .text-animation {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 1rem;
+      
+      .letter {
+        font-family: 'gorditabold', Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #535453;
+        display: inline-block;
+        animation: letterBounce 2s ease-in-out infinite;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+        &:nth-child(1) { animation-delay: 0s; }
+        &:nth-child(2) { animation-delay: 0.1s; }
+        &:nth-child(3) { animation-delay: 0.2s; }
+        &:nth-child(4) { animation-delay: 0.3s; }
+        &:nth-child(5) { animation-delay: 0.4s; }
+        &:nth-child(6) { animation-delay: 0.5s; }
+        &:nth-child(7) { animation-delay: 0.6s; }
+        
+        &:hover {
+          color: #ED1F24;
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      
+      span {
+        width: 8px;
+        height: 8px;
+        background: #ED1F24;
+        border-radius: 50%;
+        display: inline-block;
+        animation: dotBounce 1.4s ease-in-out infinite both;
+        
+        &:nth-child(1) { animation-delay: -0.32s; }
+        &:nth-child(2) { animation-delay: -0.16s; }
+        &:nth-child(3) { animation-delay: 0s; }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes innerPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 20px rgba(237, 31, 36, 0.4);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 30px rgba(237, 31, 36, 0.6);
+  }
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes letterBounce {
+  0%, 80%, 100% {
+    transform: translateY(0) scale(1);
+    color: #535453;
+  }
+  40% {
+    transform: translateY(-10px) scale(1.05);
+    color: #ED1F24;
+  }
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .abacies-loader {
+    .loader-container {
+      padding: 0 20px;
+    }
+    
+    .loader-logo .logo-animation {
+      width: 100px;
+      height: 100px;
+      
+      .loader-circles .circle {
+        &.circle-1 {
+          width: 100px;
+          height: 100px;
+        }
+        &.circle-2 {
+          width: 75px;
+          height: 75px;
+        }
+        &.circle-3 {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    
+    .loader-progress .progress-bar {
+      width: 240px;
+    }
+    
+    .loader-text .text-animation .letter {
+      font-size: 1.5rem;
+      gap: 2px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .abacies-loader {
+    .loader-logo .logo-animation {
+      width: 80px;
+      height: 80px;
+      
+      .loader-circles .circle {
+        &.circle-1 {
+          width: 80px;
+          height: 80px;
+        }
+        &.circle-2 {
+          width: 60px;
+          height: 60px;
+        }
+        &.circle-3 {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    
+    .loader-progress .progress-bar {
+      width: 200px;
+    }
+    
+    .loader-text .text-animation .letter {
+      font-size: 1.2rem;
+    }
+  }
+} 

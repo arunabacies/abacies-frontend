@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import apiConfig from '../../configs/apiConfig'
@@ -22,7 +22,7 @@ const ToastContent = ({ message = null }) => (
 )
 
 const HeroBannerOne = () => {
-   
+    const hasFetched = useRef(false);
     const [content, setContent] = useState([])
     
     const getBanner = () => {
@@ -59,8 +59,11 @@ const HeroBannerOne = () => {
     }
 
     useEffect(() => {
-        getBanner()
-    }, [])
+       if (!hasFetched.current) {
+         getBanner();
+         hasFetched.current = true;
+       }
+     }, []);
 
     //console.log(content)
 

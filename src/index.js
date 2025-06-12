@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client';
 import { Toaster } from "react-hot-toast"
 import reportWebVitals from './reportWebVitals';
 import Spinner from "./components/Spinner";
-
+import { Provider } from 'react-redux';
+import store from './redux/store'
 import './assets/main.scss';
 
 // ** Lazy load app
@@ -14,10 +15,12 @@ const LazyApp = lazy(() => import("./App"));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<Spinner/>}>
-    <LazyApp />
-    <Toaster position={"top-right"} toastOptions={{ className: 'react-hot-toast' }} />
-    </Suspense>
+    <Provider store={store}>                 
+      <Suspense fallback={<Spinner />}>
+        <LazyApp />
+        <Toaster position={"top-right"} toastOptions={{ className: 'react-hot-toast' }} />
+      </Suspense>
+    </Provider>
   </React.StrictMode>
 );
 

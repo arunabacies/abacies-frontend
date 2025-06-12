@@ -10,7 +10,7 @@ import {
     SubMenu
 } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-
+import { useSelector } from 'react-redux';
 import apiConfig from '../../configs/apiConfig'
 import { toast} from 'react-hot-toast'
 import axios from "axios"
@@ -89,46 +89,47 @@ const Products = [
 
 const MobileMenu = () => {
 
+    const { menus, loading } = useSelector((state) => state.menu);
     const [click, setClick] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [menus, setMenus] = useState([])
+    // const [loading, setLoading] = useState(false);
+    // const [menus, setMenus] = useState([])
     // const replace = 'http://localhost/abacies/'
     const replace = 'https://abacies.bettertomorrow.green/'
     
-    const getMenus = () => {
-        setLoading(true)
-        const config = {
-            method: 'get',
-            url: `${apiConfig.api.url}view/v1/header-menu`
-        }
-        axios(config)
-        .then(function (response) {
-            //console.log(response)
-            if (response.status === 200) {
-                setMenus(response.data)
-            } else {
-               toast.error(
-                <ToastContent message={response.data.message} />,
-                {duration:3000}             
-              )
-            } setLoading(false)
-        })
-        .catch(error => {
-          //console.log(error)
-          setLoading(false)
-          if (error && error.status === 401) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          } else if (error) {
-            toast.error(
-              <ToastContent message={error.message} />,
-              { duration:2000 }
-            )
-          }
-        })
-    }
+    // const getMenus = () => {
+    //     setLoading(true)
+    //     const config = {
+    //         method: 'get',
+    //         url: `${apiConfig.api.url}view/v1/header-menu`
+    //     }
+    //     axios(config)
+    //     .then(function (response) {
+    //         //console.log(response)
+    //         if (response.status === 200) {
+    //             setMenus(response.data)
+    //         } else {
+    //            toast.error(
+    //             <ToastContent message={response.data.message} />,
+    //             {duration:3000}             
+    //           )
+    //         } setLoading(false)
+    //     })
+    //     .catch(error => {
+    //       //console.log(error)
+    //       setLoading(false)
+    //       if (error && error.status === 401) {
+    //         toast.error(
+    //           <ToastContent message={error.message} />,
+    //           { duration:2000 }
+    //         )
+    //       } else if (error) {
+    //         toast.error(
+    //           <ToastContent message={error.message} />,
+    //           { duration:2000 }
+    //         )
+    //       }
+    //     })
+    // }
 
     // useEffect(() => {
     //     // getMenus()
